@@ -1,5 +1,6 @@
 package com.kh.maskRush.model.dao.entities.Creature;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import com.kh.maskRush.model.dao.gfx.Assets;
@@ -9,6 +10,13 @@ public class BoyPlayer extends Creature {
 
 	public BoyPlayer(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+		
+		//customize bounds for collision
+		bounds.x = 32;
+		bounds.y = 32;
+		bounds.width = 24;
+		bounds.height = 24;
+		
 	}
 
 	@Override
@@ -41,6 +49,11 @@ public class BoyPlayer extends Creature {
 	public void render(Graphics g) {
 		g.drawImage(Assets.boyPlayer, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 		
+		//collision box visualization
+//		g.setColor(Color.CYAN);
+//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
+//				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
+//				bounds.width, bounds.height);
 	}
 	
 }

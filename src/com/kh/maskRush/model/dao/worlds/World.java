@@ -1,8 +1,8 @@
 package com.kh.maskRush.model.dao.worlds;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
-import com.kh.maskRush.controller.Game;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.tile.Tile;
 import com.kh.maskRush.model.dao.utils.Utils;
@@ -39,6 +39,11 @@ public class World {
 	}
 	
 	public Tile getTile(int x, int y) {
+		if(x < 0 || y < 0 || x >= width || y >= height) {
+			return Tile.sandStoneTile;
+		}
+		
+		
 		Tile t = Tile.tiles[tiles[x][y]];
 		if(t == null) {
 			return Tile.sandTile;
@@ -61,5 +66,13 @@ public class World {
 				tiles[x][y] = Utils.parseInt(tokens[(x + y * width) + 4]);
 			}
 		}
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return height;
 	}
 }
