@@ -26,5 +26,7 @@ public class Asset {
 		
 		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/boyWithoutMask.png"));
 		boyPlayer = sheet2.crop(0, 0, 510, 510);
+		
+		
 	}
 }

@@ -7,7 +7,7 @@ public class Assets {
 	
 	private static final int width = 62, height = 62; //width and height of grid spaces
 	
-	public static BufferedImage boyPlayer, girlPlayer, stone, dirt, grass, sand, sandStone;
+	public static BufferedImage boyPlayer, girlPlayer, stone, dirt, grass, sand, sandStone, evilhand;
 	
 	
 	public static void init() {
@@ -22,5 +22,8 @@ public class Assets {
 		
 		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/boyWithoutMask.png"));
 		boyPlayer = sheet2.crop(0, 0, 510, 510);
+		
+		SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/evilhand.png"));
+		evilhand = sheet3.crop(0,  0,  500, 280);
 	}
 }

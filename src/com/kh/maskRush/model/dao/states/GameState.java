@@ -3,6 +3,7 @@ package com.kh.maskRush.model.dao.states;
 import java.awt.Graphics;
 
 import com.kh.maskRush.model.dao.entities.Creature.BoyPlayer;
+import com.kh.maskRush.model.dao.entities.Creature.EvilHand;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.worlds.World;
 
@@ -10,6 +11,7 @@ public class GameState extends State {
 	
 	private BoyPlayer boyPlayer;
 	private World world;
+	private EvilHand evilhand;
 	
 	public GameState(Handler handler) {
 		super(handler);
