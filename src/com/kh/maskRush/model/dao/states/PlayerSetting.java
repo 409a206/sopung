@@ -44,7 +44,7 @@ public class PlayerSetting extends JFrame {
 	private JTextField textField;
 	private Cursor cursor;
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -56,15 +56,19 @@ public class PlayerSetting extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	public PlayerSetting() {
 
+		contentPane = new JPanel();
+		getContentPane().add(contentPane);
+		repaint();
+		setVisible(true);
+		
 		setTitle("maskrush");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		bg = new ImageIcon("res/Áý¹è°æ.jpg");
-		contentPane = new JPanel();
 
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
