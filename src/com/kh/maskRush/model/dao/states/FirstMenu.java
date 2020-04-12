@@ -1,5 +1,6 @@
 package com.kh.maskRush.model.dao.states;
 
+import java.awt.CardLayout;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Image;
@@ -26,6 +27,7 @@ public class FirstMenu extends JFrame {
 		EventQueue.invokeLater(new Runnable(){
 			public void run() {
 				try {
+					
 					FirstMenu frame = new FirstMenu();
 					frame.setVisible(true);
 
@@ -33,12 +35,18 @@ public class FirstMenu extends JFrame {
 					e.printStackTrace();
 				}
 			}
+
 		});
+	
 	}
 
 	public FirstMenu() {
+		
+		CardLayout card = new CardLayout();
+		this.setLayout(card);
 		contentPane = new JPanel();
-
+		
+		
 		setBounds(100, 100, 800, 600);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -46,14 +54,12 @@ public class FirstMenu extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//커서
-		
 		Toolkit tk = Toolkit.getDefaultToolkit(); 
 		Image cursorimage = tk.createImage(getClass().getResource("/textures/cursor_w.png"));//커서로 사용할 이미지 
 		Point point = new Point(0,0); 
 		Cursor mycursor = tk.createCustomCursor(cursorimage, point, "haha"); 
 		contentPane.setCursor(mycursor); 
 		setCursor(mycursor);
-
 
 		//시작버튼
 		JButton newgame = new JButton();
@@ -66,6 +72,20 @@ public class FirstMenu extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("new game 선택");
+				
+				new PlayerChoice();
+				getContentPane().removeAll();
+				revalidate();
+				contentPane.updateUI();
+				
+				//클릭하면 PlayerChoice 실행
+				try {
+					Thread.sleep(200);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				//기존프레임 삭제
+				dispose();
 			}
 		});
 
@@ -120,7 +140,14 @@ public class FirstMenu extends JFrame {
 		contentPane.add(background);
 
 	}
-
+	/*class MyactionListener implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			contentPane.change("contentPane2");
+		}
+		
+	}*/
 
 }
 
