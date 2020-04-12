@@ -12,12 +12,15 @@ public class Tile {
 	public static Tile sandStoneTile = new SandStoneTile(0);
 	public static Tile rockTile = new RockTile(1);
 	public static Tile sandTile = new SandTile(2);
+	public static Tile bedroomTile = new BedroomTile(3);
+	public static Tile windowTile = new WindowTile(4);
+	public static Tile calendarTile = new CalendarTile(5);
 	
 	
 	//CLASS
 	
 	
-	public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
+	public static final int TILEWIDTH = 800, TILEHEIGHT = 600;
 	
 	protected BufferedImage texture;
 	protected final int id;
