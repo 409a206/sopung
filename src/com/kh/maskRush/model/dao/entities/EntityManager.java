@@ -2,6 +2,7 @@ package com.kh.maskRush.model.dao.entities;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import com.kh.maskRush.model.dao.entities.Creature.BoyPlayer;
 import com.kh.maskRush.model.dao.handler.Handler;
@@ -11,6 +12,17 @@ public class EntityManager {
 	private Handler handler;
 	private BoyPlayer boyPlayer;
 	private ArrayList<Entity> entities;
+	//for entity render order
+	private Comparator<Entity> renderSorter = new Comparator<Entity>() {
+
+		@Override
+		public int compare(Entity a, Entity b) {
+			if(a.getY() + a.getHeight() < b.getY() + b.getHeight())
+				return -1; // a should be rendered before b
+			return 1;
+		}
+		
+	};
 	
 	
 	public EntityManager(Handler handler, BoyPlayer boyPlayer) {
@@ -25,6 +37,7 @@ public class EntityManager {
 			Entity e = entities.get(i);
 			e.tick();
 		}
+		entities.sort(renderSorter);
 	}
 	
 	public void render(Graphics g) {

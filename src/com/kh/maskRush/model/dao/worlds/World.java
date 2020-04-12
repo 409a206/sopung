@@ -21,15 +21,32 @@ public class World {
 	public World(Handler handler, String path) {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new BoyPlayer(handler, 200, 200));
-		entityManager.addEntity(new Tree(handler, 100, 250));
-		entityManager.addEntity(new Tree(handler, 200, 250));
-		entityManager.addEntity(new Tree(handler, 300, 250));
+		entityManager.addEntity(new Tree(handler, 0, 180));
+		entityManager.addEntity(new Tree(handler, 100, 180));
+		entityManager.addEntity(new Tree(handler, 200, 180));
+		entityManager.addEntity(new Tree(handler, 300, 180));
+		entityManager.addEntity(new Tree(handler, 400, 180));
+		entityManager.addEntity(new Tree(handler, 500, 180));
+		entityManager.addEntity(new Tree(handler, 600, 180));
+		entityManager.addEntity(new Tree(handler, 700, 180));
+		entityManager.addEntity(new Tree(handler, 800, 180));
+		entityManager.addEntity(new Tree(handler, 900, 180));
+		entityManager.addEntity(new Tree(handler, 270, 250));
+		entityManager.addEntity(new Tree(handler, 270, 300));
+		entityManager.addEntity(new Tree(handler, 270, 400));
+		entityManager.addEntity(new Tree(handler, 350, 400));
+		entityManager.addEntity(new Tree(handler, 470, 400));
+		entityManager.addEntity(new Tree(handler, 470, 300));
+		entityManager.addEntity(new Tree(handler, 650, 300));
+		entityManager.addEntity(new Tree(handler, 750, 300));
 		
 		
 		loadWorld(path);
 		
-		entityManager.getBoyPlayer().setX(spawnX);
-		entityManager.getBoyPlayer().setY(spawnY);
+		
+		
+		entityManager.getBoyPlayer().setX(150); //type in spawnX
+		entityManager.getBoyPlayer().setY(300); // '' '' spawnY
 	}
 	
 	public void tick() {

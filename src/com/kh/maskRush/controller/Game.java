@@ -7,6 +7,7 @@ import com.kh.maskRush.model.dao.gfx.Assets;
 import com.kh.maskRush.model.dao.gfx.GameCamera;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.input.KeyManager;
+import com.kh.maskRush.model.dao.input.MouseManager;
 import com.kh.maskRush.model.dao.states.GameState;
 import com.kh.maskRush.model.dao.states.MainMenuState;
 import com.kh.maskRush.model.dao.states.State;
@@ -27,11 +28,12 @@ public class Game implements Runnable {
 	private Graphics g;
 	
 	//States
-	private State gameState;
-	private State mainMenuState;
+	public State gameState;
+	public State mainMenuState;
 	
 	//Input
-	public KeyManager keyManager;
+	private KeyManager keyManager;
+	private MouseManager mouseManager;
 	
 	//Camera
 	private GameCamera gameCamera;
@@ -45,6 +47,7 @@ public class Game implements Runnable {
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
+		mouseManager = new MouseManager();
 
 	}
 
@@ -52,6 +55,10 @@ public class Game implements Runnable {
 	private void init() {
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
+		display.getFrame().addMouseListener(mouseManager);
+		display.getFrame().addMouseMotionListener(mouseManager);
+		display.getCanvas().addMouseListener(mouseManager);
+		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();
 		
 		handler = new Handler(this);
@@ -59,7 +66,7 @@ public class Game implements Runnable {
 		
 		gameState = new GameState(handler);
 		mainMenuState = new MainMenuState(handler);
-		State.setState(gameState);
+		State.setState(mainMenuState);
 	}
 	
 	
@@ -142,6 +149,10 @@ public class Game implements Runnable {
 	
 	public KeyManager getKeyManager() {
 		return keyManager;
+	}
+	
+	public MouseManager getMouseManager() {
+		return mouseManager;
 	}
 	
 	public GameCamera getGameCamera() {
