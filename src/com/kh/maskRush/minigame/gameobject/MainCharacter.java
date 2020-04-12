@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+import com.kh.maskRush.minigame.util.Animation;
 import com.kh.maskRush.minigame.util.Resource;
 
 
@@ -15,17 +16,21 @@ public class MainCharacter {
 	private float x = 0;
 	private float y = 0;
 	private float speedY = 0;
-	private BufferedImage characterImage;
+	private Animation characterRun;
 	
 	public MainCharacter() {
-		characterImage = Resource.getResourceImage("res/texture/miniboy2");
+		characterRun = new Animation(500);
+		characterRun.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
+		characterRun.addFrame(Resource.getResourceImage("res/textures/miniboy2.png"));
 	}
 	
 	public void update() {
 		
-		if(y >= GROUNDY - 100) {
+		characterRun.update();
+		
+		if(y >= GROUNDY - characterRun.getFrame().getHeight()) {
 			speedY = 0;
-			y = GROUNDY - 100;
+			y = GROUNDY - characterRun.getFrame().getHeight();
 		} else {
 			speedY += GRAVITY;
 			y+=speedY;
@@ -36,7 +41,8 @@ public class MainCharacter {
 	public void draw(Graphics g) {
 		
 		g.setColor(Color.black);
-		g.drawRect((int)x,(int) y, 100, 100);
+		g.drawRect((int)x,(int) y, characterRun.getFrame().getWidth(), characterRun.getFrame().getHeight());
+		g.drawImage(characterRun.getFrame(), (int) x, (int) y, null);
 		
 	}
 	
