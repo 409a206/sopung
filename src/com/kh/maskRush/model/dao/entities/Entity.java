@@ -1,8 +1,8 @@
 package com.kh.maskRush.model.dao.entities;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
-import com.kh.maskRush.controller.Game;
 import com.kh.maskRush.model.dao.handler.Handler;
 
 public abstract class Entity {
@@ -10,6 +10,7 @@ public abstract class Entity {
 	protected Handler handler;
 	protected float x, y; //using float to make movements smooth
 	protected int width, height;
+	protected Rectangle bounds; //collision bounds
 	
 	public Entity(Handler handler, float x, float y, int width, int height) {
 		this.handler = handler;
@@ -17,6 +18,13 @@ public abstract class Entity {
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		
+		bounds = new Rectangle(0, 0, width, height);
+	}
+	
+	public Rectangle getCollisionBounds(float xOffset, float yOffset) {
+		return new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), 
+				bounds.width, bounds.height);
 	}
 	
 	public float getX() {
@@ -54,4 +62,15 @@ public abstract class Entity {
 	public abstract void tick();
 	
 	public abstract void render(Graphics g);
+	
+	public boolean checkEntityCollisions(float xOffset, float yOffset) {
+		for(Entity e : handler.getWorld().getEntityManager().getEntities()) {
+			if(e.equals(this))
+				continue; //checking collision against itself
+			if(e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))) 
+				return true;
+			
+		}
+		return false;
+	}
 }

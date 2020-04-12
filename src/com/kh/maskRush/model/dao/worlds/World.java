@@ -2,7 +2,9 @@ package com.kh.maskRush.model.dao.worlds;
 
 import java.awt.Graphics;
 
-import com.kh.maskRush.controller.Game;
+import com.kh.maskRush.model.dao.entities.EntityManager;
+import com.kh.maskRush.model.dao.entities.Creature.BoyPlayer;
+import com.kh.maskRush.model.dao.entities.statics.Tree;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.tile.Tile;
 import com.kh.maskRush.model.dao.utils.Utils;
@@ -13,14 +15,25 @@ public class World {
 	private int width, height;
 	private int spawnX, spawnY;
 	private int[][] tiles;
+	//Entities
+	private EntityManager entityManager;
 	
 	public World(Handler handler, String path) {
 		this.handler = handler;
+		entityManager = new EntityManager(handler, new BoyPlayer(handler, 200, 200));
+		entityManager.addEntity(new Tree(handler, 100, 250));
+		entityManager.addEntity(new Tree(handler, 200, 250));
+		entityManager.addEntity(new Tree(handler, 300, 250));
+		
+		
 		loadWorld(path);
+		
+		entityManager.getBoyPlayer().setX(spawnX);
+		entityManager.getBoyPlayer().setY(spawnY);
 	}
 	
 	public void tick() {
-		
+		entityManager.tick();
 	}
 	
 	public void render(Graphics g) {
@@ -36,9 +49,16 @@ public class World {
 						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
 			}
 		}
+		//Entities
+		entityManager.render(g);
 	}
 	
 	public Tile getTile(int x, int y) {
+		if(x < 0 || y < 0 || x >= width || y >= height) {
+			return Tile.sandStoneTile;
+		}
+		
+		
 		Tile t = Tile.tiles[tiles[x][y]];
 		if(t == null) {
 			return Tile.sandTile;
@@ -61,5 +81,19 @@ public class World {
 				tiles[x][y] = Utils.parseInt(tokens[(x + y * width) + 4]);
 			}
 		}
+	}
+	
+	
+	
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return height;
 	}
 }
