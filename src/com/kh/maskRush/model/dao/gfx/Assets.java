@@ -8,7 +8,7 @@ public class Assets {
 	private static final int width = 62, height = 62; //width and height of grid spaces
 	
 	public static BufferedImage girlPlayer, stone, dirt, grass, sand, sandStone, bedroom, windowTile, 
-	calendarTile;
+	calendarTile, block;
 	public static BufferedImage[] boyPlayer_right, boyPlayer_left;
 	
 	
@@ -38,6 +38,9 @@ public class Assets {
 		bedroom = sheet5.crop(0, 0, 1440, 1024);
 		windowTile = sheet5.crop(0, 0, 168, 252);
 		calendarTile = sheet5.crop(175, 73, 148, 206);
+		
+		SpriteSheet sheet6 = new SpriteSheet(ImageLoader.loadImage("/textures/girlWithoutMask.png"));
+		block = sheet6.crop(0,0, 1, 1);
 
 		
 	}
