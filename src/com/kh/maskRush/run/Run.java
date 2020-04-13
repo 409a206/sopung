@@ -17,7 +17,6 @@ public class Run {
 		Game game = new Game("Mask Rush", 800, 600);
 		game.start();
 		
-		
 	}
 }
 

@@ -17,7 +17,6 @@ public class BoyPlayer extends Creature {
 		move();
 		handler.getGameCamera().centerOnEntity(this);
 	}
-	
 	//input이 들어올때 캐릭터가 어떻게 행동할지 정의
 	private void getInput() {
 		xMove = 0;

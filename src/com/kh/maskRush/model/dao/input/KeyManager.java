@@ -35,9 +35,9 @@ public class KeyManager implements KeyListener {
 	
 	@Override
 	public void keyTyped(KeyEvent e) {
-		
+		keys[e.getKeyCode()] = false;
+		System.out.println("SAPCE!!!");
 		
 	}
 
-	
 }

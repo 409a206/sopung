@@ -17,6 +17,16 @@ public class EvilHand extends Creature {
 		getInput();
 		move();
 		pushup();
+		if(y >= 600) {
+			System.out.println("Clear");
+			System.exit(0);
+		} else if(y <= 200) {
+			System.out.println("GAME OVER");
+			System.exit(0);                
+		} else {
+			System.out.println(y);
+		}           
+		 	
 	//	handler.getGameCamera().centerOnEntity(this);
 	}
 	

@@ -181,5 +181,4 @@ public class Game implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	
 }

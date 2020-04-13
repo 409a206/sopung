@@ -28,8 +28,7 @@ public class MiniGameSpacebar extends State {
 		
 		evilhand = new EvilHand (handler, 350, 400);
 		//boyPlayer = new BoyPlayer (handler, 350, 400);
-		
-		
+			
 		//handler.getGameCamera().move(1, 1);
 		
 	}
