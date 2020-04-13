@@ -23,7 +23,7 @@ public class Game implements Runnable {
 	
 	private Thread thread;
 	
-	private BufferStrategy bs;
+	private BufferStrategy bs; 
 	private Graphics g;
 	
 	//States
