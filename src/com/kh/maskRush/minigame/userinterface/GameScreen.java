@@ -11,11 +11,11 @@ import javax.swing.JPanel;
 import com.kh.maskRush.minigame.gameobject.Land;
 import com.kh.maskRush.minigame.gameobject.MainCharacter;
 
-import gameobject.Clouds;
-import gameobject.EnemiesManager;
-import gameobject.Timer;
-import userinterface.GameWindow;
-import util.Resource;
+import com.kh.maskRush.minigame.gameobject.Clouds;
+import com.kh.maskRush.minigame.gameobject.EnemiesManager;
+import com.kh.maskRush.minigame.gameobject.Timer;
+import com.kh.maskRush.minigame.userinterface.GameWindow;
+import com.kh.maskRush.minigame.util.Resource;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener{
 	
@@ -45,9 +45,9 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 		mainCharacter = new MainCharacter();
 		land = new Land(GameWindow.SCREEN_WIDTH, mainCharacter);
 		mainCharacter.setSpeedX(4);
-		replayButtonImage = Resource.getResouceImage("res/textures/minireplay.png");
-		gameOverButtonImage = Resource.getResouceImage("res/textures/minigameover.png");
-		gameClearImage = Resource.getResouceImage("res/textures/gmaeclear.png");
+		replayButtonImage = Resource.getResourceImage("res/textures/minireplay.png");
+		gameOverButtonImage = Resource.getResourceImage("res/textures/minigameover.png");
+		gameClearImage = Resource.getResourceImage("res/textures/gameclear.png");
 		enemiesManager = new EnemiesManager(mainCharacter);
 		clouds = new Clouds(GameWindow.SCREEN_WIDTH, mainCharacter);
 	}

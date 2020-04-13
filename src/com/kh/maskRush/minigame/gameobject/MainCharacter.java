@@ -8,8 +8,6 @@ import java.awt.image.BufferedImage;
 import com.kh.maskRush.minigame.util.Animation;
 import com.kh.maskRush.minigame.util.Resource;
 
-import static com.kh.maskRush.minigame.userinterface.GameScreen.GROUNDY;
-import static com.kh.maskRush.minigame.userinterface.GameScreen.GRAVITY;
 
 
 public class MainCharacter {

@@ -9,10 +9,8 @@ import java.util.Random;
 
 import com.kh.maskRush.minigame.util.Resource;
 
-import gameobject.MainCharacter;
-import gameobject.Land.ImageLand;
+import com.kh.maskRush.minigame.gameobject.MainCharacter;
 
-import static com.kh.maskRush.minigame.userinterface.GameScreen.GROUNDY;
 
 public class Land {
 	
