@@ -1,5 +1,7 @@
 package com.kh.maskRush.model.dao.states;
 
-public class InConvenienceStore {
+import javax.swing.JPanel;
 
+public class InConvenienceStore extends JPanel {
+	
 }
