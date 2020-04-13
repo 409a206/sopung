@@ -24,5 +24,4 @@ public class FirstMenuChoice extends JFrame {
 		setCursor(mycursor);
 	}
 
-
 }
