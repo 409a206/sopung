@@ -20,7 +20,7 @@ public static final int Y_LAND = 125;
 	
 	private Rectangle rectBound;
 	
-	public Cactus(MainCharacter mainCharacter, int posX, int width, int height, BufferedImage image) {
+	public Obstacle(MainCharacter mainCharacter, int posX, int width, int height, BufferedImage image) {
 		this.posX = posX;
 		this.width = width;
 		this.height = height;

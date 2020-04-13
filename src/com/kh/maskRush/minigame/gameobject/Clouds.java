@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.kh.maskRush.minigame.gameobject.MainCharacter;
-import com.kh.maskRush.minigame.gameobject.Clouds.ImageCloud;
 import com.kh.maskRush.minigame.userinterface.GameWindow;
 import com.kh.maskRush.minigame.util.Resource;
 
@@ -20,7 +19,7 @@ public class Clouds {
 	
 	public Clouds(int width, MainCharacter mainCharacter) {
 		this.mainCharacter = mainCharacter;
-		cloud = Resource.getResouceImage("data/cloud1.png");
+		cloud = Resource.getResourceImage("res/textures/minicloud.png");
 		listCloud = new ArrayList<ImageCloud>();
 		
 		ImageCloud imageCloud = new ImageCloud();

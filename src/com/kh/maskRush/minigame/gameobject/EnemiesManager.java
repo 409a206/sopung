@@ -16,8 +16,8 @@ public class EnemiesManager {
 	
 private Timer timer;
 	
-	private BufferedImage cactus1;
-	private BufferedImage cactus2;
+	private BufferedImage obstacle1;
+	private BufferedImage obstacle2;
 	private Random rand;
 	
 	private List<Enemy> enemies;
@@ -25,8 +25,8 @@ private Timer timer;
 	
 	public EnemiesManager(MainCharacter mainCharacter) {
 		rand = new Random();
-		cactus1 = Resource.getResouceImage("data/huddle.png");
-		cactus2 = Resource.getResouceImage("data/hole.png");
+		obstacle1 = Resource.getResourceImage("res/textures/huddle.png");
+		obstacle2 = Resource.getResourceImage("res/textures/hole.png");
 		enemies = new ArrayList<Enemy>();
 		this.mainCharacter = mainCharacter;
 		enemies.add(createEnemy());
@@ -56,9 +56,9 @@ private Timer timer;
 		
 		
 		if(type == 0) {
-			return new Cactus(mainCharacter, 800, cactus1.getWidth() - 10, cactus1.getHeight() - 10, cactus1);
+			return new Obstacle(mainCharacter, 800, obstacle1.getWidth() - 10, obstacle1.getHeight() - 10, obstacle1);
 		} else {
-			return new Cactus(mainCharacter, 800, cactus2.getWidth() - 10, cactus2.getHeight() - 10, cactus2);
+			return new Obstacle(mainCharacter, 800, obstacle2.getWidth() - 10, obstacle2.getHeight() - 10, obstacle2);
 		}  
 	}
 	

@@ -2,6 +2,7 @@ package com.kh.maskRush.minigame.gameobject;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import com.kh.maskRush.minigame.util.Animation;
@@ -14,63 +15,171 @@ import static com.kh.maskRush.minigame.userinterface.GameScreen.GRAVITY;
 public class MainCharacter {
 	
 	
-	private float x = 0;
-	private float y = 0;
-	private float speedY = 0;
-	private Animation characterRun;
+	public static final int LAND_POSY = 90 ;
+	public static final float GRAVITY = 0.4f;
+	
+	private static final int NORMAL_RUN = 0;
+	private static final int JUMPING = 1;
+	private static final int DOWN_RUN = 2;
+	private static final int DEATH = 3;
+	
+	private float posY;
+	private float posX;
+	private float speedX;
+	private float speedY;
+	private Rectangle rectBound;
+	
+	public int sec = 59;
+	
+	private int state = NORMAL_RUN;
+	
+	private Animation normalRunAnim;
+	private BufferedImage jumping;
+	private Animation downRunAnim;
+	private BufferedImage deathImage;
+	
+//	private AudioClip jumpSound;
+//	private AudioClip deadSound;
+//	private AudioClip scoreUpSound;
 	
 	public MainCharacter() {
-		characterRun = new Animation(200);
-		characterRun.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
-		characterRun.addFrame(Resource.getResourceImage("res/textures/miniboy2.png"));
+		posX = 50;
+		posY = LAND_POSY;
+		rectBound = new Rectangle();
+		normalRunAnim = new Animation(90);
+		normalRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
+		normalRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
+		jumping = Resource.getResourceImage("res/textures/miniboy1.png");
+		downRunAnim = new Animation(90);
+		downRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
+		downRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
+		deathImage = Resource.getResourceImage("res/textures/miniboy1.png");
+		
+		//사운드 필요할 때 아래 파일 바꾸면됨
+//		try {
+//			jumpSound =  Applet.newAudioClip(new URL("file","","data/jump.wav"));
+//			deadSound =  Applet.newAudioClip(new URL("file","","data/dead.wav"));
+//			scoreUpSound =  Applet.newAudioClip(new URL("file","","data/scoreup.wav"));
+//		} catch (MalformedURLException e) {
+//			e.printStackTrace();
+//		}
 	}
-	
-	public void update() {
-		
-		characterRun.update();
-		
-		if(y >= GROUNDY - characterRun.getFrame().getHeight()) {
-			speedY = 0;
-			y = GROUNDY - characterRun.getFrame().getHeight();
-		} else {
-			speedY += GRAVITY;
-			y+=speedY;
-		}
-		
+
+	public float getSpeedX() {
+		return speedX;
+	}
+
+	public void setSpeedX(int speedX) {
+		this.speedX = speedX;
 	}
 	
 	public void draw(Graphics g) {
-		
-		g.setColor(Color.black);
-		g.drawRect((int)x,(int) y, characterRun.getFrame().getWidth(), characterRun.getFrame().getHeight());
-		g.drawImage(characterRun.getFrame(), (int) x, (int) y, null);
-		
+		switch(state) {
+			case NORMAL_RUN:
+				g.drawImage(normalRunAnim.getFrame(), (int) posX, (int) posY, null);
+				break;
+			case JUMPING:
+				g.drawImage(jumping, (int) posX, (int) posY, null);
+				break;
+//			case DOWN_RUN:
+//				g.drawImage(downRunAnim.getFrame(), (int) posX, (int) (posY + 20), null);
+//				break;
+			case DEATH:
+				g.drawImage(deathImage, (int) posX, (int) posY, null);
+				break;
+		}
+//		Rectangle bound = getBound();
+//		g.setColor(Color.RED);
+//		g.drawRect(bound.x, bound.y, bound.width, bound.height);
+	}
+	
+	public void update() {
+		normalRunAnim.updateFrame();
+		downRunAnim.updateFrame();
+		if(posY >= LAND_POSY) {
+			posY = LAND_POSY;
+			if(state != DOWN_RUN) {
+				state = NORMAL_RUN;
+			}
+		} else {
+			speedY += GRAVITY;
+			posY += speedY;
+		}
 	}
 	
 	public void jump() {
-		speedY = -4;
-		y += speedY;
+		if(posY >= LAND_POSY) {
+//			if(jumpSound != null) {
+//				jumpSound.play();
+//			}
+			speedY = -7.5f;
+			posY += speedY;
+			state = JUMPING;
+		}
 	}
 	
-	
-	public float getX() {
-		return x;
-	}
-	public void setX(float x) {
-		this.x = x;
-	}
-	public float getY() {
-		return y;
-	}
-	public void setY(float y) {
-		this.y = y;
-	}
-	public float getSpeedY() {
-		return speedY;
-	}
-	public void setSpeedY(float speedY) {
-		this.speedY = speedY;
+	public void down(boolean isDown) {
+		if(state == JUMPING) {
+			return;
+		}
+		if(isDown) {
+//			state = DOWN_RUN;
+		} else {
+			state = NORMAL_RUN;
+		}
 	}
 	
-
+	public Rectangle getBound() {
+		rectBound = new Rectangle();
+		if(state == DOWN_RUN) {
+			rectBound.x = (int) posX + 5;
+			rectBound.y = (int) posY + 20;
+			rectBound.width = downRunAnim.getFrame().getWidth() - 10;
+			rectBound.height = downRunAnim.getFrame().getHeight();
+		} else {
+			rectBound.x = (int) posX + 5;
+			rectBound.y = (int) posY;
+			rectBound.width = normalRunAnim.getFrame().getWidth() - 10;
+			rectBound.height = normalRunAnim.getFrame().getHeight();
+		}
+		return rectBound;
+	}
+	
+	public void dead(boolean isDeath) {
+		if(isDeath) {
+			state = DEATH;
+		} else {
+			state = NORMAL_RUN;
+		}
+	}
+	
+	public void reset() {
+		posY = LAND_POSY;
+	}
+	
+	public void playDeadSound() {
+//		deadSound.play();
+	}
+	
+//	public void upScore() {
+//		score += 20;
+//		if(score % 100 == 0) {
+////			scoreUpSound.play();
+//		}
+//	}
+	
+	public void timer() {
+		
+		for(int i = sec; i >= 0; i--) {
+			
+			try {
+				System.out.println(i);
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
 }

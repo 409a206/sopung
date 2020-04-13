@@ -6,39 +6,33 @@ import java.util.List;
 
 public class Animation {
 	
-	private List<BufferedImage> frames;
-	private int frameIndex = 0;
-	private int deltaTime;
+	private List<BufferedImage> list;
+	private long deltaTime;
+	private int currentFrame = 0;
 	private long previousTime;
-	
-	
+
 	public Animation(int deltaTime) {
 		this.deltaTime = deltaTime;
-		frames = new ArrayList<BufferedImage> ();
-		
-		
+		list = new ArrayList<BufferedImage>();
+		previousTime = 0;
 	}
-	
-	public void update() {
-		if(System.currentTimeMillis() - previousTime > deltaTime) {
-			frameIndex ++;
-			if(frameIndex >= frames.size()) {
-				frameIndex = 0;
+
+	public void updateFrame() {
+		if (System.currentTimeMillis() - previousTime >= deltaTime) {
+			currentFrame++;
+			if (currentFrame >= list.size()) {
+				currentFrame = 0;
 			}
 			previousTime = System.currentTimeMillis();
 		}
-		
 	}
-	
-	public void addFrame(BufferedImage frame) {
-		frames.add(frame);
+
+	public void addFrame(BufferedImage image) {
+		list.add(image);
 	}
-	
+
 	public BufferedImage getFrame() {
-		if(frames.size() > 0) {
-			return frames.get(frameIndex);
-		}
-		return null;
+		return list.get(currentFrame);
 	}
 
 }
