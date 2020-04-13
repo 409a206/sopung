@@ -26,4 +26,6 @@ public class Assets {
 		SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/evilhand.png"));
 		evilhand = sheet3.crop(0,  0,  500, 280);
 	}
+
 }
+

@@ -19,9 +19,11 @@ public class World {
 		loadWorld(path);
 	}
 	
+	
 	public void tick() {
 		
 	}
+	
 	
 	public void render(Graphics g) {
 	

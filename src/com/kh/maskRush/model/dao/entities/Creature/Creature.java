@@ -24,8 +24,19 @@ public abstract class Creature extends Entity {
 	public void move() {
 		x += xMove;
 		y += yMove;
+		if(yMove == 600) {
+			System.out.println("CELAR");
+		}
 	}
 	
+	public void pushup() {
+		x += 0;
+		y += -1;
+		
+	}
+	
+
+		
 	//GETTERS SETTERS
 
 	public int getHealth() {

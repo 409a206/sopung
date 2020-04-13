@@ -29,6 +29,7 @@ public class KeyManager implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		keys[e.getKeyCode()] = false;
+		System.out.println("Released!");
 		
 	}
 	

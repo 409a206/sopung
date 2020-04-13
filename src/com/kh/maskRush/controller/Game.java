@@ -9,10 +9,12 @@ import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.input.KeyManager;
 import com.kh.maskRush.model.dao.states.GameState;
 import com.kh.maskRush.model.dao.states.MainMenuState;
+import com.kh.maskRush.model.dao.states.MiniGameSpacebar;
 import com.kh.maskRush.model.dao.states.State;
 import com.kh.maskRush.view.Display;
 //basically the 'main' class
 public class Game implements Runnable {
+	
 	
 	private Display display;
 	
@@ -29,6 +31,7 @@ public class Game implements Runnable {
 	//States
 	private State gameState;
 	private State mainMenuState;
+	private State miniGameSpacebar;
 	
 	//Input
 	public KeyManager keyManager;
@@ -59,7 +62,8 @@ public class Game implements Runnable {
 		
 		gameState = new GameState(handler);
 		mainMenuState = new MainMenuState(handler);
-		State.setState(gameState);
+		miniGameSpacebar = new MiniGameSpacebar(handler);
+		State.setState(miniGameSpacebar);
 	}
 	
 	
@@ -163,6 +167,7 @@ public class Game implements Runnable {
 		running = true;
 		thread = new Thread(this);
 		thread.start(); // calls run() method
+
 	}
 	
 	public synchronized void stop() {
