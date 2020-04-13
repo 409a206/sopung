@@ -24,6 +24,7 @@ public class PlayerChoice extends JPanel {
 
 	private JPanel panel;
 	private FirstMenuChoice mainChoice;
+	Player a = new Player();
 
 	public PlayerChoice(FirstMenuChoice mainChoice) {
 		
@@ -42,7 +43,11 @@ public class PlayerChoice extends JPanel {
 		boy.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				a.setGenderName('m');	
 				System.out.println("남캐 선택");
+				revalidate();
+				ChangePanel.changePanel(mainChoice, panel, new BirthYear(mainChoice,a));
 			}
 		});
 
@@ -56,20 +61,23 @@ public class PlayerChoice extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				a.setGenderName('f');	
+				System.out.println(a.toString());
+				
 				System.out.println("여캐 선택");
 				revalidate();
-				ChangePanel.changePanel(mainChoice, panel, new PlayerSetting(mainChoice));
+				ChangePanel.changePanel(mainChoice, panel, new BirthYear(mainChoice,a));
 				
 				
-				Player a = new Player();
-				a.setGenderName('f');	
 			}
 		});
 		
 		//위에 뜨는 라벨
 		JLabel lblChoice = new JLabel("캐릭터 성별을 선택하세요");
 		lblChoice.setFont(new Font("배달의민족 한나는 열한살", Font.PLAIN, 43));
-		lblChoice.setBounds(153, 23, 511, 58);
+		lblChoice.setBounds(190, 50, 511, 58);
+		lblChoice.setForeground(Color.getHSBColor(3, 47, 82));
 		this.add(lblChoice);
 
 		//배경라벨

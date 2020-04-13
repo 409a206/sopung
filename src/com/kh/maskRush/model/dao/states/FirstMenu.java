@@ -97,7 +97,6 @@ public class FirstMenu extends JPanel {
 		
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/background.png")));
-		System.out.println("dsff");
 		background.setBounds(0, 0, 782, 553);
 		this.add(background);
 		

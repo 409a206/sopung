@@ -11,9 +11,18 @@ public class Player {
 	private char genderName = ' ';
 	private Image genderImage = null ;
 	private int birth = 0;
-
+	private String day ="";
+	
 	public Player() {
 		System.out.println(toString());
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
 	}
 
 	public Date getStart() {
@@ -59,7 +68,7 @@ public class Player {
 	@Override
 	public String toString() {
 		return "Player [start=" + start + ", name=" + name + ", genderName=" + genderName + ", genderImage="
-				+ genderImage + ", birth=" + birth + "]";
+				+ genderImage + ", birth=" + birth + ", day=" + day + "]";
 	}
 	
 	

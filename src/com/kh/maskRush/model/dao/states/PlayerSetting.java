@@ -23,7 +23,7 @@ public class PlayerSetting extends JPanel {
 	private JTextField textField;
 	private FirstMenuChoice mainChoice;
 
-	public PlayerSetting(FirstMenuChoice mainChoice) {
+	public PlayerSetting(FirstMenuChoice mainChoice, Player a) {
 
 		this.mainChoice = mainChoice;
 		contentPane = this;
@@ -65,24 +65,20 @@ public class PlayerSetting extends JPanel {
 		
 		//이름입력
 		textField = new JTextField();
-		textField.setBackground(new Color(255, 255, 255));
-		textField.setForeground(new Color(0, 0, 0));
 		textField.setFont(new Font("08서울남산체 EB", Font.PLAIN, 22));
-		textField.setText(nameArr[random]);
 		textField.setBounds(270, 422, 244, 44);
 		textField.setColumns(10);
+		textField.setText(nameArr[random]);
 		this.add(textField);
 		
 		//시작하기버튼
 		JButton startButton = new JButton("시작하기");
-		startButton.setBackground(new Color(255, 255, 255));
 		startButton.setBorderPainted(false);
 		startButton.setContentAreaFilled(false);
 		startButton.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/start.png")));
 		startButton.setFont(new Font("배달의민족 한나는 열한살", Font.PLAIN, 15));
 		startButton.setBounds(400, 486, 114, 44);
 		this.add(startButton);
-		//보내기 여기에////////////////////////
 		
 		//시작시간 객체생성
 		Date time = new Date();
@@ -92,9 +88,9 @@ public class PlayerSetting extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				realName = textField.getText();
 				System.out.println(realName);
-				Player a = new Player();
 				a.setStart(time);//시작시간 플레이어전달
-				a.setName("randomName");
+				a.setName(realName);
+				System.out.println(a.toString());
 			}
 		});
 
