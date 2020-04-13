@@ -46,11 +46,11 @@ public class MainCharacter {
 		rectBound = new Rectangle();
 		normalRunAnim = new Animation(90);
 		normalRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
-		normalRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
+		normalRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy2.png"));
 		jumping = Resource.getResourceImage("res/textures/miniboy1.png");
 		downRunAnim = new Animation(90);
 		downRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
-		downRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
+		downRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy2.png"));
 		deathImage = Resource.getResourceImage("res/textures/miniboy1.png");
 		
 		//사운드 필요할 때 아래 파일 바꾸면됨
