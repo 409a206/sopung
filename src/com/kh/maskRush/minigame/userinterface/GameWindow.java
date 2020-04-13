@@ -8,7 +8,7 @@ public class GameWindow extends JFrame{
 	
 	public GameWindow() {
 		super("mask rush");
-		setSize(400, 400);
+		setSize(600, 175);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameScreen = new GameScreen();
 		add(gameScreen);

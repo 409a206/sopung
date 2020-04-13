@@ -8,18 +8,19 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+import com.kh.maskRush.minigame.gameobject.Land;
 import com.kh.maskRush.minigame.gameobject.MainCharacter;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener{
 	
 	public static final float GRAVITY = 0.1f;
-	public static final float GROUNDY = 300; // by pixel
+	public static final float GROUNDY = 100; // by pixel
 	private float x = 0;
 	private float y = 0;
 	private float speedY = 0;
 	
 	
-	
+	private Land land;
 	private Thread thread;
 	private MainCharacter mainCharacter;
 	
@@ -27,6 +28,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 		
 		thread = new Thread(this);
 		mainCharacter = new MainCharacter();
+		land = new Land();
 		
 	}
 	
@@ -55,6 +57,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 		g.fillRect(0, 0, getWidth(), getHeight());
 		g.setColor(Color.black);
 		g.drawLine(0, (int)GROUNDY, getWidth(), (int)GROUNDY);
+		land.draw(g);
 		mainCharacter.draw(g);
 	}
 

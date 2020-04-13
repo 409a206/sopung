@@ -7,11 +7,12 @@ import java.awt.image.BufferedImage;
 import com.kh.maskRush.minigame.util.Animation;
 import com.kh.maskRush.minigame.util.Resource;
 
+import static com.kh.maskRush.minigame.userinterface.GameScreen.GROUNDY;
+import static com.kh.maskRush.minigame.userinterface.GameScreen.GRAVITY;
+
 
 public class MainCharacter {
 	
-	public static final float GRAVITY = 0.1f;
-	public static final float GROUNDY = 300; // by pixel
 	
 	private float x = 0;
 	private float y = 0;
@@ -19,7 +20,7 @@ public class MainCharacter {
 	private Animation characterRun;
 	
 	public MainCharacter() {
-		characterRun = new Animation(500);
+		characterRun = new Animation(200);
 		characterRun.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
 		characterRun.addFrame(Resource.getResourceImage("res/textures/miniboy2.png"));
 	}
