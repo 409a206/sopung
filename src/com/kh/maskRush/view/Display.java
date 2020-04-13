@@ -36,6 +36,7 @@ public class Display {
 		canvas.setMinimumSize(new Dimension(width, height));
 		canvas.setFocusable(false); //JFrame should be the only thing that should be focused on
 		
+		
 		frame.add(canvas);
 		frame.pack(); // packs frame so that we can see the canvas fully
 		
