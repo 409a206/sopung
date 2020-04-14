@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Display {
 	
@@ -19,6 +20,14 @@ public class Display {
 		this.height = height;
 		
 		createDisplay();
+	}
+	
+	public Display(String title, int width, int height, int temp) {
+		this.title = title;
+		this.width = width;
+		this.height = height;
+		
+		createOnlyJFrame();
 	}
 	
 	private void createDisplay() {
@@ -40,6 +49,16 @@ public class Display {
 		frame.add(canvas);
 		frame.pack(); // packs frame so that we can see the canvas fully
 		
+		
+	}
+	private void createOnlyJFrame() {
+		frame = new JFrame(title);
+		frame.setSize(width, height);
+		
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
 		
 	}
 
