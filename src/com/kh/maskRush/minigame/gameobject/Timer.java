@@ -38,7 +38,7 @@ public class Timer extends Thread{
 			
 		}
 		
-		userId = JOptionPane.showInputDialog("뭘봐");
+		userId = JOptionPane.showInputDialog("뭘봐"); //다음 장면 연결
 				
 				
 		
