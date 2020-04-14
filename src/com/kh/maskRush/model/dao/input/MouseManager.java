@@ -6,7 +6,7 @@ import java.awt.event.MouseMotionListener;
 
 public class MouseManager implements MouseListener, MouseMotionListener {
 	
-	private boolean leftPressed, rightPressed;
+	private boolean leftPressed, rightPressed, leftClicked, rightClicked;
 	private int mouseX, mouseY;
 	
 	public MouseManager() {
@@ -14,6 +14,14 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 	}
 	
 	//Getters
+	public boolean isLeftClicked() {
+		return leftClicked;
+	}
+	
+	public boolean isRightClicked() {
+		return rightClicked;
+	}
+	
 	public boolean isLeftPressed() {
 		return leftPressed;
 	}
@@ -47,8 +55,11 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getButton() == MouseEvent.BUTTON1){
+			leftClicked = true;
+		} else if(e.getButton() == MouseEvent.BUTTON3) {
+			rightClicked = true;
+		}
 	}
 
 	@Override

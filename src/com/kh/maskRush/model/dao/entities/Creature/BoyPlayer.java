@@ -62,10 +62,10 @@ public class BoyPlayer extends Creature {
 		
 		
 		//collision box visualization
-		g.setColor(Color.CYAN);
-		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
-				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-				bounds.width, bounds.height);
+//		g.setColor(Color.CYAN);
+//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
+//				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
+//				bounds.width, bounds.height);
 	}
 	
 	private BufferedImage getCurrentAnimationFrame() {

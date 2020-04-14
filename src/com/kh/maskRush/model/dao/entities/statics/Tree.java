@@ -28,7 +28,7 @@ public class Tree extends StaticEntity {
 	public void render(Graphics g) {
 		g.drawImage(Assets.sand, (int) (x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-		
+		//change 'sand' to 'block' to make entity invisible
 	}
 	
 }

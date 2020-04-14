@@ -13,9 +13,14 @@ public class Tile {
 	public static Tile rockTile = new RockTile(1);
 	public static Tile sandTile = new SandTile(2);
 	public static Tile bedroomTile = new BedroomTile(3);
-	public static Tile windowTile = new WindowTile(4);
-	public static Tile calendarTile = new CalendarTile(5);
-	
+	public static Tile windowTile = new WindowTile(11);
+	public static Tile calendarTile = new CalendarTile(10);
+	public static Tile livingRoomTile = new LivingRoomTile(6);
+	public static Tile countrysideTile = new CountrysideTile(7);
+	public static Tile cityTile1 = new CityTile1(8);
+	public static Tile cityTile2 = new CityTile2(9);
+	public static Tile cityTile3 = new CityTile3(4);
+	public static Tile cityTile4 = new CityTile4(5);
 	
 	//CLASS
 	

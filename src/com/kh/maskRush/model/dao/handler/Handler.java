@@ -6,10 +6,12 @@ import com.kh.maskRush.model.dao.input.KeyManager;
 import com.kh.maskRush.model.dao.input.MouseManager;
 import com.kh.maskRush.model.dao.worlds.World;
 
+
 public class Handler {
 	
 	private Game game;
 	private World world;
+	
 	
 	public Handler(Game game) {
 		this.game = game;
@@ -51,6 +53,8 @@ public class Handler {
 	public void setWorld(World world) {
 		this.world = world;
 	}
+	
+	
 	
 	
 }

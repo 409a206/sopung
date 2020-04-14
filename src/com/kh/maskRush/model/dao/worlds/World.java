@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import com.kh.maskRush.model.dao.entities.EntityManager;
 import com.kh.maskRush.model.dao.entities.Creature.BoyPlayer;
 import com.kh.maskRush.model.dao.entities.statics.Tree;
+import com.kh.maskRush.model.dao.entities.statics.Tree2;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.tile.Tile;
 import com.kh.maskRush.model.dao.utils.Utils;
@@ -15,11 +16,16 @@ public class World {
 	private int width, height;
 	private int spawnX, spawnY;
 	private int[][] tiles;
+	private String path;
+	
 	//Entities
 	private EntityManager entityManager;
 	
 	public World(Handler handler, String path) {
 		this.handler = handler;
+		this.path = path;
+		
+		if(path.equals("res/worlds/world1.txt")) {
 		entityManager = new EntityManager(handler, new BoyPlayer(handler, 200, 200));
 		entityManager.addEntity(new Tree(handler, 0, 180));
 		entityManager.addEntity(new Tree(handler, 100, 180));
@@ -37,20 +43,40 @@ public class World {
 		entityManager.addEntity(new Tree(handler, 350, 400));
 		entityManager.addEntity(new Tree(handler, 470, 400));
 		entityManager.addEntity(new Tree(handler, 470, 300));
-		entityManager.addEntity(new Tree(handler, 650, 300));
+		entityManager.addEntity(new Tree(handler, 630, 300));
 		entityManager.addEntity(new Tree(handler, 750, 300));
+		entityManager.addEntity(new Tree2(handler, 0, 570));
+		entityManager.getBoyPlayer().setX(150); //type in spawnX
+		entityManager.getBoyPlayer().setY(300); // '' '' spawnY
 		
+		} else if(path.equals("res/worlds/world2.txt")) {
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 700, 300));
+			entityManager.addEntity(new Tree(handler, 90, 250));
+			entityManager.addEntity(new Tree(handler, 200, 250));
+			entityManager.addEntity(new Tree(handler, 280, 250));
+
+			
+			
+		} else if(path.equals("res/worlds/world3.txt")) {
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 400, 300));
+		}
+		else if(path.equals("res/worlds/world4.txt")) {
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+		}
 		
 		loadWorld(path);
 		
 		
 		
-		entityManager.getBoyPlayer().setX(150); //type in spawnX
-		entityManager.getBoyPlayer().setY(300); // '' '' spawnY
+		
+		
 	}
 	
 	public void tick() {
 		entityManager.tick();
+//		if(entityManager.getBoyPlayer().getX() < 0) {
+//			State.setState(handler.getGame().mainMenuState);
+//		}
 	}
 	
 	public void render(Graphics g) {
@@ -102,6 +128,14 @@ public class World {
 	
 	
 	
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}

@@ -8,6 +8,7 @@ import com.kh.maskRush.model.dao.gfx.GameCamera;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.input.KeyManager;
 import com.kh.maskRush.model.dao.input.MouseManager;
+import com.kh.maskRush.model.dao.states.BedroomMonologue;
 import com.kh.maskRush.model.dao.states.GameState;
 import com.kh.maskRush.model.dao.states.MainMenuState;
 import com.kh.maskRush.model.dao.states.State;
@@ -30,6 +31,7 @@ public class Game implements Runnable {
 	//States
 	public State gameState;
 	public State mainMenuState;
+	public State bedroomMonologue;
 	
 	//Input
 	private KeyManager keyManager;
@@ -66,6 +68,7 @@ public class Game implements Runnable {
 		
 		gameState = new GameState(handler);
 		mainMenuState = new MainMenuState(handler);
+		bedroomMonologue = new BedroomMonologue(handler);
 		State.setState(mainMenuState);
 	}
 	
