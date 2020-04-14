@@ -6,7 +6,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Display {
+public class Display extends JFrame {
 	
 	private JFrame frame;
 	private Canvas canvas; //draw graphical elements on canvas and add to frame 

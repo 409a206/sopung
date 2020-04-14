@@ -1,6 +1,6 @@
 package com.kh.maskRush.model.dao.states;
 
-import java.awt.Color; 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 import com.kh.maskRush.model.dao.entities.Creature.Player;
+import com.kh.maskRush.model.dao.handler.Handler;
 
 public class PlayerSetting extends JPanel {
 	private JPanel contentPane;
@@ -91,6 +92,10 @@ public class PlayerSetting extends JPanel {
 				a.setStart(time);//시작시간 플레이어전달
 				a.setName(realName);
 				System.out.println(a.toString());
+				Handler handler = null;
+				State.setState(handler.getGame().gameState);
+				
+				/////////////////////////////////////////////////
 			}
 		});
 
