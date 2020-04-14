@@ -14,7 +14,7 @@ import com.kh.maskRush.minigame.util.Resource;
 
 public class EnemiesManager {
 	
-private Timer timer;
+	private Timer timer;
 	
 	private BufferedImage obstacle1;
 	private BufferedImage obstacle2;
@@ -25,8 +25,8 @@ private Timer timer;
 	
 	public EnemiesManager(MainCharacter mainCharacter) {
 		rand = new Random();
-		obstacle1 = Resource.getResourceImage("res/textures/huddle.png");
-		obstacle2 = Resource.getResourceImage("res/textures/hole.png");
+		obstacle1 = Resource.getResourceImage("res/textures/minihuddle.png");
+		obstacle2 = Resource.getResourceImage("res/textures/minihole.png");
 		enemies = new ArrayList<Enemy>();
 		this.mainCharacter = mainCharacter;
 		enemies.add(createEnemy());
@@ -52,8 +52,6 @@ private Timer timer;
 	
 	private Enemy createEnemy() {
 		int type = rand.nextInt(2);
-		
-		
 		
 		if(type == 0) {
 			return new Obstacle(mainCharacter, 800, obstacle1.getWidth() - 10, obstacle1.getHeight() - 10, obstacle1);
