@@ -114,6 +114,9 @@ public abstract class Creature extends Entity {
 		this.yMove = yMove;
 	}
 	
-	
+	public void pushup() {
+		   x += 0;
+		   y += -1;
+	   }
 	
 }

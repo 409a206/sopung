@@ -2,16 +2,22 @@ package com.kh.maskRush.controller;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 import com.kh.maskRush.model.dao.gfx.Assets;
 import com.kh.maskRush.model.dao.gfx.GameCamera;
+import com.kh.maskRush.model.dao.gfx.GameCamera2;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.input.KeyManager;
 import com.kh.maskRush.model.dao.input.MouseManager;
 import com.kh.maskRush.model.dao.states.BedroomMonologue;
-import com.kh.maskRush.model.dao.states.FirstMenu;
 import com.kh.maskRush.model.dao.states.GameState;
 import com.kh.maskRush.model.dao.states.MainMenuState;
+import com.kh.maskRush.model.dao.states.MiniGameSpacebar;
 import com.kh.maskRush.model.dao.states.State;
 import com.kh.maskRush.view.Display;
 //basically the 'main' class
@@ -29,11 +35,11 @@ public class Game implements Runnable {
 	private BufferStrategy bs; 
 	private Graphics g;
 	
-	
 	//States
 	public State gameState;
 	public State mainMenuState;
 	public State bedroomMonologue;
+	public State miniGameSpacebar;
 	
 	//Input
 	private KeyManager keyManager;
@@ -41,6 +47,7 @@ public class Game implements Runnable {
 	
 	//Camera
 	private GameCamera gameCamera;
+	private GameCamera2 gameCamera2;
 	
 	//Handler
 	private Handler handler;
@@ -67,12 +74,32 @@ public class Game implements Runnable {
 		
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0); 
+		gameCamera2 = new GameCamera2(this, 0, 0);
+		
 		
 		
 		gameState = new GameState(handler);
 		mainMenuState = new MainMenuState(handler);
 		bedroomMonologue = new BedroomMonologue(handler);
-		State.setState(mainMenuState);
+		miniGameSpacebar = new MiniGameSpacebar(handler);
+		
+		State.setState(gameState);
+		if(State.getState() instanceof MiniGameSpacebar) {
+			File file = new File("res/audio/mappy.wav");
+	           System.out.println(file.exists()); //true
+	           
+	           try {
+	               
+	               AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+	               Clip clip = AudioSystem.getClip();
+	               clip.open(stream);
+	               clip.start();
+	               
+	           } catch(Exception e) {
+	               
+	               e.printStackTrace();
+	           }
+		}
 	}
 	
 	
@@ -163,6 +190,9 @@ public class Game implements Runnable {
 	
 	public GameCamera getGameCamera() {
 		return gameCamera;
+	}
+	public GameCamera2 getGameCamera2() {
+		return gameCamera2;
 	}
 	
 	public int getWidth() {
