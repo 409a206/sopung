@@ -1,6 +1,7 @@
 package com.kh.maskRush.model.dao.states;
 
-import java.awt.Cursor; 
+import java.applet.AudioClip;
+import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
@@ -10,13 +11,13 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.DataLine;
 import javax.swing.JFrame;
 
 public class FirstMenuChoice extends JFrame {
 	
+	private AudioClip amor;
 	Clip clip;  
-	String path = FirstMenuChoice.class.getResource("/textures/music").getPath();
+	String path = FirstMenuChoice.class.getResource("/textures/music/").getPath();
 	
 	public FirstMenuChoice() {
 
@@ -24,13 +25,13 @@ public class FirstMenuChoice extends JFrame {
 
 		//첫 메뉴 실행
 		this.add(new FirstMenu(this));
-	
+	/*
 		//bgm
 		File bgm;
 		AudioInputStream stream;
 		AudioFormat format;
 		DataLine.Info info;
-		bgm = new File(path+"/music.wav");
+		bgm = new File(path+"music.wav");
 
 		try {
 
@@ -43,8 +44,23 @@ public class FirstMenuChoice extends JFrame {
 
 		} catch (Exception e) {
 
-		}
-
+		}*/
+		 
+        File file = new File("C:\\Users\\soi02\\git\\sopung\\res\\textures\\music\\amor.wav");
+        System.out.println(file.exists()); //true
+        
+        try {
+            
+            AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(stream);
+            clip.start();
+            
+        } catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
 		//시티실행
 		//this.add(new InCity(this));
 
