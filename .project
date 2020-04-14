@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>res/textures/bedroom</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/eclipse-workspace/maskRush/res/textures/bedroom</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

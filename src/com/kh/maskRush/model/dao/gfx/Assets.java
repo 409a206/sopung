@@ -8,7 +8,7 @@ public class Assets {
 	private static final int width = 62, height = 62; //width and height of grid spaces
 	
 	public static BufferedImage girlPlayer, stone, dirt, grass, sand, sandStone, bedroom, windowTile, 
-	calendarTile, block;
+	calendarTile, block, monologue1, livingRoom, mom, countryside, city1, city2, city3, city4;
 	public static BufferedImage[] boyPlayer_right, boyPlayer_left;
 	
 	
@@ -23,8 +23,8 @@ public class Assets {
 		
 		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/boyWithoutMask.png"));
 		boyPlayer_left = new BufferedImage[2];
-		boyPlayer_left[0] = sheet2.crop(0, 0, 510, 510);
-		boyPlayer_left[1] = sheet2.crop(0, 0, 510, 510);
+		boyPlayer_left[0] = sheet2.crop(0, 0, 510, 480);
+		boyPlayer_left[1] = sheet2.crop(0, 0, 510, 480);
 		
 //		SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/boyWithoutMask2.png"));
 //		boyPlayer_right = new BufferedImage[2];
@@ -41,7 +41,18 @@ public class Assets {
 		
 		SpriteSheet sheet6 = new SpriteSheet(ImageLoader.loadImage("/textures/girlWithoutMask.png"));
 		block = sheet6.crop(0,0, 1, 1);
-
+		
+		SpriteSheet sheet7 = new SpriteSheet(ImageLoader.loadImage("/textures/LivingRoom/living.png"));
+		livingRoom = sheet7.crop(0, 0, 1380, 1020);
+		
+		SpriteSheet sheet8 = new SpriteSheet(ImageLoader.loadImage("/textures/countryside/countryside.png"));
+		countryside = sheet8.crop(0, 0, 1380, 1020);
+		
+		SpriteSheet sheet9 = new SpriteSheet(ImageLoader.loadImage("/textures/city/city.png"));
+		city1 = sheet9.crop(0, 0, 1191, 945);
+		city2 = sheet9.crop(1191, 0, 1191, 945);
+		city3 = sheet9.crop(0, 945, 1191, 945);
+		city4 = sheet9.crop(1191, 945, 1191, 945);
 		
 	}
 }
