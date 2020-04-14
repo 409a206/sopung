@@ -1,9 +1,13 @@
 package com.kh.maskRush.minigame.gameobject;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import com.kh.maskRush.minigame.util.Animation;
 import com.kh.maskRush.minigame.util.Resource;
@@ -27,8 +31,6 @@ public class MainCharacter {
 	private float speedY;
 	private Rectangle rectBound;
 	
-	public int sec = 59;
-	
 	private int state = NORMAL_RUN;
 	
 	private Animation normalRunAnim;
@@ -36,8 +38,8 @@ public class MainCharacter {
 	private Animation downRunAnim;
 	private BufferedImage deathImage;
 	
-//	private AudioClip jumpSound;
-//	private AudioClip deadSound;
+	private AudioClip jumpSound;
+	private AudioClip deadSound;
 //	private AudioClip scoreUpSound;
 	
 	public MainCharacter() {
@@ -48,19 +50,19 @@ public class MainCharacter {
 		normalRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
 		normalRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy2.png"));
 		jumping = Resource.getResourceImage("res/textures/miniboy1.png");
-		downRunAnim = new Animation(90);
-		downRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
-		downRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy2.png"));
+//		downRunAnim = new Animation(90);
+//		downRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy1.png"));
+//		downRunAnim.addFrame(Resource.getResourceImage("res/textures/miniboy2.png"));
 		deathImage = Resource.getResourceImage("res/textures/miniboy1.png");
 		
 		//사운드 필요할 때 아래 파일 바꾸면됨
-//		try {
-//			jumpSound =  Applet.newAudioClip(new URL("file","","data/jump.wav"));
-//			deadSound =  Applet.newAudioClip(new URL("file","","data/dead.wav"));
+		try {
+			jumpSound =  Applet.newAudioClip(new URL("file","","res/textures/jump.wav"));
+			deadSound =  Applet.newAudioClip(new URL("file","","res/textures/dead.wav"));
 //			scoreUpSound =  Applet.newAudioClip(new URL("file","","data/scoreup.wav"));
-//		} catch (MalformedURLException e) {
-//			e.printStackTrace();
-//		}
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public float getSpeedX() {
@@ -107,9 +109,9 @@ public class MainCharacter {
 	
 	public void jump() {
 		if(posY >= LAND_POSY) {
-//			if(jumpSound != null) {
-//				jumpSound.play();
-//			}
+			if(jumpSound != null) {
+				jumpSound.play();
+			}
 			speedY = -7.5f;
 			posY += speedY;
 			state = JUMPING;
@@ -156,7 +158,7 @@ public class MainCharacter {
 	}
 	
 	public void playDeadSound() {
-//		deadSound.play();
+		deadSound.play();
 	}
 	
 //	public void upScore() {
@@ -168,7 +170,7 @@ public class MainCharacter {
 	
 	public void timer() {
 		
-		for(int i = sec; i >= 0; i--) {
+		for(int i = 60; i >= 0; i--) {
 			
 			try {
 				System.out.println(i);
