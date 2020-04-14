@@ -1,7 +1,10 @@
 package com.kh.maskRush.model.dao.states;
 
 import java.awt.Graphics;
+import java.net.MalformedURLException;
+import java.net.URL;
 
+import com.kh.maskRush.model.dao.audio.Audio;
 import com.kh.maskRush.model.dao.entities.EntityManager;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.worlds.World;
@@ -17,6 +20,7 @@ public class GameState extends State {
 		
 		world = new World(handler,"res/worlds/world1.txt");
 		handler.setWorld(world);
+		Audio.Main_Sound("res/audio/farland.mp3");
 		
 		handler.getGameCamera().move(0, 0);
 	}
