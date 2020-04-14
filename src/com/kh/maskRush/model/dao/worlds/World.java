@@ -6,6 +6,7 @@ import com.kh.maskRush.model.dao.entities.EntityManager;
 import com.kh.maskRush.model.dao.entities.Creature.BoyPlayer;
 import com.kh.maskRush.model.dao.entities.statics.Tree;
 import com.kh.maskRush.model.dao.entities.statics.Tree2;
+import com.kh.maskRush.model.dao.entities.statics.Tree3;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.tile.Tile;
 import com.kh.maskRush.model.dao.utils.Utils;
@@ -46,6 +47,7 @@ public class World {
 		entityManager.addEntity(new Tree(handler, 630, 300));
 		entityManager.addEntity(new Tree(handler, 750, 300));
 		entityManager.addEntity(new Tree2(handler, 0, 570));
+		entityManager.addEntity(new Tree3(handler, 0, 570));
 		entityManager.getBoyPlayer().setX(150); //type in spawnX
 		entityManager.getBoyPlayer().setY(300); // '' '' spawnY
 		
