@@ -55,8 +55,9 @@ public class PlayerSetting extends JPanel {
 		//형용사 랜덤 다시
 		retryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				mainChoice.soundclick();
 				int random = (int) (Math.random() * 33);
-				textField.setText("  " + nameArr[random]);
+				textField.setText(" " + nameArr[random]);
 				textField.setFont(new Font("08서울남산체 EB", Font.PLAIN, 22));
 				randomName = textField.getText();
 				System.out.println(randomName);
@@ -87,13 +88,12 @@ public class PlayerSetting extends JPanel {
 		//시작버튼 클릭액션
 		startButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				mainChoice.soundclick();
 				realName = textField.getText();
 				System.out.println(realName);
 				a.setStart(time);//시작시간 플레이어전달
 				a.setName(realName);
 				System.out.println(a.toString());
-				Handler handler = null;
-				State.setState(handler.getGame().gameState);
 				
 				/////////////////////////////////////////////////
 			}
@@ -103,8 +103,8 @@ public class PlayerSetting extends JPanel {
 		//배경라벨
 		JLabel lblHome = new JLabel("배경");
 		lblHome.setForeground(new Color(0, 0, 0));
-		lblHome.setIcon(new ImageIcon(PlayerSetting.class.getResource("/textures/background.png")));
-		lblHome.setBounds(0, 0, 782, 553);
+		lblHome.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/background.png")));
+		lblHome.setBounds(0, 0, 800, 600);
 		this.add(lblHome);
 
 		

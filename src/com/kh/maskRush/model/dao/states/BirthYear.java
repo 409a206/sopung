@@ -32,10 +32,11 @@ public class BirthYear extends JPanel{
 		setBounds(100, 100, 800, 600);
 		
 		//위에 뜨는 라벨
-		JLabel lblChoice = new JLabel("출생년도를 입력하세요!");
+		JLabel lblChoice = new JLabel();
+		lblChoice.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/birthYear.png")));
 		lblChoice.setFont(new Font("배달의민족 한나는 열한살", Font.PLAIN, 43));
 		lblChoice.setForeground(Color.getHSBColor(3, 47, 82));
-		lblChoice.setBounds(210, 50, 511, 58);
+		lblChoice.setBounds(50, 30, 700, 200);
 		this.add(lblChoice);
 
 		//생년입력
@@ -44,7 +45,6 @@ public class BirthYear extends JPanel{
 		textField.setBounds(270, 400, 244, 70);
 		textField.setColumns(10);
 		this.add(textField);
-
 
 		//확인버튼
 		JButton birthButton = new JButton();
@@ -57,6 +57,7 @@ public class BirthYear extends JPanel{
 
 		birthButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				mainChoice.soundclick();
 				birth = textField.getText();
 				birthNum = Integer.parseInt(birth);
 				System.out.println(birth);
@@ -91,8 +92,8 @@ public class BirthYear extends JPanel{
 		
 		//배경라벨
 		JLabel lblHome = new JLabel("배경");
-		lblHome.setIcon(new ImageIcon(PlayerChoice.class.getResource("/textures/background.png")));
-		lblHome.setBounds(0, 0, 782, 553);
+		lblHome.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/background.png")));
+		lblHome.setBounds(0, 0, 800, 600);
 		this.add(lblHome);
 
 		mainChoice.add(this);
