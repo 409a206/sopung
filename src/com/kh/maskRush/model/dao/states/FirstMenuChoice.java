@@ -25,47 +25,24 @@ public class FirstMenuChoice extends JFrame {
 
 		//첫 메뉴 실행
 		this.add(new FirstMenu(this));
-	/*
-		//bgm
-		File bgm;
-		AudioInputStream stream;
-		AudioFormat format;
-		DataLine.Info info;
-		bgm = new File(path+"music.wav");
-
-		try {
-
-			stream = AudioSystem.getAudioInputStream(bgm);
-			format = stream.getFormat();
-			info = new DataLine.Info(Clip.class, format);
-			clip = (Clip) AudioSystem.getLine(info);
-			clip.open(stream);
-			clip.start();
-
-		} catch (Exception e) {
-
-		}*/
-		 
-        File file = new File("C:\\Users\\soi02\\git\\sopung\\res\\textures\\music\\amor.wav");
-        System.out.println(file.exists()); //true
-        
-        try {
-            
-            AudioInputStream stream = AudioSystem.getAudioInputStream(file);
-            Clip clip = AudioSystem.getClip();
-            clip.open(stream);
-            clip.start();
-            
-        } catch(Exception e) {
-            
-            e.printStackTrace();
-            
-        }
-		//시티실행
-		//this.add(new InCity(this));
-
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		//bgm
+		File file = new File("C:\\Users\\soi02\\git\\sopung\\res\\textures\\music\\amor.wav");
+		System.out.println(file.exists()); //true
+		
+		try {
+			AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+			Clip clip = AudioSystem.getClip();
+			clip.open(stream);
+			clip.start();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 		//커서변경
 		Toolkit tk = Toolkit.getDefaultToolkit(); 
 		Image cursorimage = tk.createImage(getClass().getResource("/textures/cursor_w.png"));//커서로 사용할 이미지 
