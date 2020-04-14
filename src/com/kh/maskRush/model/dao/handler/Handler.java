@@ -2,6 +2,7 @@ package com.kh.maskRush.model.dao.handler;
 
 import com.kh.maskRush.controller.Game;
 import com.kh.maskRush.model.dao.gfx.GameCamera;
+import com.kh.maskRush.model.dao.gfx.GameCamera2;
 import com.kh.maskRush.model.dao.input.KeyManager;
 import com.kh.maskRush.model.dao.input.MouseManager;
 import com.kh.maskRush.model.dao.worlds.World;
@@ -27,6 +28,9 @@ public class Handler {
 	
 	public GameCamera getGameCamera() {
 		return game.getGameCamera();
+	}
+	public GameCamera2 getGameCamera2() {
+		return game.getGameCamera2();
 	}
 	
 	public KeyManager getKeyManager() {

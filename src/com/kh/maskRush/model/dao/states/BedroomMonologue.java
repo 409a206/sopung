@@ -19,7 +19,7 @@ public class BedroomMonologue extends State {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(Assets.sand, 0, 0, null);
+		g.drawImage(Assets.bedroom, 0, 0, null);
 		if(handler.getMouseManager().isLeftClicked()) {
 			g.drawImage(Assets.dirt, 0, 0, null);}
 			if(handler.getMouseManager().isLeftClicked()) {
