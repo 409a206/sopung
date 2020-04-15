@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.controller.Game;
 import com.kh.maskRush.model.dao.entities.Creature.Player;
 import com.kh.maskRush.model.dao.handler.Handler;
 
@@ -96,6 +97,10 @@ public class PlayerSetting extends JPanel {
 				System.out.println(a.toString());
 				
 				/////////////////////////////////////////////////
+				Game game = new Game("Mask Rush", 800, 600);
+				game.start();
+				
+				mainChoice.dispose();
 			}
 		});
 

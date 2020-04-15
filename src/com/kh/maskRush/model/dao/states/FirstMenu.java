@@ -24,11 +24,11 @@ public class FirstMenu extends JPanel {
 	//전달받아서 쓸 프레임을 ()에 넣어서 .
 	public FirstMenu(FirstMenuChoice mainChoice) {
 
-	
 		contentPane = this;	//넘길때 써야하니까 패널변수 하나 만들어서 this 저장
 		this.mainChoice = mainChoice;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
 		setBounds(0, 0, 800, 600);
 		this.setLayout(null);
+		mainChoice.soundmain();
 
 		//시작버튼
 		JButton newgame = new JButton();
@@ -82,7 +82,7 @@ public class FirstMenu extends JPanel {
 				revalidate();
 				ChangePanel.changePanel(mainChoice, contentPane, new Credit(mainChoice));
 				mainChoice.soundamor();
-				mainChoice.soundstop();
+				mainChoice.soundstop(1);
 			}
 		});
 

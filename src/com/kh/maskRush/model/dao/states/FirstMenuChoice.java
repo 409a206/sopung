@@ -23,16 +23,19 @@ public class FirstMenuChoice extends JFrame {
 	private File filebgm = new File("C:\\Users\\soi02\\git\\sopung\\res\\textures\\music\\mainbgm.wav");
 	
 	
-	
 	//실행
 	public FirstMenuChoice() {
 
 		this.setBounds(100, 100, 800, 600);
-		this.add(new FirstMenu(this));
+		
+		//this.add(new FirstMenu(this));
+		//this.add(new InMarket(this));
+		this.add(new GetMask(this));
+		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		cursor();
-		soundmain();
+		
 		
 	}
 	
@@ -76,13 +79,17 @@ public class FirstMenuChoice extends JFrame {
 	}
 	
 	//bgm정지
-	public void soundstop() {
-		bgm.stop();
+	public void soundstop(int a) {
+		switch(a) {
+		case 1 : bgm.stop(); break;
+		case 2 : credit.stop(); bgm.start(); break;		
+		}
 	}
 
 	//메인으로
 	public void backToMain(FirstMenuChoice a, JPanel b) {
 		ChangePanel.changePanel(this, b, new FirstMenu(a));
+		this.soundstop(1);
 	}	
 	
 	//커서이미지 변경
