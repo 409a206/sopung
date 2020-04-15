@@ -61,5 +61,6 @@ public class Assets {
 	      SpriteSheet sheet11 = new SpriteSheet(ImageLoader.loadImage("/textures/boygame.png"));
 	      boygame = sheet11.crop(0, 0, 800, 600);
 		
+//	      SpriteSheet sheet12 = new SpriteSheet(ImageLoader.loadImage("/textures/bedroom/monologue1.png"));
 	}
 }

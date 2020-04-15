@@ -18,7 +18,7 @@ public class FirstMenuChoice extends JFrame {
 	private AudioClip amor;
 	Clip clip;  
 	String path = FirstMenuChoice.class.getResource("/textures/music/").getPath();
-	
+	JFrame frame;
 	public FirstMenuChoice() {
 
 		this.setBounds(100, 100, 800, 600);

@@ -63,7 +63,7 @@ public class World {
 			entityManager = new EntityManager(handler, new BoyPlayer(handler, 400, 300));
 		}
 		else if(path.equals("res/worlds/world4.txt")) {
-			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 50, 500));
 		}
 		
 		loadWorld(path);
@@ -76,6 +76,7 @@ public class World {
 	
 	public void tick() {
 		entityManager.tick();
+		System.out.println(entityManager.getBoyPlayer().getX() + ", " + entityManager.getBoyPlayer().getY());
 //		if(entityManager.getBoyPlayer().getX() < 0) {
 //			State.setState(handler.getGame().mainMenuState);
 //		}

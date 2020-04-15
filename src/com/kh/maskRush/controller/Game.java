@@ -80,26 +80,26 @@ public class Game implements Runnable {
 		
 		gameState = new GameState(handler);
 		mainMenuState = new MainMenuState(handler);
-		bedroomMonologue = new BedroomMonologue(handler);
+		
 		miniGameSpacebar = new MiniGameSpacebar(handler);
 		
-		State.setState(gameState);
-		if(State.getState() instanceof MiniGameSpacebar) {
-			File file = new File("res/audio/mappy.wav");
-	           System.out.println(file.exists()); //true
-	           
-	           try {
-	               
-	               AudioInputStream stream = AudioSystem.getAudioInputStream(file);
-	               Clip clip = AudioSystem.getClip();
-	               clip.open(stream);
-	               clip.start();
-	               
-	           } catch(Exception e) {
-	               
-	               e.printStackTrace();
-	           }
-		}
+		State.setState(mainMenuState);
+//		if(State.getState() instanceof MiniGameSpacebar) {
+//			File file = new File("res/audio/mappy.wav");
+//	           System.out.println(file.exists()); //true
+//	           
+//	           try {
+//	               
+//	               AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+//	               Clip clip = AudioSystem.getClip();
+//	               clip.open(stream);
+//	               clip.start();
+//	               
+//	           } catch(Exception e) {
+//	               
+//	               e.printStackTrace();
+//	           }
+//		}
 	}
 	
 	
