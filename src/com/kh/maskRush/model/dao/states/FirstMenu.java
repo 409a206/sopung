@@ -6,7 +6,11 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,8 +20,6 @@ public class FirstMenu extends JPanel {
 	
 	private JPanel contentPane;
 	private FirstMenuChoice mainChoice;
-	final int right = 423-122;
-	final int up = 435-315;
 
 	//전달받아서 쓸 프레임을 ()에 넣어서 .
 	public FirstMenu(FirstMenuChoice mainChoice) {
@@ -25,7 +27,7 @@ public class FirstMenu extends JPanel {
 	
 		contentPane = this;	//넘길때 써야하니까 패널변수 하나 만들어서 this 저장
 		this.mainChoice = mainChoice;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
-		setBounds(100, 100, 800, 600);
+		setBounds(0, 0, 800, 600);
 		this.setLayout(null);
 
 		//시작버튼
@@ -40,11 +42,11 @@ public class FirstMenu extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("new game 선택");
 				revalidate();
+				mainChoice.soundclick();
 				ChangePanel.changePanel(mainChoice, contentPane, new PlayerChoice(mainChoice));
 				//1. 유지하는 프레임
 				//2. 현재 패널 - this패널 바로 안들어가니까 변수
 				//3. 다음 패널 - new로 프레임 포함해서 넘겨.
-				
 			}
 		});
 
@@ -59,11 +61,16 @@ public class FirstMenu extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("ranking 선택");
+				mainChoice.soundclick();
+				revalidate();
+				ChangePanel.changePanel(mainChoice, contentPane, new Ranking(mainChoice));
 			}
 		});
 
 		//크레딧버튼
 		JButton credit = new JButton();
+		credit.setBorderPainted(false);
+		credit.setContentAreaFilled(false);
 		credit.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/credit.png")));
 		credit.setBounds(122, 435, 244, 87);
 		this.add(credit);
@@ -71,18 +78,27 @@ public class FirstMenu extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("credit 선택");
+				mainChoice.soundclick();
+				revalidate();
+				ChangePanel.changePanel(mainChoice, contentPane, new Credit(mainChoice));
+				mainChoice.soundamor();
+				mainChoice.soundstop();
 			}
 		});
 
 		//종료버튼
 		JButton exit = new JButton();
+		exit.setBorderPainted(false);
+		exit.setContentAreaFilled(false);
 		exit.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/exit.png")));
 		exit.setBounds(423, 435, 244, 87);
 		this.add(exit);
 		exit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				mainChoice.soundclick();
 				System.out.println("exit 선택");
+				mainChoice.dispose();
 			}
 		});
 
@@ -93,17 +109,14 @@ public class FirstMenu extends JPanel {
 		this.add(label1);
 
 		//배경라벨
-		
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/background.png")));
-		background.setBounds(0, 0, 782, 553);
+		background.setBounds(0, 0, 800, 600);
 		this.add(background);
 		
-		
-		
 		mainChoice.add(this);	//this 패널을 최종적으로 프레임에 붙임
-		this.repaint();	//넘길때 없애는거?
-
+		
 	}
+	
+	
 }
-
