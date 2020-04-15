@@ -12,6 +12,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 import com.kh.maskRush.model.dao.audio.Audio;
 import com.kh.maskRush.model.dao.entities.Creature.BoyPlayer;
@@ -48,7 +49,7 @@ public class MiniGameSpacebar extends State {
       boygame = new MaskBoy (handler, 350, 400);
       evilhand = new EvilHand (handler, 350, 400);
       
-         
+      
       //handler.getGameCamera().move(1, 1);
       
    }
@@ -58,6 +59,9 @@ public class MiniGameSpacebar extends State {
    public void tick() {
       boygame.tick();
       evilhand.tick();
+       
+      
+     
       
       
    //   world.tick();

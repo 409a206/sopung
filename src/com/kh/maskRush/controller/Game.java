@@ -83,7 +83,7 @@ public class Game implements Runnable {
 		bedroomMonologue = new BedroomMonologue(handler);
 		miniGameSpacebar = new MiniGameSpacebar(handler);
 		
-		State.setState(gameState);
+		State.setState(miniGameSpacebar);
 		if(State.getState() instanceof MiniGameSpacebar) {
 			File file = new File("res/audio/mappy.wav");
 	           System.out.println(file.exists()); //true
