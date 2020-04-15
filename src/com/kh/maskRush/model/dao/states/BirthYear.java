@@ -88,8 +88,6 @@ public class BirthYear extends JPanel{
 			}
 		});
 
-		//5부제
-		
 		//배경라벨
 		JLabel lblHome = new JLabel("배경");
 		lblHome.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/background.png")));

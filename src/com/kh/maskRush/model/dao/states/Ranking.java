@@ -29,6 +29,7 @@ public class Ranking extends JPanel {
 
 	public Ranking(FirstMenuChoice mainChoice) {
 
+		
 		this.mainChoice = mainChoice;
 		contentPane = this;
 		setLayout(null);
@@ -58,7 +59,7 @@ public class Ranking extends JPanel {
 		rankShowNum.setBorder(null);		//테두리
 		rankShowNum.setOpaque(false); 	//투명하게
 		rankShowNum.setBounds(200, 200, 284, 50);
-		rankShowNum.setText("1");
+		
 		this.add(rankShowNum);
 		rankShowNum.setVisible(false);
 
@@ -75,7 +76,6 @@ public class Ranking extends JPanel {
 		//입력하기버튼
 		JButton startButton = new JButton();
 		startButton.setContentAreaFilled(false);
-		startButton.setFont(new Font("배달의민족 한나는 열한살", Font.PLAIN, 15));
 		startButton.setBounds(492, 428, 90, 54);
 		this.add(startButton);
 
@@ -84,31 +84,39 @@ public class Ranking extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				mainChoice.soundclick();
 				randomName = textField.getText();
+				
 				rankShowName.setText(randomName);
 				rankShowName.setEditable(false);
 				rankShowName.setVisible(true);
+				
+				rankShowNum.setText("1");
 				rankShowNum.setEditable(false);
 				rankShowNum.setVisible(true);
+				
+				
 				rankShowTime.setEditable(false);
 				rankShowTime.setVisible(true);
+				
 				System.out.println(randomName);
 			}
 		});
 
 
 		//돌아가기버튼
-		JButton returnButton = new JButton("돌아가기");
-		returnButton.setContentAreaFilled(true);
-		returnButton.setFont(new Font("배달의민족 한나는 열한살", Font.PLAIN, 15));
-		returnButton.setBounds(700, 428, 90, 54);
+		JButton returnButton = new JButton();
+		returnButton.setContentAreaFilled(false);
+	//	returnButton.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/goback.png")));
+		returnButton.setBounds(600, 428, 90, 54);
 		this.add(returnButton);
 
-		
 		//돌아가기버튼 클릭액션
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mainChoice.backToMain(mainChoice, contentPane);
+				mainChoice.soundstop(1);
 				mainChoice.soundclick();
+				
+				
 			}
 		});
 
