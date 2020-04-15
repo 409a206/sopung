@@ -20,7 +20,7 @@ public class GameState extends State {
 		
 		world = new World(handler,"res/worlds/world1.txt");
 		handler.setWorld(world);
-		Audio.Main_Sound("res/audio/farland.mp3");
+		
 		
 		handler.getGameCamera().move(0, 0);
 	}
@@ -55,7 +55,6 @@ public class GameState extends State {
 			handler.getGameCamera().move(0, 0);
 		
 		}
-		
 		
 		
 	}

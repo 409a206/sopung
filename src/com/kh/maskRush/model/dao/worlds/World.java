@@ -64,6 +64,8 @@ public class World {
 		}
 		else if(path.equals("res/worlds/world4.txt")) {
 			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+		} else if(path.equals("res/worlds/eMart.txt")) {
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
 		}
 		
 		loadWorld(path);
