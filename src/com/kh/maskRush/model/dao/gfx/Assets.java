@@ -9,8 +9,9 @@ public class Assets {
 	
 	public static BufferedImage girlPlayer, stone, dirt, grass, sand, sandStone, bedroom, windowTile, 
 	calendarTile, block, monologue1, livingRoom, mom, countryside, city1, city2, city3, city4, evilhand,
-	boygame;
+	boygame, eMart, miniboy, boyMask;
 	public static BufferedImage[] boyPlayer_right, boyPlayer_left;
+	public static BufferedImage[] boyMask_left;
 	
 	
 	public static void init() {
@@ -55,11 +56,17 @@ public class Assets {
 		city3 = sheet9.crop(0, 945, 1191, 945);
 		city4 = sheet9.crop(1191, 945, 1191, 945);
 		
-		  SpriteSheet sheet10 = new SpriteSheet(ImageLoader.loadImage("/textures/evilhand.png"));
-	      evilhand = sheet10.crop(0,  0,  500, 280);
+		SpriteSheet sheet10 = new SpriteSheet(ImageLoader.loadImage("/textures/evilhand.png"));
+	    evilhand = sheet10.crop(0,  0,  500, 280);
 	      
-	      SpriteSheet sheet11 = new SpriteSheet(ImageLoader.loadImage("/textures/boygame.png"));
-	      boygame = sheet11.crop(0, 0, 800, 600);
+	    SpriteSheet sheet11 = new SpriteSheet(ImageLoader.loadImage("/textures/boygame.png"));
+	    boygame = sheet11.crop(0, 0, 800, 600);
+	      
+	    SpriteSheet sheet12 = new SpriteSheet(ImageLoader.loadImage("/textures/emart.png"));
+	    eMart = sheet12.crop(0, 0, 600, 593);
 		
+	    SpriteSheet sheet13 = new SpriteSheet(ImageLoader.loadImage("/textures/boyWithMask.png"));
+	    boyMask_left = new BufferedImage[1];
+	    boyMask_left[0] = sheet13.crop(0, 0, 169, 169);
 	}
 }

@@ -29,7 +29,8 @@ public class FirstMenuChoice extends JFrame {
 		
 		//this.add(new FirstMenu(this));
 		//this.add(new InMarket(this));
-		this.add(new GetMask(this));
+		//this.add(new GetMask(this));
+		this.add(new states_Window(this));
 		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

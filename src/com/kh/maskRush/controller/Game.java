@@ -2,12 +2,8 @@ package com.kh.maskRush.controller;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.io.File;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-
+import com.kh.maskRush.model.dao.entities.Creature.Player;
 import com.kh.maskRush.model.dao.gfx.Assets;
 import com.kh.maskRush.model.dao.gfx.GameCamera;
 import com.kh.maskRush.model.dao.gfx.GameCamera2;
@@ -15,6 +11,7 @@ import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.input.KeyManager;
 import com.kh.maskRush.model.dao.input.MouseManager;
 import com.kh.maskRush.model.dao.states.BedroomMonologue;
+import com.kh.maskRush.model.dao.states.EMartMinigameState;
 import com.kh.maskRush.model.dao.states.GameState;
 import com.kh.maskRush.model.dao.states.MainMenuState;
 import com.kh.maskRush.model.dao.states.MiniGameSpacebar;
@@ -35,11 +32,14 @@ public class Game implements Runnable {
 	private BufferStrategy bs; 
 	private Graphics g;
 	
+	private Player player;
+	
 	//States
 	public State gameState;
 	public State mainMenuState;
 	public State bedroomMonologue;
 	public State miniGameSpacebar;
+	public State eMartMinigameState;
 	
 	//Input
 	private KeyManager keyManager;
@@ -53,10 +53,11 @@ public class Game implements Runnable {
 	private Handler handler;
 	
 	
-	public Game(String title, int width, int height) {
+	public Game(String title, int width, int height, Player player) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		this.player = player;
 		keyManager = new KeyManager();
 		mouseManager = new MouseManager();
 
@@ -76,30 +77,28 @@ public class Game implements Runnable {
 		gameCamera = new GameCamera(handler, 0, 0); 
 		gameCamera2 = new GameCamera2(this, 0, 0);
 		
-		
-		
 		gameState = new GameState(handler);
 		mainMenuState = new MainMenuState(handler);
-		bedroomMonologue = new BedroomMonologue(handler);
 		miniGameSpacebar = new MiniGameSpacebar(handler);
+		eMartMinigameState = new EMartMinigameState(handler); 
 		
-		State.setState(miniGameSpacebar);
-		if(State.getState() instanceof MiniGameSpacebar) {
-			File file = new File("res/audio/mappy.wav");
-	           System.out.println(file.exists()); //true
-	           
-	           try {
-	               
-	               AudioInputStream stream = AudioSystem.getAudioInputStream(file);
-	               Clip clip = AudioSystem.getClip();
-	               clip.open(stream);
-	               clip.start();
-	               
-	           } catch(Exception e) {
-	               
-	               e.printStackTrace();
-	           }
-		}
+		State.setState(eMartMinigameState);
+//		if(State.getState() instanceof MiniGameSpacebar) {
+//			File file = new File("res/audio/mappy.wav");
+//	           System.out.println(file.exists()); //true
+//	           
+//	           try {
+//	               
+//	               AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+//	               Clip clip = AudioSystem.getClip();
+//	               clip.open(stream);
+//	               clip.start();
+//	               
+//	           } catch(Exception e) {
+//	               
+//	               e.printStackTrace();
+//	           }
+//		}
 	}
 	
 	

@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 import com.kh.maskRush.model.dao.entities.Creature.BoyPlayer;
+import com.kh.maskRush.model.dao.entities.Creature.BoyPlayerMask;
 import com.kh.maskRush.model.dao.handler.Handler;
 
 public class EntityManager {
 	
 	private Handler handler;
 	private BoyPlayer boyPlayer;
+	private BoyPlayerMask boyPlayerMask;
 	private ArrayList<Entity> entities;
 	//for entity render order
 	private Comparator<Entity> renderSorter = new Comparator<Entity>() {
@@ -30,6 +32,13 @@ public class EntityManager {
 		this.boyPlayer = boyPlayer;
 		entities = new ArrayList<Entity>();
 		addEntity(boyPlayer);
+	}
+	
+	public EntityManager(Handler handler, BoyPlayerMask boyPlayerMask) {
+		this.handler = handler;
+		this.boyPlayerMask = boyPlayerMask;
+		entities = new ArrayList<Entity>();
+		addEntity(boyPlayerMask);
 	}
 	
 	public void tick() {
@@ -76,6 +85,14 @@ public class EntityManager {
 
 	public void setEntities(ArrayList<Entity> entities) {
 		this.entities = entities;
+	}
+
+	public BoyPlayerMask getBoyPlayerMask() {
+		return boyPlayerMask;
+	}
+
+	public void setBoyPlayerMask(BoyPlayerMask boyPlayerMask) {
+		this.boyPlayerMask = boyPlayerMask;
 	}
 	
 	

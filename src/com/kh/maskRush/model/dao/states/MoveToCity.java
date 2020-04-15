@@ -16,75 +16,74 @@ import javax.swing.border.EmptyBorder;
 
 public class MoveToCity extends JFrame {
 
-	private JPanel contentPane;
+   private JPanel contentPane;
 
-	public static void main(String[] args) {
+   public static void main(String[] args) {
 
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MoveToCity frame = new MoveToCity();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-
-
-	public MoveToCity() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 800, 600);
-		contentPane = new JPanel();	
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-
-		JTextPane textPane = new JTextPane();
-		textPane.setEditable(false); // 편집불가.
-		String[] busChat = {"도시로 나가시겠습니까?","(Y/N)\r\n"};
-		
-
-		textPane.addKeyListener(new KeyAdapter() {
-
-			int i = 0;
-			@Override
-			public void keyPressed(KeyEvent e) {
-
-				if(i < busChat.length) {
-				if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-					textPane.setText(busChat[i]);
-				}
-			}
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-				i++;
-			}
-
-		});
+      EventQueue.invokeLater(new Runnable() {
+         public void run() {
+            try {
+               MoveToCity frame = new MoveToCity();
+               frame.setVisible(true);
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+         }
+      });
+   }
 
 
 
+   public MoveToCity() {
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      setBounds(0, 0, 800, 600);
+      contentPane = new JPanel();   
+      contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+      setContentPane(contentPane);
+      contentPane.setLayout(null);
 
-		contentPane.add(textPane);
-		textPane.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
-		textPane.setBounds(88, 400, 446, 127);
-		
-		JLabel talk = new JLabel();
-		talk.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/대화창2.png")));
-		talk.setBounds(-10, -25, 800, 600);
-		this.add(talk);
+      JTextPane textPane = new JTextPane();
+      textPane.setEditable(false); // 편집불가.
+      String[] busChat = {"도시로 나가시겠습니까?","(Y/N)\r\n"};
+      
 
-		JLabel backGround = new JLabel();
-		backGround.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/hometownToCity.png")));
-		backGround.setBounds(-16, -15, 800, 600);
-		this.add(backGround);
-		
-	}
+      textPane.addKeyListener(new KeyAdapter() {
+
+         int i = 0;
+         @Override
+         public void keyPressed(KeyEvent e) {
+
+            if(i < busChat.length) {
+            if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+               textPane.setText(busChat[i]);
+            }
+         }
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) {
+            i++;
+         }
+
+      });
+
+
+
+
+      contentPane.add(textPane);
+      textPane.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
+      textPane.setBounds(88, 400, 446, 127);
+      
+      JLabel talk = new JLabel();
+      talk.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/대화창2.png")));
+      talk.setBounds(-10, -25, 800, 600);
+      this.add(talk);
+
+      JLabel backGround = new JLabel();
+      backGround.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/hometownToCity.png")));
+      backGround.setBounds(-16, -15, 800, 600);
+      this.add(backGround);
+      
+   }
 
 }
-

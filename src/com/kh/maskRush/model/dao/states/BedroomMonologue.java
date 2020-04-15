@@ -1,6 +1,6 @@
 package com.kh.maskRush.model.dao.states;
 
-import java.awt.EventQueue; 
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -11,31 +11,34 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.basic.BasicEditorPaneUI;
+
+import com.kh.maskRush.model.dao.entities.Creature.Player;
 
 
 
 public class BedroomMonologue extends JFrame {
-
+	
+	private static Player player;
 	private JPanel contentPane;
 	private boolean exit = false;
+//
+//	public static void main(String[] args) {
+//
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					BedroomMonologue frame = new BedroomMonologue(player);
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
-	public static void main(String[] args) {
 
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BedroomMonologue frame = new BedroomMonologue();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-
-	public BedroomMonologue() {
+	public BedroomMonologue(Player player) {
+		this.player = player;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 800, 600);
 		contentPane = new JPanel();	
@@ -90,7 +93,8 @@ public class BedroomMonologue extends JFrame {
 		backGround.setIcon(new ImageIcon(InBus.class.getResource("/textures/bedroomMonoC.png")));
 		backGround.setBounds(-16, -15, 800, 600);
 		contentPane.add(backGround);	
-
+		
+		
 	}
 
 
