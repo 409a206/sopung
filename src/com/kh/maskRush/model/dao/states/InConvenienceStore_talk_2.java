@@ -27,26 +27,28 @@ public class InConvenienceStore_talk_2 extends JPanel {
 		setLayout(null);
 		setBounds(100, 100, 800, 600);
 
+		//보이라벨+패녈
+		JLabel boy = new JLabel();
+		boy.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/InConvenience/boy2.png")));
+		boy.setVisible(true);
+		
 		JPanel boyPanel = new JPanel();
 		boyPanel.setBackground(new Color(255, 0, 0, 0));
 		boyPanel.setFocusable(true);
 		boyPanel.setBounds(367, 255, 90, 100);
+		boyPanel.add(boy);
 		add(boyPanel);
 
-		JLabel boy = new JLabel();
-		boyPanel.add(boy);
-		boy.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/Convenienve/boy2.png")));
-		boy.setVisible(true);
 
 		// 알바생
 		JLabel cu = new JLabel();
-		cu.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/Convenienve/알바생.png")));
+		cu.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/InConvenience/알바생.png")));
 		cu.setBounds(447, 22, 129, 135);
 		add(cu);
 
 		//경찰
 		JLabel police = new JLabel();
-		police.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/Convenienve/police2.png")));
+		police.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/InConvenience/police2.png")));
 		police.setBounds(479, 250, 129, 135);
 		add(police);
 
@@ -76,20 +78,20 @@ public class InConvenienceStore_talk_2 extends JPanel {
 		// 공항도둑
 		JLabel thief = new JLabel();
 		thief.setVisible(true);
-		thief.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/Convenienve/thief3.png")));
+		thief.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/InConvenience/thief3.png")));
 		thief.setBounds(460, 250, 129, 135);
 		add(thief);
 
 		// 대화창라벨
 		JLabel talk = new JLabel();
-		talk.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("대화창.png")));
+		talk.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/InConvenience/대화창.png")));
 		talk.setBounds(70, 150, 800, 600);
 		this.add(talk);
 
 		// 배경라벨
 		JLabel back = new JLabel();
 		// boy.setLabelFor(back);
-		back.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/Convenienve/map.png")));
+		back.setIcon(new ImageIcon(InConvenienceStore_talk_2.class.getResource("/InConvenience/map.png")));
 		back.setBounds(14, 0, 858, 629);
 		this.add(back);
 	}

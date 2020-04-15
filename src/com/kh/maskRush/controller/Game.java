@@ -3,6 +3,7 @@ package com.kh.maskRush.controller;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
+import com.kh.maskRush.model.dao.entities.EntityManager;
 import com.kh.maskRush.model.dao.entities.Creature.Player;
 import com.kh.maskRush.model.dao.gfx.Assets;
 import com.kh.maskRush.model.dao.gfx.GameCamera;
@@ -82,7 +83,7 @@ public class Game implements Runnable {
 		miniGameSpacebar = new MiniGameSpacebar(handler);
 		eMartMinigameState = new EMartMinigameState(handler); 
 		
-		State.setState(eMartMinigameState);
+		State.setState(gameState);
 //		if(State.getState() instanceof MiniGameSpacebar) {
 //			File file = new File("res/audio/mappy.wav");
 //	           System.out.println(file.exists()); //true
@@ -110,6 +111,7 @@ public class Game implements Runnable {
 			if(State.getState() != null) {
 				State.getState().tick();
 			}
+			
 	}
 	
 	//drawing stuff to the screen

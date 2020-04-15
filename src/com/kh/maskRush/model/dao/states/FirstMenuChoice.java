@@ -13,6 +13,8 @@ import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.kh.maskRush.model.dao.states.inPharmacy.Inphar_dayoon;
+
 public class FirstMenuChoice extends JFrame {
 
 	private Clip bgm; 
@@ -23,20 +25,26 @@ public class FirstMenuChoice extends JFrame {
 	private File filebgm = new File("C:\\Users\\soi02\\git\\sopung\\res\\textures\\music\\mainbgm.wav");
 	
 	//실행
-	public FirstMenuChoice() {
+	public FirstMenuChoice(int a) {
 
 		this.setBounds(100, 100, 800, 600);
-		
-		//this.add(new FirstMenu(this));
+		switch(a) {
+		case 1: this.add(new FirstMenu(this)); break;
+		case 2 : this.add(new InConvenienceStore(this)); break;
+		case 3 : this.add(new Inphar_dayoon(this)); break;
 		//this.add(new InMarket(this));
 		//this.add(new GetMask(this));
-		this.add(new states_Window(this));
-		
+		//this.add(new states_Window(this));
+		}
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		cursor();
 		
 	}
+	
+	
+	
+	
 	
 	//클릭음
 	public void soundclick() {

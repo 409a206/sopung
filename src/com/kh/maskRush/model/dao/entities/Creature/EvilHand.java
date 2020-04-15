@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import com.kh.maskRush.model.dao.gfx.Assets;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.states.InPharmacy;
+import com.kh.maskRush.model.dao.states.State;
 
 public class EvilHand extends Creature {
 
@@ -27,7 +28,9 @@ public class EvilHand extends Creature {
       pushup(); 
       if(y >= 1050) {
          System.out.println("Clear");
-         System.exit(0);//다음 장면으로 이동.
+         
+         
+         State.setState(handler.getGame().gameState);
       } else if(y <= 650) {
          System.out.println("GAME OVER");
          System.exit(0);//재시작 화면 띄워야함.

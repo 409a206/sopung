@@ -12,8 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.FirstMenuChoice;
+
 public class wrongAnswer extends JPanel {
-	private Menu mainChoice;
+	private FirstMenuChoice mainChoice;
 	private JPanel contentPane;
 	int i = 0;
 	int j = 0;

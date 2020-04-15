@@ -46,7 +46,7 @@ public class EntityManager {
 			Entity e = entities.get(i);
 			e.tick();
 		}
-		entities.sort(renderSorter);
+		entities.sort(renderSorter); // temporary remove
 	}
 	
 	public void render(Graphics g) {

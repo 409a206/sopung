@@ -18,24 +18,18 @@ public class MoveToCity extends JFrame {
 
    private JPanel contentPane;
 
-   public static void main(String[] args) {
+   public static void doRun() {
 
-      EventQueue.invokeLater(new Runnable() {
-         public void run() {
-            try {
+      
                MoveToCity frame = new MoveToCity();
                frame.setVisible(true);
-            } catch (Exception e) {
-               e.printStackTrace();
-            }
-         }
-      });
+           
    }
 
 
 
    public MoveToCity() {
-      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setBounds(0, 0, 800, 600);
       contentPane = new JPanel();   
       contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
