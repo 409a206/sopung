@@ -13,40 +13,17 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.swing.JFrame;
 
-public class FirstMenuChoice extends JFrame {
+public class testFrame extends JFrame {
 	
 	Clip clip;  
-	String path = FirstMenuChoice.class.getResource("/textures/music").getPath();
+	String path = testFrame.class.getResource("/textures/music").getPath();
 	
-	public FirstMenuChoice() {
+	public testFrame() {
 
 		this.setBounds(100, 100, 800, 600);
 
 		//첫 메뉴 실행
-		this.add(new FirstMenu(this));
-	
-		//bgm
-//		File bgm;
-//		AudioInputStream stream;
-//		AudioFormat format;
-//		DataLine.Info info;
-//		bgm = new File(path+"/music.wav");
-//
-//		try {
-//
-//			stream = AudioSystem.getAudioInputStream(bgm);
-//			format = stream.getFormat();
-//			info = new DataLine.Info(Clip.class, format);
-//			clip = (Clip) AudioSystem.getLine(info);
-//			clip.open(stream);
-//			clip.start();
-//
-//		} catch (Exception e) {
-//
-//		}
-
-		//시티실행
-		//this.add(new InCity(this));
+		this.add(new states_Window(this));
 
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

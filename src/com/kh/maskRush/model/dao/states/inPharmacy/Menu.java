@@ -1,4 +1,4 @@
-package com.kh.maskRush.model.dao.states;
+package com.kh.maskRush.model.dao.states.inPharmacy;
 
 import java.awt.Cursor; 
 import java.awt.Image;
@@ -13,17 +13,17 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.swing.JFrame;
 
-public class FirstMenuChoice extends JFrame {
+public class Menu extends JFrame {
 	
-	Clip clip;  
-	String path = FirstMenuChoice.class.getResource("/textures/music").getPath();
+	//Clip clip;  
+	//String path = Menu.class.getResource("/textures/music").getPath();
 	
-	public FirstMenuChoice() {
+	public Menu() {
 
 		this.setBounds(100, 100, 800, 600);
 
 		//첫 메뉴 실행
-		this.add(new FirstMenu(this));
+		this.add(new Inphar_dayoon(this));
 	
 		//bgm
 //		File bgm;
@@ -31,7 +31,7 @@ public class FirstMenuChoice extends JFrame {
 //		AudioFormat format;
 //		DataLine.Info info;
 //		bgm = new File(path+"/music.wav");
-//
+
 //		try {
 //
 //			stream = AudioSystem.getAudioInputStream(bgm);
