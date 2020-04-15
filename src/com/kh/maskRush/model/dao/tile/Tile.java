@@ -21,6 +21,7 @@ public class Tile {
 	public static Tile cityTile2 = new CityTile2(9);
 	public static Tile cityTile3 = new CityTile3(4);
 	public static Tile cityTile4 = new CityTile4(5);
+	public static Tile eMartTile = new EMartTile(12);
 	
 	//CLASS
 	

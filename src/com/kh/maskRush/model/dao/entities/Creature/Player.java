@@ -7,7 +7,7 @@ import java.util.Date;
 public class Player {
 	
 	private Date start = null;
-	private String name = "";
+	private String name = " ";
 	private char genderName = ' ';
 	private Image genderImage = null ;
 	private int birth = 0;
