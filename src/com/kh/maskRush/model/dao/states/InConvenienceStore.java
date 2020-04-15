@@ -25,7 +25,7 @@ public class InConvenienceStore extends JPanel {
 
 		JLabel mask = new JLabel();
 		mask.setBounds(33, 316, 90, 72);
-		mask.setIcon(new ImageIcon(InConvenienceStore.class.getResource("src/InConvenience/mask.gif")));
+		mask.setIcon(new ImageIcon(InConvenienceStore.class.getResource("/InConvenience/mask.gif")));
 		add(mask);
 
 		JPanel boyPanel = new JPanel();
@@ -67,19 +67,19 @@ public class InConvenienceStore extends JPanel {
 
 		JLabel boy = new JLabel();
 		boyPanel.add(boy);
-		boy.setIcon(new ImageIcon(InConvenienceStore.class.getResource("src/InConvenience/maskwithboy.png")));
+		boy.setIcon(new ImageIcon(InConvenienceStore.class.getResource("/InConvenience/maskwithboy.png")));
 		boy.setVisible(true);
 		
 
 		JLabel cu = new JLabel();
-		cu.setIcon(new ImageIcon(InConvenienceStore.class.getResource("src/InConvenience/알바생.png")));
+		cu.setIcon(new ImageIcon(InConvenienceStore.class.getResource("/InConvenience/알바생.png")));
 		cu.setBounds(447, 22, 129, 135);
 		add(cu);
 
 		// 배경라벨
 		JLabel back = new JLabel();
 		// boy.setLabelFor(back);
-		back.setIcon(new ImageIcon(InConvenienceStore.class.getResource("src/InConvenience/map.png")));
+		back.setIcon(new ImageIcon(InConvenienceStore.class.getResource("/InConvenience/map.png")));
 		back.setBounds(14, 0, 858, 629);
 		this.add(back);
 

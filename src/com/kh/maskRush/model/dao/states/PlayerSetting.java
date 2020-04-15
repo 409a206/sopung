@@ -95,12 +95,13 @@ public class PlayerSetting extends JPanel {
 				a.setStart(time);//시작시간 플레이어전달
 				a.setName(realName);
 				System.out.println(a.toString());
-				
+				/////////////////
+				ChangePanel.changePanel(mainChoice, contentPane, new BedroomMonologue(mainChoice,a));
+				mainChoice.soundstop(1);
 				/////////////////////////////////////////////////
-				Game game = new Game("Mask Rush", 800, 600);
-				game.start();
+				//Game game = new Game("Mask Rush", 800, 600, a);
+				//game.start();
 				
-				mainChoice.dispose();
 			}
 		});
 

@@ -1,24 +1,22 @@
 package com.kh.maskRush.model.dao.states.inPharmacy;
 
 import java.awt.Font;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
+
+import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class talk2 extends JPanel {
-	private Menu mainChoice;
+	private FirstMenuChoice mainChoice;
 	private JPanel contentPane;
 	int i = 0;
 	int j = 0;
 
-	public talk2(Menu frame) {
+	public talk2(FirstMenuChoice frame) {
 
 		contentPane = this;
 		this.mainChoice = frame;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
@@ -41,7 +39,7 @@ public class talk2 extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel.changePanel(mainChoice, contentPane, new talk3(mainChoice));
+				changePanel.changePanel(mainChoice, contentPane, new talk3(frame));
 			}
 		});		
 
@@ -49,7 +47,7 @@ public class talk2 extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel.changePanel(mainChoice, contentPane, new talk4(mainChoice));
+				changePanel.changePanel(mainChoice, contentPane, new talk4(frame));
 			}
 		});		
 				

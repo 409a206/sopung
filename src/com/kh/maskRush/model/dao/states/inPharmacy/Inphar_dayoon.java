@@ -12,13 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.FirstMenuChoice;
+
 public class Inphar_dayoon extends JPanel {
 
-	private Menu mainChoice;
+	private FirstMenuChoice mainChoice;
 	private JPanel contentPane;
 	int i = 0;
 
-	public Inphar_dayoon(Menu frame) {
+	public Inphar_dayoon(FirstMenuChoice frame) {
 
 		contentPane = this;
 		this.mainChoice = frame; // FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.

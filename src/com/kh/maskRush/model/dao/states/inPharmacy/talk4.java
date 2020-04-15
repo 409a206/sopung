@@ -12,15 +12,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.FirstMenuChoice;
+
 public class talk4 extends JPanel {
-	private Menu mainChoice;
+	private FirstMenuChoice frame;
 	private JPanel contentPane;
 	int i = 0;
 
-	public talk4(Menu frame) {
+	public talk4(FirstMenuChoice frame) {
 
 		contentPane = this;
-		this.mainChoice = frame;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
+		this.frame = frame;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
 		setBounds(0, 0, 800, 600);
 		this.setLayout(null);
 
@@ -55,7 +57,7 @@ public class talk4 extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				fiveBu.setVisible(true);	
 				if(e.getClickCount() == 2) {
-					changePanel.changePanel(mainChoice, contentPane, new talk_5bu(mainChoice));
+					changePanel.changePanel(frame, contentPane, new talk_5bu(frame));
 
 				}
 			}			

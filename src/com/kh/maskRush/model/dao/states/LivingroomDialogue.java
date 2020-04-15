@@ -22,23 +22,17 @@ public class LivingroomDialogue extends JFrame {
 	private JPanel contentPane;
 	private String path;
 
-	public static void main(String[] args) {
+	public void doRun() {
 
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+		
 					LivingroomDialogue frame = new LivingroomDialogue();
 					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+			
 	}
 
 
 	public LivingroomDialogue() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 800, 600);
 		contentPane = new JPanel();	
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
