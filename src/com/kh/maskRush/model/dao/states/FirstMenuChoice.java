@@ -22,7 +22,6 @@ public class FirstMenuChoice extends JFrame {
 	private File filecredit = new File("C:\\Users\\soi02\\git\\sopung\\res\\textures\\music\\amor2.wav");
 	private File filebgm = new File("C:\\Users\\soi02\\git\\sopung\\res\\textures\\music\\mainbgm.wav");
 	
-	
 	//½ÇÇà
 	public FirstMenuChoice() {
 
@@ -35,7 +34,6 @@ public class FirstMenuChoice extends JFrame {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		cursor();
-		
 		
 	}
 	
