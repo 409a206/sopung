@@ -2,12 +2,8 @@ package com.kh.maskRush.controller;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.io.File;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-
+import com.kh.maskRush.model.dao.entities.Creature.Player;
 import com.kh.maskRush.model.dao.gfx.Assets;
 import com.kh.maskRush.model.dao.gfx.GameCamera;
 import com.kh.maskRush.model.dao.gfx.GameCamera2;
@@ -36,6 +32,8 @@ public class Game implements Runnable {
 	private BufferStrategy bs; 
 	private Graphics g;
 	
+	private Player player;
+	
 	//States
 	public State gameState;
 	public State mainMenuState;
@@ -55,10 +53,11 @@ public class Game implements Runnable {
 	private Handler handler;
 	
 	
-	public Game(String title, int width, int height) {
+	public Game(String title, int width, int height, Player player) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		this.player = player;
 		keyManager = new KeyManager();
 		mouseManager = new MouseManager();
 
@@ -77,8 +76,6 @@ public class Game implements Runnable {
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0); 
 		gameCamera2 = new GameCamera2(this, 0, 0);
-		
-		
 		
 		gameState = new GameState(handler);
 		mainMenuState = new MainMenuState(handler);

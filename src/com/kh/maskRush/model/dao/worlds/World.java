@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import com.kh.maskRush.model.dao.entities.EntityManager;
 import com.kh.maskRush.model.dao.entities.Creature.BoyPlayer;
+import com.kh.maskRush.model.dao.entities.Creature.BoyPlayerMask;
 import com.kh.maskRush.model.dao.entities.statics.Tree;
 import com.kh.maskRush.model.dao.entities.statics.Tree2;
 import com.kh.maskRush.model.dao.entities.statics.Tree3;
@@ -52,7 +53,7 @@ public class World {
 		entityManager.getBoyPlayer().setY(300); // '' '' spawnY
 		
 		} else if(path.equals("res/worlds/world2.txt")) {
-			entityManager = new EntityManager(handler, new BoyPlayer(handler, 700, 300));
+			entityManager = new EntityManager(handler, new BoyPlayerMask(handler, 700, 300));
 			entityManager.addEntity(new Tree(handler, 90, 250));
 			entityManager.addEntity(new Tree(handler, 200, 250));
 			entityManager.addEntity(new Tree(handler, 280, 250));
@@ -60,12 +61,12 @@ public class World {
 			
 			
 		} else if(path.equals("res/worlds/world3.txt")) {
-			entityManager = new EntityManager(handler, new BoyPlayer(handler, 400, 300));
+			entityManager = new EntityManager(handler, new BoyPlayerMask(handler, 400, 300));
 		}
 		else if(path.equals("res/worlds/world4.txt")) {
-			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+			entityManager = new EntityManager(handler, new BoyPlayerMask(handler, 300, 150));
 		} else if(path.equals("res/worlds/eMart.txt")) {
-			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+			entityManager = new EntityManager(handler, new BoyPlayerMask(handler, 300, 150));
 		}
 		
 		loadWorld(path);
