@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -11,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
+
+import com.kh.maskRush.controller.Game;
 
 public class MoveToPharmacy extends JFrame{
 
@@ -42,7 +46,14 @@ public class MoveToPharmacy extends JFrame{
 
       JTextPane textPane = new JTextPane();
       textPane.setEditable(false); // 편집불가.
-      String[] busChat = {"약국으로 들어가시겠습니까?","(Y/N)\r\n"};
+      String[] busChat = {"약국으로 들어가보자!"};
+      
+    //클릭용
+    		JLabel click = new JLabel("(click)");
+    		click.setFont(new Font("DungGeunMo", Font.PLAIN, 24));
+    		click.setBounds(600, 300, 800,300);
+    		contentPane.add(click);
+    		click.setVisible(false);
       
 
       textPane.addKeyListener(new KeyAdapter() {
@@ -51,19 +62,26 @@ public class MoveToPharmacy extends JFrame{
          @Override
          public void keyPressed(KeyEvent e) {
 
+        	 if (i == busChat.length) {
+					click.setVisible(true);
+				}
+
             if(i < busChat.length) {
             if(e.getKeyCode() == KeyEvent.VK_SPACE) {
                textPane.setText(busChat[i]);
+               
+               click.addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent e) {
+						System.out.println("cccccc");
+						dispose();
+//						Game game = new Game("Mask Rush", 800, 600, player);
+//						game.start();
+						
+					}			
+				});
+               
             }
-         } else if(i == busChat.length) {
-        	 if(e.getKeyCode() == KeyEvent.VK_N) {
-        		 dispose();
-        	 }
-        	
-         } if (i == busChat.length) {
-        	 if(e.getKeyCode() == KeyEvent.VK_Y) {
-        		 return;
-        	 }
+     
          }
          }
 

@@ -33,10 +33,10 @@ public class EvilHand extends Creature {
       } else if(y <= 650) {
          System.out.println("GAME OVER");
 //         System.exit(0);//재시작 화면 띄워야함.
-         JLabel backGround = new JLabel();
- 		backGround.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/gameover.png")));
- 		backGround.setBounds(-16, -15, 800, 600);
- 		this.add(backGround);                
+//         JLabel backGround = new JLabel();
+// 		backGround.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/gameover.png")));
+// 		backGround.setBounds(-16, -15, 800, 600);
+// 		this.add(backGround);                
       } else {
          System.out.println(y);
       }           
@@ -45,10 +45,10 @@ public class EvilHand extends Creature {
    //   handler.getGameCamera().centerOnEntity(this);
    }
    
-   private void add(JLabel backGround) {
+ //  private void add(JLabel backGround) {
 	// TODO Auto-generated method stub
 	
-}
+//}
 //input이 들어올때 캐릭터가 어떻게 행동할지 정의
    private void getInput() {
       xMove = 0;
