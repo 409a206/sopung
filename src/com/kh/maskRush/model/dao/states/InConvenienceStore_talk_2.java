@@ -25,7 +25,7 @@ public class InConvenienceStore_talk_2 extends JPanel {
 		this.mainChoice = mainChoice;
 		panel = this;
 		setLayout(null);
-		setBounds(100, 100, 800, 600);
+		setBounds(0, 0, 800, 600);
 
 		//보이라벨+패녈
 		JLabel boy = new JLabel();
