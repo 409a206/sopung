@@ -47,7 +47,7 @@ public class Display extends JFrame {
 		canvas.setFocusable(false); //JFrame should be the only thing that should be focused on
 		
 		panel = new JPanel();
-		frame.add(panel);
+//		frame.add(panel);
 		
 		frame.add(canvas);
 		frame.pack(); // packs frame so that we can see the canvas fully

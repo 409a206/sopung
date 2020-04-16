@@ -1,9 +1,10 @@
 package com.kh.maskRush.model.dao.states;
 
-import java.awt.EventQueue; 
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -11,7 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.basic.BasicEditorPaneUI;
+
+import com.kh.maskRush.model.dao.handler.Handler;
 
 
 
@@ -21,16 +23,17 @@ public class LivingroomDialogue extends JFrame {
 	private JLabel backGround;
 	private JPanel contentPane;
 	private String path;
-
+	private Handler handler;
+	
 	public void doRun() {
-
+		
 		
 					LivingroomDialogue frame = new LivingroomDialogue();
 					frame.setVisible(true);
 			
 	}
-
-
+	
+	
 	public LivingroomDialogue() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 800, 600);
@@ -38,16 +41,16 @@ public class LivingroomDialogue extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-	
+		
 		JTextPane textPane = new JTextPane();
 		textPane.setEditable(false);;
 		
 		contentPane.add(textPane);
 		textPane.setFont(new Font("둥근모꼴", Font.PLAIN, 24));
 		textPane.setBounds(88, 400, 446, 127);
-
 		
-
+		
+		
 		JLabel talk = new JLabel();
 		talk.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/대화창2.png")));
 		talk.setBounds(-10, -25, 800, 600);
@@ -59,7 +62,12 @@ public class LivingroomDialogue extends JFrame {
 		backGround.setIcon(new ImageIcon(InBus.class.getResource(path)));
 		contentPane.add(backGround);	
 
-		
+		//클릭용
+		JLabel click = new JLabel("(click)");
+		click.setFont(new Font("DungGeunMo", Font.PLAIN, 24));
+		click.setBounds(600, 300, 800,300);
+		contentPane.add(click);
+		click.setVisible(false);
 		String[] busChat = {"TV소리 : 최근 신종 코로나 바이러스가 극성입니다. 외출시 각별히 주의하시고...", "(삑! 치지직...)","아휴...", "바이러스가 난리인데 " + 
 						"마스크가 없어서 걱정이네...", "광택나는 진호야 나가서 마스크좀 사오렴!", "엄마가 동생도 봐야하고 집안일로 바빠서 " + 
 								"네가 좀 갔다 왔으면 좋겠구나.", "네 엄마. 마스크는 어디서 구하죠?", "우선 도시로 나가 마트에 들러 보거라.",
@@ -69,7 +77,9 @@ public class LivingroomDialogue extends JFrame {
 										"다른 사람들과 접촉을 최대한 피하고 " + 
 										"마스크는 절대로 벗지 마렴!", "네 명심할게요 엄마. 다녀오겠습니다!", "조심히 다녀와야돼!", "에이 엄마 걱정마세요! 금방 다녀올게요!",
 										"(밖으로 나가보자!)"};
-		
+		backGround.setIcon(new ImageIcon(InBus.class.getResource("/textures/living1.png")));
+		backGround.setBounds(-16, -15, 800, 600);
+		contentPane.add(backGround);
 		
 		textPane.addKeyListener(new KeyAdapter() {
 			
@@ -77,6 +87,9 @@ public class LivingroomDialogue extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				
+				if(i == busChat.length - 1) {
+					click.setVisible(true);
+				}
 				
 				if(i < busChat.length) {
 				if(e.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -94,7 +107,17 @@ public class LivingroomDialogue extends JFrame {
 							backGround.setBounds(-16, -15, 800, 600);
 							contentPane.add(backGround);
 						}
-					} 
+						
+					}
+
+				click.addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent e) {
+						System.out.println("cccccc");
+						dispose();
+						
+						
+					}			
+				});
 			
 			}
 			}
@@ -106,8 +129,10 @@ public class LivingroomDialogue extends JFrame {
 
 		});
 
-
-	
+//
+//		backGround.setIcon(new ImageIcon(InBus.class.getResource("/textures/living1.png")));
+//		backGround.setBounds(-16, -15, 800, 600);
+//		contentPane.add(backGround);
 		
 //
 //		JLabel bus = new JLabel();
