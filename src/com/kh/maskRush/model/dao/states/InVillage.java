@@ -38,7 +38,6 @@ public class InVillage extends JPanel {
 		boy.setIcon(new ImageIcon(InVillage.class.getResource("/textures/maskwithboy.png")));
 		//캐릭터패널
 		character = new JPanel();
-		character.setFocusable(false); //패널 움직이게 하려면 필수
 		character.setFocusable(true); //패널 움직이게 하려면 필수
 		character.addKeyListener(new MyKeyListener());
 		character.setBounds(373, 378, 100, 100);	

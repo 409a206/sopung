@@ -66,7 +66,7 @@ public class InRoomConv extends JPanel{
 					}
 					click.addMouseListener(new MouseAdapter() {
 						public void mouseClicked(MouseEvent e) {
-							ChangePanel.changePanel(mainChoice, panel, new Room(mainChoice));
+							ChangePanel.changePanel(mainChoice, panel, new House(mainChoice));
 						}
 					});
 				}

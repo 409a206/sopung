@@ -38,11 +38,11 @@ public class FirstMenuChoice extends JFrame {
 		this.setBounds(0, 0, 800, 600);
 		switch(a) {
 		case 1: this.add(new FirstMenu(this)); break;
-		case 2 : this.add(new InConvenienceStore(this)); break;
+		case 2 : this.add(new InVillage(this)); break;
 		case 3 : this.add(new Inphar_dayoon(this)); break;
 		case 4 : this.add(new InMarket(this)); break;
 		case 5 : this.add(new GetMask(this)); break;
-		case 6 : this.add(new InVillage(this)); break;
+		case 6 : this.add(new InConvenienceStore(this)); break;
 		case 7 : this.add(new Room(this)); break;
 		}
 		this.setVisible(true);
