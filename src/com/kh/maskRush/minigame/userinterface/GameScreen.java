@@ -56,7 +56,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 	public void startGame() {
 		thread = new Thread(this);
 		thread.start();
-		timer.start();
+//		timer.start();
 	}
 
 	public void gameUpdate() {
@@ -159,6 +159,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 			case START_GAME_STATE:
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 					gameState = GAME_PLAYING_STATE;
+					timer.start();
 				}
 				break;
 			case GAME_PLAYING_STATE:
@@ -199,10 +200,10 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 		enemiesManager.reset();
 		mainCharacter.dead(false);
 		mainCharacter.reset();
-		timer.stop();
-		if(timer.getState() == Thread.State.NEW) {
-			timer.start();
-		}
+//		timer.stop();
+//		if(timer.getState() == Thread.State.NEW) {
+//			timer.start();
+//		}
 	}
 
 
