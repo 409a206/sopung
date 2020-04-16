@@ -14,7 +14,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.kh.maskRush.controller.Game;
 import com.kh.maskRush.model.dao.entities.Creature.Player;
-import com.kh.maskRush.model.dao.states.inPharmacy.changePanel;
+
 import com.kh.maskRush.model.dao.states.inPharmacy.talk2;
 
 
@@ -64,18 +64,18 @@ public class BedroomMonologue extends JPanel {
 				if(i < busChat.length) {
 					if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 						textPane.setText(busChat[i]);
+
+						   click.addMouseListener(new MouseAdapter() {
+								public void mouseClicked(MouseEvent e) {
+									System.out.println("cccccc");
+		//							dispose();
+//									Game game = new Game("Mask Rush", 800, 600, player);
+//									game.start();
+									
+								}			
+							});
 					}
-
-
-					click.addMouseListener(new MouseAdapter() {
-						public void mouseClicked(MouseEvent e) {
-							System.out.println("cccccc");
-							mainChoice.dispose();
-							Game game = new Game("Mask Rush", 800, 600, player);
-							game.start();
-							
-						}			
-					});
+					
 				}
 			}
 			@Override

@@ -14,7 +14,7 @@ import javax.swing.border.EmptyBorder;
 
 
 
-public class MaskMiniExplain1 extends JFrame {
+public class MaskMiniRestart extends JFrame {
 
    private JPanel contentPane;
 
@@ -23,7 +23,7 @@ public class MaskMiniExplain1 extends JFrame {
       EventQueue.invokeLater(new Runnable() {
          public void run() {
             try {
-               MaskMiniExplain1 frame = new MaskMiniExplain1();
+               MaskMiniRestart frame = new MaskMiniRestart();
                frame.setVisible(true);
             } catch (Exception e) {
                e.printStackTrace();
@@ -34,7 +34,7 @@ public class MaskMiniExplain1 extends JFrame {
 
 
 
-   public MaskMiniExplain1() {
+   public MaskMiniRestart() {
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setBounds(0, 0, 800, 600);
       contentPane = new JPanel();   

@@ -17,7 +17,7 @@ import javax.swing.plaf.basic.BasicEditorPaneUI;
 
 
 
-public class HomegroundMonologue extends JFrame {
+public class HometownFinalMonologue extends JFrame {
 	
 	
 	private JLabel backGround;
@@ -27,13 +27,13 @@ public class HomegroundMonologue extends JFrame {
 	public void doRun() {
 
 		
-					HomegroundMonologue frame = new HomegroundMonologue();
+					HometownFinalMonologue frame = new HometownFinalMonologue();
 					frame.setVisible(true);
 			
 	}
 
 
-	public HomegroundMonologue() {
+	public HometownFinalMonologue() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 800, 600);
 		contentPane = new JPanel();	
@@ -62,7 +62,7 @@ public class HomegroundMonologue extends JFrame {
 		contentPane.add(backGround);	
 
 		
-		String[] busChat = {"일단 이 시골엔 마트도 없고.. 편의점도... 약국도...","...","그래 일단 도시로 가야겠어!", "(오른쪽 길로 나가세요!)"};
+		String[] busChat = {"드디어 집에 돌아왔다...!"};
 		
 		  //클릭용
 				JLabel click = new JLabel("(click)");
@@ -110,7 +110,7 @@ public class HomegroundMonologue extends JFrame {
 	
 
 		JLabel backGround = new JLabel();
-		backGround.setIcon(new ImageIcon(InBus.class.getResource("/textures/HomegroundMonologue.png")));
+		backGround.setIcon(new ImageIcon(InBus.class.getResource("/textures/Homego.png")));
 		backGround.setBounds(-16, -15, 800, 600);
 		this.add(backGround);	
 

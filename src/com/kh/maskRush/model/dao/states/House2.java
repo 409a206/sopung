@@ -66,6 +66,7 @@ public class House2 extends JPanel {
 						public void mouseClicked(MouseEvent e) {
 							//ChangePanel.changePanel(mainChoice, panel, new InConvenienceStore_talk_2(mainChoice));
 							mainChoice.dispose();
+							
 						}
 					});
 				}
