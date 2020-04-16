@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.kh.maskRush.minigame.userinterface.GameScreen;
+import com.kh.maskRush.model.dao.states.InConvenienceStore_talk_2;
 
 public class Timer extends Thread{
 	
@@ -28,7 +29,7 @@ public class Timer extends Thread{
 //		label.setBounds(850, 0, 150, 50);
 //		label.setFont(new Font("Sanscerif", Font.BOLD, 20));
 //		panel.add(label);
-		for(int i = 10; i >= 0; i--){
+		for(int i = 60; i >= 0; i--){
 			try {
 				System.out.println(i);
 				Thread.sleep(1000);
@@ -39,8 +40,8 @@ public class Timer extends Thread{
 			
 		}
 		
-		
-		userId = JOptionPane.showInputDialog(""); //다음 장면 연결
+		new InConvenienceStore_talk_2(null);
+//		userId = JOptionPane.showInputDialog(""); //다음 장면 연결
 				
 				
 		
