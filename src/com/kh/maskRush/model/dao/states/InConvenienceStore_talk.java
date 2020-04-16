@@ -28,7 +28,7 @@ public class InConvenienceStore_talk extends JPanel {
 		this.mainChoice = mainChoice;
 		panel = this;
 		setLayout(null);
-		setBounds(100, 100, 800, 600);
+		setBounds(0, 0, 800, 600);
 
 		JPanel boyPanel = new JPanel();
 		boyPanel.setBackground(new Color(255, 0, 0, 0));

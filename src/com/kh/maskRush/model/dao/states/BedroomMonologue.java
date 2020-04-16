@@ -21,13 +21,14 @@ import com.kh.maskRush.model.dao.states.inPharmacy.talk2;
 
 public class BedroomMonologue extends JPanel {
 
-	private static Player player;
+	//private static Player player;
+	private Player a;
 	private JPanel contentPane;
 	private boolean exit = false;
 	private FirstMenuChoice mainChoice;
 	int i = 0;
 
-	public BedroomMonologue(FirstMenuChoice mainChoice, Player player) {
+	public BedroomMonologue(FirstMenuChoice mainChoice, Player a) {
 
 		this.mainChoice = mainChoice;
 		contentPane = this;
@@ -41,7 +42,7 @@ public class BedroomMonologue extends JPanel {
 		contentPane.add(click);
 		click.setVisible(false);
 
-		this.player = player;
+		//this.player = player;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		JTextPane textPane = new JTextPane();
@@ -69,10 +70,11 @@ public class BedroomMonologue extends JPanel {
 
 					click.addMouseListener(new MouseAdapter() {
 						public void mouseClicked(MouseEvent e) {
-							System.out.println("cccccc");
-							mainChoice.dispose();
-							Game game = new Game("Mask Rush", 800, 600, player);
-							game.start();
+
+							//mainChoice.dispose();
+							ChangePanel.changePanel(mainChoice, contentPane, new Room(mainChoice, a));
+//							Game game = new Game("Mask Rush", 800, 600, player);
+//							game.start();
 							
 						}			
 					});
@@ -93,7 +95,7 @@ public class BedroomMonologue extends JPanel {
 		textPane.setBounds(88, 400, 446, 127);
 
 		JLabel talk = new JLabel();
-		talk.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/대화창2.png")));
+		talk.setIcon(new ImageIcon(BedroomMonologue.class.getResource("/textures/대화창2.png")));
 		talk.setBounds(-10, -25, 800, 600);
 		this.add(talk);
 
@@ -104,7 +106,7 @@ public class BedroomMonologue extends JPanel {
 		//		contentPane.add(bus);
 
 		JLabel backGround = new JLabel();
-		backGround.setIcon(new ImageIcon(InBus.class.getResource("/textures/bedroomMonoC.png")));
+		backGround.setIcon(new ImageIcon(BedroomMonologue.class.getResource("/textures/bedroomMonoC.png")));
 		backGround.setBounds(-16, -15, 800, 600);
 		this.add(backGround);	
 
