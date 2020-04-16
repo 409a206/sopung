@@ -29,7 +29,7 @@ public class Timer extends Thread{
 //		label.setBounds(850, 0, 150, 50);
 //		label.setFont(new Font("Sanscerif", Font.BOLD, 20));
 //		panel.add(label);
-		for(int i = 60; i >= 0; i--){
+		for(int i = 5; i >= 0; i--){
 			try {
 				System.out.println(i);
 				Thread.sleep(1000);

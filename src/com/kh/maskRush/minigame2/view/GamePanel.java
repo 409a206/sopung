@@ -1,9 +1,11 @@
 package com.kh.maskRush.minigame2.view;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,6 +23,7 @@ public class GamePanel extends JPanel{
 	
 	private BufferedImage replayButtonImage;
 	private BufferedImage gameOverButtonImage;
+	
 	
 	private JLabel[] arrows;
 	private ArrayList<JLabel> inputs;
@@ -86,54 +89,54 @@ public class GamePanel extends JPanel{
 	public void buttonInit() {
 		x = 50;
 		
-		arrows[0] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/1-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		arrows[1] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/4-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		arrows[2] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/2-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		arrows[3] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/2-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		arrows[4] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/1-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		arrows[5] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/2-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		arrows[6] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/3-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		arrows[7] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/3-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		arrows[8] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/3-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		arrows[9] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/1-black1.png").getImage().getScaledInstance(80, 80, 0)));
-		
-		arrows[0].setBounds(x, 500, 80, 80);
-		x += 90;
-		arrows[1].setBounds(x, 500, 80, 80);
-		x += 90;
-		arrows[2].setBounds(x, 500, 80, 80);
-		x += 90;
-		arrows[3].setBounds(x, 500, 80, 80);
-		x += 90;
-		arrows[4].setBounds(x, 500, 80, 80);
-		x += 90;
-		arrows[5].setBounds(x, 500, 80, 80);
-		x += 90;
-		arrows[6].setBounds(x, 500, 80, 80);
-		x += 90;
-		arrows[7].setBounds(x, 500, 80, 80);
-		x += 90;
-		arrows[8].setBounds(x, 500, 80, 80);
-		x += 90;
-		arrows[9].setBounds(x, 500, 80, 80);
-		x += 90;
-		
-		for(int i = 0; i < arrows.length; i++) {
-			this.add(arrows[i]);
-			this.repaint();
-		}
-		
-		
+//		arrows[0] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/1-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		arrows[1] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/4-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		arrows[2] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/2-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		arrows[3] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/2-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		arrows[4] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/1-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		arrows[5] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/2-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		arrows[6] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/3-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		arrows[7] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/3-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		arrows[8] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/3-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		arrows[9] = new JLabel(new ImageIcon(new ImageIcon("com/kh/maskRush/images/1-black1.png").getImage().getScaledInstance(80, 80, 0)));
+//		
+//		arrows[0].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		arrows[1].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		arrows[2].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		arrows[3].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		arrows[4].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		arrows[5].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		arrows[6].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		arrows[7].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		arrows[8].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		arrows[9].setBounds(x, 500, 80, 80);
+//		x += 90;
+//		
 //		for(int i = 0; i < arrows.length; i++) {
-//			int num = new Random().nextInt(4) + 1;
-//			arrNo[i] = num;
-//			URL url = getClass().getClassLoader().getResource(num+"-blue.png");
-//			arrows[i] = new JLabel(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(80, 80, 0)));
-//			arrows[i].setBounds(x, 500, 80, 80);
-//			x += 90;
 //			this.add(arrows[i]);
 //			this.repaint();
 //		}
+//		
+		
+		for(int i = 0; i < arrows.length; i++) {
+			int num = new Random().nextInt(4) + 1;
+			arrNo[i] = num;
+			URL url = getClass().getClassLoader().getResource("com/kh/maskRush/images/" + num+"-black1.png");
+			arrows[i] = new JLabel(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(80, 80, 0)));
+			arrows[i].setBounds(x, 500, 80, 80);
+			x += 90;
+			this.add(arrows[i]);
+			this.repaint();
+		}
 	}
 	
 	public void addButton(int num) {
@@ -147,11 +150,28 @@ public class GamePanel extends JPanel{
 			String color = "";
 			if(arrNo[index] == num) {
 				color = "blue";
+				this.setBackground(Color.BLUE);
+//				JPanel back = null;
+				
+//				try {
+//					back = new JPanelWithBackground("com/kh/maskRush/images/O.png");
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+				
 				
 				URL url = getClass().getClassLoader().getResource("filename");
 				
 			} else {
+//				JPanel back = null;
+//				
+//				try {
+//					back = new JPanelWithBackground("com/kh/maskRush/images/X.png");
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
 				
+				this.setBackground(Color.RED);
 				color = "red";
 				
 			}
