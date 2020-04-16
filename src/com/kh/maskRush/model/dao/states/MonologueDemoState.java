@@ -20,13 +20,16 @@ import com.kh.maskRush.view.Display;
 
 public class MonologueDemoState extends State {
 
-   public MonologueDemoState(Handler handler) {
-		super(handler);
-	}
-
 private JPanel contentPane;
 private Display display;
 private JFrame frame;
+
+   public MonologueDemoState(Handler handler) {
+		super(handler);
+		
+	    
+	}
+
  
   
 
@@ -38,15 +41,20 @@ public void tick() {
 
 @Override
 public void render(Graphics g) {
+//	g.dispose();
+	frame.remove(handler.getGame().getDisplay().getCanvas());
+	contentPane = handler.getGame().getDisplay().getPanel();
 	frame = handler.getGame().getDisplay().getFrame();
-    contentPane = handler.getGame().getDisplay().getPanel();
+	
+//	frame.remove(handler.getGame().getDisplay().getCanvas());
+	
     contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     frame.setContentPane(contentPane);
     contentPane.setLayout(null);
-
+   
     JTextPane textPane = new JTextPane();
     textPane.setEditable(false); // 편집불가.
-    String[] busChat = {"편의점으로 들어가시겠습니까?","(Y/N)\r\n"};
+    String[] busChat = {"편의점으로 들어가시겠습니까?","(Y/N)\r\n", "Awef", "awef", "awefao;ijf"};
     
 
     textPane.addKeyListener(new KeyAdapter() {
@@ -85,7 +93,6 @@ public void render(Graphics g) {
     backGround.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/cityToConvenienceStore.png")));
     backGround.setBounds(-16, -15, 800, 600);
     frame.add(backGround);
-    
 }
 
 }

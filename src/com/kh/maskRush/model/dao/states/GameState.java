@@ -39,8 +39,8 @@ public class GameState extends State {
 			handler.setWorld(world);
 			handler.getGameCamera().move(0, 0);
 			
-//			new LivingroomDialogue().doRun();
-			State.setState(handler.getGame().monologueDemoState);
+			new LivingroomDialogue().doRun();
+			
 		
 		}
 		if(world.getEntityManager().getBoyPlayer().getY() > 600  
@@ -60,7 +60,7 @@ public class GameState extends State {
 			handler.setWorld(world);
 			handler.getGameCamera().move(0, 0);
 			
-			new MoveToCity().doRun();
+			new InBus().doRun();
 //			handler.getWorld().getEntityManager().getBoyPlayer().setX(300);
 //			handler.getWorld().getEntityManager().getBoyPlayer().setY(150);
 			handler.getKeyManager().right = false;

@@ -18,24 +18,15 @@ public class InBus extends JFrame {
 
 	private JPanel contentPane;
 
-	public static void main(String[] args) {
-
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					InBus frame = new InBus();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public void doRun() {
+		InBus frame = new InBus();
+		frame.setVisible(true);
 	}
 
 
 
 	public InBus() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 800, 600);
 		contentPane = new JPanel();	
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -45,7 +36,7 @@ public class InBus extends JFrame {
 		JTextPane textPane = new JTextPane();
 		String[] busChat = {"혼자 도시에는 왜 가니?","가족들 마스크 사려구요!","오 참 착한 아이구나!\r\n" + 
 				"꼭 구하길 바란다!","감사합니다!"};
-
+		textPane.setEditable(false);
 		textPane.addKeyListener(new KeyAdapter() {
 
 			int i = 0;

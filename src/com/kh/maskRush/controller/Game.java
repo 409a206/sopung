@@ -1,6 +1,7 @@
 package com.kh.maskRush.controller;
 
 import java.awt.Graphics;
+import java.awt.Label;
 import java.awt.image.BufferStrategy;
 
 import com.kh.maskRush.model.dao.entities.Creature.Player;
@@ -84,6 +85,7 @@ public class Game implements Runnable {
 		eMartMinigameState = new EMartMinigameState(handler);
 		monologueDemoState = new MonologueDemoState(handler);
 		
+		
 		State.setState(gameState);
 //		if(State.getState() instanceof MiniGameSpacebar) {
 //			File file = new File("res/audio/mappy.wav");
@@ -112,6 +114,7 @@ public class Game implements Runnable {
 			if(State.getState() != null) {
 				State.getState().tick();
 			}
+			
 			
 	}
 	
@@ -233,5 +236,7 @@ public class Game implements Runnable {
 	public void setDisplay(Display display) {
 		this.display = display;
 	}
+
+	
 	
 }
