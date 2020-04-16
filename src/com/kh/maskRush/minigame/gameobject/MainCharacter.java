@@ -176,7 +176,7 @@ public class MainCharacter {
 				System.out.println(i);
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				return;
 			}
 		}
 		

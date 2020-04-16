@@ -88,7 +88,7 @@ public class GamePanel extends JPanel{
 		for(int i = 0; i < arrows.length; i++) {
 			int num = new Random().nextInt(4) + 1;
 			arrNo[i] = num;
-			URL url = getClass().getClassLoader().getResource("res/textures/" + num + "-black.png");
+			URL url = getClass().getClassLoader().getResource(num+"-blue.png");
 			arrows[i] = new JLabel(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(80, 80, 0)));
 			arrows[i].setBounds(x, 500, 80, 80);
 			x += 90;

@@ -25,6 +25,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 	private static final int GAME_PLAYING_STATE = 1;
 	private static final int GAME_OVER_STATE = 2;
 	private static final int GAME_CLEAR_STATE = 3;
+
 	
 //	private Timer timerr;
 	private Land land;
@@ -88,7 +89,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 			mainCharacter.draw(g);
 			g.setColor(Color.BLACK);
 			
-			g.drawString("남은시간 : " + timer, 200, 20);
+//			g.drawString("남은시간 : " + timer, 200, 20);
 			if (gameState == GAME_OVER_STATE) {
 				g.drawImage(gameOverButtonImage, 230, 30, null);
 				g.drawImage(replayButtonImage, 240, 60, null);
@@ -198,6 +199,10 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 		enemiesManager.reset();
 		mainCharacter.dead(false);
 		mainCharacter.reset();
+		timer.stop();
+		if(timer.getState() == Thread.State.NEW) {
+			timer.start();
+		}
 	}
 
 
