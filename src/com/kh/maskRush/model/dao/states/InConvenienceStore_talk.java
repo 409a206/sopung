@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.minigame.userinterface.GameWindow;
+
 
 public class InConvenienceStore_talk extends JPanel {
 
@@ -19,8 +21,8 @@ public class InConvenienceStore_talk extends JPanel {
 	private FirstMenuChoice mainChoice;
 	int i = 0;
 
-	String[] contalk = { "¸¶½ºÅ© ÇÑ°³ °è»êÇØ ÁÖ¼¼¿ä!", "¾Ñ! °øÇ×µµµÏÀÌ ³ªÅ¸³µ´Ù!", "¸¶½ºÅ© ³»²¨¶ó°í¿À~! ³»³õÀ¸¶ó°í¿À~!", "°øÇ×µµµÏÀÌ ¸¶½ºÅ©¸¦ ÈÉÃÄ°¬´Ù!!!",
-	"¾ó¸¥ µÇÃ£¾Æ¾ßÇØ!!" };
+	String[] contalk = { "ï¿½ï¿½ï¿½ï¿½Å© ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!", "ï¿½ï¿½! ï¿½ï¿½ï¿½×µï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½!", "ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~!", "ï¿½ï¿½ï¿½×µï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½!!!",
+	"ï¿½ï¿½ ï¿½ï¿½Ã£ï¿½Æ¾ï¿½ï¿½ï¿½!!" };
 
 	public InConvenienceStore_talk(FirstMenuChoice mainChoice) {
 
@@ -41,27 +43,27 @@ public class InConvenienceStore_talk extends JPanel {
 		boy.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/maskwithboy.png")));
 		boy.setVisible(true);
 
-		//Å¬¸¯¿ë
+		//Å¬ï¿½ï¿½ï¿½ï¿½
 		JLabel click = new JLabel("(click)");
 		click.setFont(new Font("DungGeunMo", Font.PLAIN, 24));
 		click.setBounds(600, 300, 800,300);
 		panel.add(click);
 		click.setVisible(false);
 
-		// ¾Ë¹Ù»ý
+		// ï¿½Ë¹Ù»ï¿½
 		JLabel cu = new JLabel();
-		cu.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/¾Ë¹Ù»ý.png")));
+		cu.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/ï¿½Ë¹Ù»ï¿½.png")));
 		cu.setBounds(447, 22, 129, 135);
 		add(cu);
 
-		// ´ëÈ­
+		// ï¿½ï¿½È­
 		JTextPane textPane = new JTextPane();
 		textPane.requestFocus();
 		textPane.requestFocus(true);
 		textPane.setEditable(false);
 		textPane.setBounds(88, 400, 446, 127);
 		this.add(textPane);
-		textPane.setFont(new Font("³ª´®½ºÄù¾î¶ó¿îµå Bold", Font.PLAIN, 24));
+		textPane.setFont(new Font("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Bold", Font.PLAIN, 24));
 
 
 		textPane.addKeyListener(new KeyAdapter() {
@@ -80,7 +82,7 @@ public class InConvenienceStore_talk extends JPanel {
 					}
 					click.addMouseListener(new MouseAdapter() {
 						public void mouseClicked(MouseEvent e) {
-							ChangePanel.changePanel(mainChoice, panel, new InConvenienceStore_talk_2(mainChoice));
+							ChangePanel.changePanel(mainChoice, panel, new GameWindow(mainChoice));
 						}
 					});
 				}
@@ -88,7 +90,7 @@ public class InConvenienceStore_talk extends JPanel {
 		});
 
 
-		// °øÇ×µµµÏ
+		// ï¿½ï¿½ï¿½×µï¿½ï¿½ï¿½
 		JLabel thief = new JLabel();
 		thief.setVisible(true);
 		thief.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/thief2.png")));
@@ -96,13 +98,13 @@ public class InConvenienceStore_talk extends JPanel {
 		add(thief);
 
 
-		// ´ëÈ­Ã¢¶óº§
+		// ï¿½ï¿½È­Ã¢ï¿½ï¿½
 		JLabel talk = new JLabel();
-		talk.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/´ëÈ­Ã¢.png")));
+		talk.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/ï¿½ï¿½È­Ã¢.png")));
 		talk.setBounds(70, 150, 800, 600);
 		this.add(talk);
 
-		// ¹è°æ¶óº§
+		// ï¿½ï¿½ï¿½ï¿½
 		JLabel back = new JLabel();
 		// boy.setLabelFor(back);
 		back.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/map.png")));
