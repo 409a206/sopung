@@ -51,7 +51,6 @@ public class HomegroundMonologue extends JPanel {
 
 		textPane.addKeyListener(new KeyAdapter() {
 
-
 			@Override
 			public void keyPressed(KeyEvent e) {
 
@@ -65,12 +64,12 @@ public class HomegroundMonologue extends JPanel {
 
 				if (i == busChat.length) {
 					ChangePanel.changePanel(mainChoice, contentPane, new InVillage(mainChoice));
-//					click.setVisible(true);
-//					click.addMouseListener(new MouseAdapter() {
-//						public void mouseClicked(MouseEvent e) {
-//							ChangePanel.changePanel(mainChoice, contentPane, new InVillage(mainChoice));
-//						}
-//					});
+					click.setVisible(true);
+					click.addMouseListener(new MouseAdapter() {
+						public void mouseClicked(MouseEvent e) {
+							ChangePanel.changePanel(mainChoice, contentPane, new InVillage(mainChoice));
+						}
+					});
 				}
 
 			}
