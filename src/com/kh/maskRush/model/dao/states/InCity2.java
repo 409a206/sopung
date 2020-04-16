@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class InCity extends JPanel {
+public class InCity2 extends JPanel {
 
 	private JPanel contentPane;
 	private JPanel character;
@@ -33,7 +33,7 @@ public class InCity extends JPanel {
 
 
 	//기본패널설정
-	public InCity (FirstMenuChoice mainChoice) {
+	public InCity2 (FirstMenuChoice mainChoice) {
 
 		contentPane = this;	//넘길때 써야하니까 패널변수 하나 만들어서 this 저장
 		this.mainChoice = mainChoice;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
@@ -98,12 +98,11 @@ public class InCity extends JPanel {
 //		marketm.setLocation(428, 76);
 //
 //		mainChoice.getContentPane().add(this);
-
 		//도시배경
-		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/city/city3.png")));
-		background.setBounds(-20, -20, 800, 600);
-		this.add(background);
+				JLabel background = new JLabel();
+				background.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/city/city2.png")));
+				background.setBounds(-20, -20, 800, 600);
+				this.add(background);
 
 	}
 
@@ -114,14 +113,14 @@ public class InCity extends JPanel {
 		character = new JPanel();
 		character.setFocusable(true); //패널 움직이게 하려면 필수
 		character.addKeyListener(new MyKeyListener());
-		character.setBounds(20, 20, 100, 100);	
+		character.setBounds(400, 200, 100, 100);	//캐릭터 위치 크기 설정
 		character.setBackground(new Color(255, 0, 0, 0));	//패널 배경 투명으로
-		this.add(character);
 
 		//캐릭터라벨을 캐릭터 패널 위로.
 		boy = new JLabel();
 		boy.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/boy.png")));
 		character.add(boy);
+		contentPane.add(character);
 	}
 
 	//내부클래스 키리스너
@@ -134,23 +133,27 @@ public class InCity extends JPanel {
 			switch (keyCode) {
 			case KeyEvent.VK_UP:
 				character.setLocation(character.getX(), character.getY() - move);
-				System.out.println("위");
+//				System.out.println("위");
 				break;
 			case KeyEvent.VK_DOWN:
 				character.setLocation(character.getX(), character.getY() + move);
-				System.out.println("아래");
+//				System.out.println("아래");
 				break;
 			case KeyEvent.VK_LEFT:
 				character.setLocation(character.getX() - move, character.getY());
-				System.out.println("왼");
+//				System.out.println("왼");
+				System.out.println(character.getLocation());
 				break;
 			case KeyEvent.VK_RIGHT:
 				character.setLocation(character.getX() + move, character.getY());
-				System.out.println("오");
+//				System.out.println("오");
 				break;
 			}
-			
-
+//			if(character.getX() <= 0 ) {
+//				
+//				ChangePanel.changePanel(mainChoice, contentPane, new InCity1(mainChoice));
+//			}
+				
 			
 		}
 	}

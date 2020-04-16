@@ -30,7 +30,7 @@ public class InVillage extends JPanel {
 
 		//마켓배경
 		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(InVillage.class.getResource("/textures/countryside/\uC9D1\uC55E.png")));
+		background.setIcon(new ImageIcon(InVillage.class.getResource("/textures/countryside/집앞.png")));
 		background.setBounds(-97, -11, 1099, 702);
 		this.add(background);
 		

@@ -43,6 +43,7 @@ public class FirstMenuChoice extends JFrame {
 		case 4 : this.add(new InMarket(this)); break;
 		case 5 : this.add(new GetMask(this)); break;
 		case 6 : this.add(new InVillage(this)); break;
+		case 7 : this.add(new InCity1(this)); break;
 		}
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
