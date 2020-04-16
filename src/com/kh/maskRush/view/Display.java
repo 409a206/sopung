@@ -10,6 +10,7 @@ public class Display extends JFrame {
 	
 	private JFrame frame;
 	private Canvas canvas; //draw graphical elements on canvas and add to frame 
+	private JPanel panel;
 	
 	private String title;
 	private int width, height;
@@ -45,6 +46,8 @@ public class Display extends JFrame {
 		canvas.setMinimumSize(new Dimension(width, height));
 		canvas.setFocusable(false); //JFrame should be the only thing that should be focused on
 		
+		panel = new JPanel();
+		frame.add(panel);
 		
 		frame.add(canvas);
 		frame.pack(); // packs frame so that we can see the canvas fully
@@ -100,6 +103,14 @@ public class Display extends JFrame {
 
 	public void setHeight(int height) {
 		this.height = height;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
 	}
 	
 	
