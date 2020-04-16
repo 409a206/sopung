@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -57,9 +58,19 @@ public class MoveToConvenienceStore extends JFrame {
             if(e.getKeyCode() == KeyEvent.VK_SPACE) {
                textPane.setText(busChat[i]);
             }
+         } else if(i == busChat.length) {
+        	 if(e.getKeyCode() == KeyEvent.VK_N) {
+        		 dispose();
+        	 }
+        	
+         } if (i == busChat.length) {
+        	 if(e.getKeyCode() == KeyEvent.VK_Y) {
+        		 return;
+        	 }
          }
          }
 
+         
          @Override
          public void keyReleased(KeyEvent e) {
             i++;

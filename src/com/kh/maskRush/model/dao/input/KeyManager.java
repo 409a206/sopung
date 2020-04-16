@@ -18,6 +18,8 @@ public class KeyManager implements KeyListener {
 		left = keys[KeyEvent.VK_LEFT];
 		right = keys[KeyEvent.VK_RIGHT];
 		spaceBar = keys[KeyEvent.VK_SPACE];
+		boolean Y = keys[KeyEvent.VK_Y];
+		boolean N = keys[KeyEvent.VK_N];
 	}
 	
 	@Override

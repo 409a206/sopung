@@ -51,6 +51,15 @@ public class MoveToCity extends JFrame {
             if(e.getKeyCode() == KeyEvent.VK_SPACE) {
                textPane.setText(busChat[i]);
             }
+         } else if(i == busChat.length) {
+        	 if(e.getKeyCode() == KeyEvent.VK_N) {
+        		 dispose();
+        	 }
+        	
+         } if (i == busChat.length) {
+        	 if(e.getKeyCode() == KeyEvent.VK_Y) {
+        		 return;
+        	 }
          }
          }
 
