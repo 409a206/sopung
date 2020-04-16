@@ -77,7 +77,7 @@ public class talk4 extends JPanel {
 			public void keyPressed(KeyEvent e) {
 				
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					changePanel.changePanel(mainChoice, contentPane, new talk_5bu(mainChoice));
+					changePanel.changePanel(frame, contentPane, new talk_5bu(frame));
 
 				}
 			}

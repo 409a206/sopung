@@ -23,7 +23,7 @@ public class talk3 extends JPanel {
 	public talk3(FirstMenuChoice frame) {
 
 		contentPane = this;
-		this.mainChoice = frame;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
+		this.mainChoice = frame;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그 프레임이다.
 		setBounds(0, 0, 800, 600);
 		this.setLayout(null);
 
@@ -49,7 +49,7 @@ public class talk3 extends JPanel {
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					changePanel.changePanel(mainChoice, contentPane, new talk2(frame));
+					changePanel.changePanel(frame, contentPane, new talk2(frame));
 
 				}
 			}
@@ -63,7 +63,7 @@ public class talk3 extends JPanel {
 
 		//배경라벨
 		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(talk3.class.getResource("약국최최최종.png")));
+		background.setIcon(new ImageIcon(talk3.class.getResource("inPharFinalbg.png")));
 		background.setBounds(-16, -23, 800, 600);
 		this.add(background);
 

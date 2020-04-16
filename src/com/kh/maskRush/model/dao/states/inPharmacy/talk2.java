@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class talk2 extends JPanel {
-	private FirstMenuChoice mainChoice;
+	private FirstMenuChoice frame;
 	private JPanel contentPane;
 	int i = 0;
 	int j = 0;
@@ -19,7 +19,7 @@ public class talk2 extends JPanel {
 	public talk2(FirstMenuChoice frame) {
 
 		contentPane = this;
-		this.mainChoice = frame;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
+		this.frame = frame;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
 		setBounds(0, 0, 800, 600);
 		this.setLayout(null);
 
@@ -39,7 +39,7 @@ public class talk2 extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel.changePanel(mainChoice, contentPane, new talk3(frame));
+				changePanel.changePanel(frame, contentPane, new talk3(frame));
 			}
 		});		
 
@@ -47,7 +47,7 @@ public class talk2 extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel.changePanel(mainChoice, contentPane, new talk4(frame));
+				changePanel.changePanel(frame, contentPane, new talk4(frame));
 			}
 		});		
 				
@@ -60,7 +60,7 @@ public class talk2 extends JPanel {
 
 		//배경라벨
 		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(talk2.class.getResource("약국최최최종.png")));
+		background.setIcon(new ImageIcon(talk2.class.getResource("inPharFinalbg.png")));
 		background.setBounds(-16, -23, 800, 600);
 		this.add(background);
 

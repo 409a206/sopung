@@ -13,16 +13,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.FirstMenuChoice;
+
 public class explain_1 extends JPanel {
 
-	private Menu mainChoice;
+	private FirstMenuChoice frame;
 	private JPanel contentPane;
 	int i = 0;
 
-	public explain_1(Menu frame) {
+	public explain_1(FirstMenuChoice frame) {
 
 		contentPane = this;
-		this.mainChoice = frame;
+		this.frame = frame;
 		setBounds(0, 0, 800, 600);	
 		this.setLayout(null);
 		
@@ -36,7 +38,7 @@ public class explain_1 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-					changePanel.changePanel(mainChoice, contentPane, new covid_Quiz2(mainChoice));
+					changePanel.changePanel(frame, contentPane, new covid_Quiz2(frame));
 
 			}
 		});		
