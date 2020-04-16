@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class talk_5bu extends JPanel {
@@ -51,7 +52,7 @@ public class talk_5bu extends JPanel {
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					changePanel.changePanel(frame, contentPane, new covid_Quiz(frame));
+					ChangePanel.changePanel(frame, contentPane, new covid_Quiz(frame));
 
 				}
 			}
@@ -65,7 +66,7 @@ public class talk_5bu extends JPanel {
 
 		//배경라벨
 		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(talk_5bu.class.getResource("약국최최최종.png")));
+		background.setIcon(new ImageIcon(talk_5bu.class.getResource("inPharFinalbg.png")));
 		background.setBounds(-16, -23, 800, 600);
 		this.add(background);
 

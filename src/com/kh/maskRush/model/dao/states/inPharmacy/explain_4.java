@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class explain_4 extends JPanel {
@@ -38,7 +39,7 @@ public class explain_4 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-					changePanel.changePanel(frame, contentPane, new covid_Quiz4(frame));
+				ChangePanel.changePanel(frame, contentPane, new covid_Quiz4(frame));
 
 			}
 		});		

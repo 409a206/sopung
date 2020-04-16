@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class talk2 extends JPanel {
@@ -39,7 +40,7 @@ public class talk2 extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel.changePanel(frame, contentPane, new talk3(frame));
+				ChangePanel.changePanel(frame, contentPane, new talk3(frame));
 			}
 		});		
 
@@ -47,7 +48,7 @@ public class talk2 extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel.changePanel(frame, contentPane, new talk4(frame));
+				ChangePanel.changePanel(frame, contentPane, new talk4(frame));
 			}
 		});		
 				

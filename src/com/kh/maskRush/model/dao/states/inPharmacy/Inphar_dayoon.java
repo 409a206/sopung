@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class Inphar_dayoon extends JPanel {
@@ -30,7 +31,7 @@ public class Inphar_dayoon extends JPanel {
 		// 대화창 내용 문자열배열
 		String pharChat[] = { "....??", "어서오라냥! 집사는 이몸의 브런치를 \r\n" + "준비하러 갔다냥! 무슨일이냥!",
 				"(약사님 대신 고양이가 앉아있다...\r\n" + "어떻게 하지?)" };
-		
+
 		JLabel click = new JLabel("(click)");
 		click.setFont(new Font("나눔스퀘어라운드 Bold", Font.PLAIN, 24));
 		click.setBounds(600, 300, 800,300);
@@ -41,38 +42,43 @@ public class Inphar_dayoon extends JPanel {
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(88, 400, 446, 127);
 		this.add(textPane);
+		textPane.requestFocus();
+		textPane.requestFocus(true);
+		textPane.setEditable(false);
 		textPane.setFont(new Font("나눔스퀘어라운드 Bold", Font.PLAIN, 24));
+		
+		// 대화창라벨
+		JLabel talk = new JLabel();
+		talk.setIcon(new ImageIcon(Inphar_dayoon.class.getResource("대화창.png")));
+		talk.setBounds(70, 150, 800, 600);
+		
+		this.add(talk);
 
-		textPane.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+		talk.addKeyListener(new KeyAdapter() {
+
+			public void mouseClickedd(MouseEvent e) {
+				if (e.getClickCount() == 1) {
 					if (i < pharChat.length) {
 						textPane.setText(pharChat[i]);
-						keyReleased(e);
 						i++;
 					}
-					
+
 					if(i == 3) {
 						System.out.println("click");
 						click.setVisible(true);
 						click.addMouseListener(new MouseAdapter() {
 							public void mouseClicked(MouseEvent e) {
-								changePanel.changePanel(frame, contentPane, new talk2(frame));
+								ChangePanel.changePanel(frame, contentPane, new talk2(frame));
 							}			
 						});
-						}
+					}
 				}
 			}
 		});
 
-		// 대화창라벨
-		JLabel talk = new JLabel();
-		talk.setIcon(new ImageIcon(Inphar_dayoon.class.getResource("대화창.png")));
-		talk.setBounds(70, 150, 800, 600);
-		this.add(talk);
 
-		
+
+
 		// 배경라벨
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(Inphar_dayoon.class.getResource("inPharFinalbg.png")));

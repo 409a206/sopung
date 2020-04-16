@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class talk4 extends JPanel {
@@ -57,7 +58,7 @@ public class talk4 extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				fiveBu.setVisible(true);	
 				if(e.getClickCount() == 2) {
-					changePanel.changePanel(frame, contentPane, new talk_5bu(frame));
+					ChangePanel.changePanel(frame, contentPane, new talk_5bu(frame));
 
 				}
 			}			
@@ -77,7 +78,7 @@ public class talk4 extends JPanel {
 			public void keyPressed(KeyEvent e) {
 				
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					changePanel.changePanel(frame, contentPane, new talk_5bu(frame));
+					ChangePanel.changePanel(frame, contentPane, new talk_5bu(frame));
 
 				}
 			}
@@ -100,7 +101,7 @@ public class talk4 extends JPanel {
 
 		//배경라벨
 		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(talk_5bu.class.getResource("약국최최최종.png")));
+		background.setIcon(new ImageIcon(talk_5bu.class.getResource("inPharFinalbg.png")));
 		background.setBounds(-16, -23, 800, 600);
 		this.add(background);
 

@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class talk3 extends JPanel {
@@ -49,7 +50,7 @@ public class talk3 extends JPanel {
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					changePanel.changePanel(frame, contentPane, new talk2(frame));
+					ChangePanel.changePanel(frame, contentPane, new talk2(frame));
 
 				}
 			}
