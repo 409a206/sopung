@@ -85,6 +85,7 @@ public class GamePanel extends JPanel{
 	public void buttonInit() {
 		x = 50;
 		
+		
 		for(int i = 0; i < arrows.length; i++) {
 			int num = new Random().nextInt(4) + 1;
 			arrNo[i] = num;
