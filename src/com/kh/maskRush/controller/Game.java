@@ -25,6 +25,7 @@ public class Game implements Runnable {
 	
 	private int width, height;
 	public String title;
+	public String path;
 	
 	private boolean running = false;
 	
@@ -62,6 +63,16 @@ public class Game implements Runnable {
 		this.player = player;
 		keyManager = new KeyManager();
 		mouseManager = new MouseManager();
+
+	}
+	public Game(String title, int width, int height, Player player, String path) {
+		this.width = width;
+		this.height = height;
+		this.title = title;
+		this.player = player;
+		keyManager = new KeyManager();
+		mouseManager = new MouseManager();
+		this.path = path;
 
 	}
 

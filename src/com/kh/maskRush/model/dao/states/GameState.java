@@ -63,7 +63,7 @@ public class GameState extends State {
 			new InBus().doRun();
 //			handler.getWorld().getEntityManager().getBoyPlayer().setX(300);
 //			handler.getWorld().getEntityManager().getBoyPlayer().setY(150);
-			handler.getKeyManager().right = false;
+//			handler.getKeyManager().right = false;
 		}
 		
 		if(world.getEntityManager().getBoyPlayer().getX() > 460 && world.getEntityManager().getBoyPlayer().getX() < 480 &&
@@ -78,6 +78,7 @@ public class GameState extends State {
 		
 		if(world.getEntityManager().getBoyPlayer().getY() < 9  
 				&& world.getPath().equals("res/worlds/eMart.txt")) {
+			new GetMask();
 			world = new World(handler, "res/worlds/afterMart.txt");
 			handler.setWorld(world);
 			handler.getGameCamera().move(0, 0);

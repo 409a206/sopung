@@ -40,9 +40,9 @@ public class FirstMenuChoice extends JFrame {
 		case 1: this.add(new FirstMenu(this)); break;
 		case 2 : this.add(new InConvenienceStore(this)); break;
 		case 3 : this.add(new Inphar_dayoon(this)); break;
-		//this.add(new InMarket(this));
-		//this.add(new GetMask(this));
-		//this.add(new states_Window(this));
+		case 4 : this.add(new InMarket(this)); break;
+		case 5 : this.add(new GetMask(this)); break;
+		case 6 : this.add(new InVillage(this)); break;
 		}
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
@@ -50,7 +50,6 @@ public class FirstMenuChoice extends JFrame {
 		cursor();
 
 	}
-
 
 	//////////////////////////////////////////////////////////bgm////////////////////////////////////////////////
 
