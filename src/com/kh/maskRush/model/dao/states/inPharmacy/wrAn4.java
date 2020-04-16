@@ -12,16 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.FirstMenuChoice;
+
 public class wrAn4 extends JPanel {
-	private Menu mainChoice;
+	private FirstMenuChoice frame;
 	private JPanel contentPane;
 	int i = 0;
 	int j = 0;
 
-	public wrAn4(Menu frame) {
+	public wrAn4(FirstMenuChoice frame) {
 
 		contentPane = this;
-		this.mainChoice = frame;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
+		this.frame = frame;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
 		setBounds(0, 0, 800, 600);
 		this.setLayout(null);
 
@@ -37,7 +39,7 @@ public class wrAn4 extends JPanel {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					changePanel.changePanel(mainChoice, contentPane, new covid_Quiz4(mainChoice));
+					changePanel.changePanel(frame, contentPane, new covid_Quiz4(frame));
 				}
 
 				if(e.getKeyCode() == KeyEvent.VK_ENTER ) {
@@ -56,7 +58,7 @@ public class wrAn4 extends JPanel {
 
 		//배경라벨
 		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(wrAn4.class.getResource("약국최최최종.png")));
+		background.setIcon(new ImageIcon(wrAn4.class.getResource("inPharFinalbg.png")));
 		background.setBounds(-16, -23, 800, 600);
 		this.add(background);
 

@@ -16,14 +16,14 @@ import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class Inphar_dayoon extends JPanel {
 
-	private FirstMenuChoice mainChoice;
+	private FirstMenuChoice frame;
 	private JPanel contentPane;
 	int i = 0;
 
 	public Inphar_dayoon(FirstMenuChoice frame) {
 
 		contentPane = this;
-		this.mainChoice = frame; // FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
+		this.frame = frame; // FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
 		setBounds(100, 100, 800, 600);
 		this.setLayout(null);
 
@@ -32,7 +32,7 @@ public class Inphar_dayoon extends JPanel {
 				"(약사님 대신 고양이가 앉아있다...\r\n" + "어떻게 하지?)" };
 		
 		JLabel click = new JLabel("(click)");
-		click.setFont(new Font("DungGeunMo", Font.PLAIN, 24));
+		click.setFont(new Font("나눔스퀘어라운드 Bold", Font.PLAIN, 24));
 		click.setBounds(600, 300, 800,300);
 		contentPane.add(click);
 		click.setVisible(false);
@@ -41,7 +41,7 @@ public class Inphar_dayoon extends JPanel {
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(88, 400, 446, 127);
 		this.add(textPane);
-		textPane.setFont(new Font("DungGeunMo", Font.PLAIN, 24));
+		textPane.setFont(new Font("나눔스퀘어라운드 Bold", Font.PLAIN, 24));
 
 		textPane.addKeyListener(new KeyAdapter() {
 			@Override
@@ -58,7 +58,7 @@ public class Inphar_dayoon extends JPanel {
 						click.setVisible(true);
 						click.addMouseListener(new MouseAdapter() {
 							public void mouseClicked(MouseEvent e) {
-								changePanel.changePanel(mainChoice, contentPane, new talk2(mainChoice));
+								changePanel.changePanel(frame, contentPane, new talk2(frame));
 							}			
 						});
 						}
@@ -75,7 +75,7 @@ public class Inphar_dayoon extends JPanel {
 		
 		// 배경라벨
 		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(Inphar_dayoon.class.getResource("약국최최최종.png")));
+		background.setIcon(new ImageIcon(Inphar_dayoon.class.getResource("inPharFinalbg.png")));
 		background.setBounds(-16, -23, 800, 600);
 		this.add(background);
 
