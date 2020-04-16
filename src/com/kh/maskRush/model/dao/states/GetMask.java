@@ -10,16 +10,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.kh.maskRush.model.dao.states.InMarket.MyKeyListener;
+import com.kh.maskRush.model.dao.entities.Creature.JFrame;
 
 public class GetMask extends JPanel{
 	private JPanel contentPane;
 	private FirstMenuChoice mainChoice;
 	private Clip mask;
+	private JFrame a ;
 	private File fileclear = new File("C:\\Users\\soi02\\git\\sopung\\res\\textures\\music\\clear.wav");
-
-	public GetMask (FirstMenuChoice mainChoice) {
-
+	
+	
+	public GetMask (FirstMenuChoice firstMenuChoice) {
+		
 		contentPane = this;	//넘길때 써야하니까 패널변수 하나 만들어서 this 저장
 		this.mainChoice = mainChoice;	//FirstMenuChoice에 있는 프레임을 써야되니까 this 프레임도 그프레임이다.
 		setBounds(0, 0, 800, 600);

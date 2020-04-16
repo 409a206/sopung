@@ -21,7 +21,14 @@ public class InMarket extends JPanel {
 	private JPanel character;
 	private JPanel infectee;
 	private JLabel boy;
-	private JLabel infecteeboy;
+	private JLabel infecteeboy1;
+	private JLabel infecteeboy2;
+	private JLabel infecteeboy3;
+	private JLabel infecteeboy4;
+	private JLabel infecteeboy5;
+	private JLabel marketm;
+	private JLabel marketw;
+	private JLabel mask;
 	private FirstMenuChoice mainChoice;
 
 
@@ -33,7 +40,64 @@ public class InMarket extends JPanel {
 		setBounds(0, 0, 800, 600);
 		this.setLayout(null);
 		boy();
-		infectee();
+				
+				//마스크
+				mask = new JLabel();
+				mask.setSize(128, 88);
+				add(mask);
+				mask.setIcon(new ImageIcon(InMarket.class.getResource("/InConvenience/mask.gif")));
+				mask.setLocation(327, 26);
+		
+				//감염자1
+				infecteeboy1 = new JLabel();
+				infecteeboy1.setSize(57, 66);
+				add(infecteeboy1);
+				infecteeboy1.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/감염자1.gif")));
+				infecteeboy1.setLocation(514, 138);
+
+		//감염자2
+		infecteeboy2 = new JLabel();
+		infecteeboy2.setSize(57, 66);
+		add(infecteeboy2);
+		infecteeboy2.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/감염자2.png")));
+		infecteeboy2.setLocation(363, 280);
+
+		//감염자3
+		infecteeboy3 = new JLabel();
+		infecteeboy3.setSize(57, 66);
+		add(infecteeboy3);
+		infecteeboy3.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/감염자3.png")));
+		infecteeboy3.setLocation(199, 295);
+		
+		//감염자4
+		infecteeboy4 = new JLabel();
+		infecteeboy4.setSize(57, 66);
+		add(infecteeboy4);
+		infecteeboy4.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/감염자2.png")));
+		infecteeboy4.setLocation(610, 251);
+		
+		//감염자5
+		infecteeboy5 = new JLabel();
+		infecteeboy5.setSize(57, 66);
+		add(infecteeboy5);
+		infecteeboy5.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/감염자1.gif")));
+		infecteeboy5.setLocation(280, 170);
+
+		//마트직원w
+		marketw = new JLabel();
+		marketw.setSize(57, 66);
+		add(marketw);
+		marketw.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/마트직원w.gif")));
+		marketw.setLocation(327, 430);
+
+		//마트직원m
+		marketm = new JLabel();
+		marketm.setSize(57, 66);
+		add(marketm);
+		marketm.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/마트직원m.gif")));
+		marketm.setLocation(428, 76);
+
+		mainChoice.getContentPane().add(this);
 
 		//마켓배경
 		JLabel background = new JLabel();
@@ -41,8 +105,6 @@ public class InMarket extends JPanel {
 		background.setBounds(-20, -20, 800, 600);
 		this.add(background);
 
-		mainChoice.add(this);
-		
 	}
 
 	//주인공
@@ -60,27 +122,6 @@ public class InMarket extends JPanel {
 		boy = new JLabel();
 		boy.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/boy.png")));
 		character.add(boy);
-	}
-
-	//감염자
-	public void infectee() {
-
-		int x = 175;
-		int y = 200;
-
-		//캐릭터패널
-		infectee = new JPanel();
-		infectee.setFocusable(true); //패널 움직이게 하려면 필수
-		infectee.addKeyListener(new MyKeyListener());
-		infectee.setBounds(x, y, 100, 100);	
-		infectee.setBackground(new Color(255, 0, 0, 0));	//패널 배경 투명으로
-		this.add(infectee);
-
-		//캐릭터라벨을 캐릭터 패널 위로.
-		infecteeboy = new JLabel();
-		infecteeboy.setIcon(new ImageIcon(FirstMenu.class.getResource("/textures/InMarket/boy.png")));
-		infectee.add(infecteeboy);
-
 	}
 
 	//내부클래스 키리스너
