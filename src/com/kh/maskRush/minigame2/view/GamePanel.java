@@ -131,8 +131,8 @@ public class GamePanel extends JPanel{
 			int num = new Random().nextInt(4) + 1;
 			arrNo[i] = num;
 			URL url = getClass().getClassLoader().getResource("com/kh/maskRush/images/" + num+"-black1.png");
-			arrows[i] = new JLabel(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(80, 80, 0)));
-			arrows[i].setBounds(x, 500, 80, 80);
+			arrows[i] = new JLabel(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(70, 70, 0)));
+			arrows[i].setBounds(x, 500, 70, 70);
 			x += 90;
 			this.add(arrows[i]);
 			this.repaint();
@@ -150,7 +150,7 @@ public class GamePanel extends JPanel{
 			String color = "";
 			if(arrNo[index] == num) {
 				color = "blue";
-				this.setBackground(Color.BLUE);
+				this.setBackground(Color.CYAN);
 //				JPanel back = null;
 				
 //				try {
@@ -171,14 +171,14 @@ public class GamePanel extends JPanel{
 //					e.printStackTrace();
 //				}
 				
-				this.setBackground(Color.RED);
+				this.setBackground(Color.orange);
 				color = "red";
 				
 			}
 			
-			URL url = getClass().getClassLoader().getResource(num + "-" + color + ".png");
-			JLabel input = new JLabel(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(80, 80, 0)));
-			input.setBounds(x2, 600, 80, 80);
+			URL url = getClass().getClassLoader().getResource("com/kh/maskRush/images/" + num + "-" + color + "1.png");
+			JLabel input = new JLabel(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(70, 70, 0)));
+			input.setBounds(x2, 600, 70, 70);
 			inputs.add(input);
 			x2 += 90;
 			this.add(inputs.get(index));
