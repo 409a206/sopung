@@ -95,7 +95,7 @@ public class MainCharacter {
 	
 	public void update() {
 		normalRunAnim.updateFrame();
-		downRunAnim.updateFrame();
+//		downRunAnim.updateFrame();
 		if(posY >= LAND_POSY) {
 			posY = LAND_POSY;
 			if(state != DOWN_RUN) {
@@ -176,7 +176,7 @@ public class MainCharacter {
 				System.out.println(i);
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				return;
 			}
 		}
 		
