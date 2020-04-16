@@ -1,11 +1,6 @@
 package com.kh.maskRush.model.dao.entities.Creature;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.awt.Graphics;
-import java.awt.event.KeyAdapter;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -14,9 +9,10 @@ import com.kh.maskRush.model.dao.gfx.Assets;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.states.InPharmacy;
 import com.kh.maskRush.model.dao.states.State;
+import com.kh.maskRush.model.dao.worlds.World;
 
 public class EvilHand extends Creature {
-
+	World world;
 
    public EvilHand (Handler handler, float x, float y) {
       super(handler, 550, y+650, 300, 300);
@@ -31,9 +27,12 @@ public class EvilHand extends Creature {
          
          
          State.setState(handler.getGame().gameState);
+         world = new World(handler, "res/worlds/afterMaskMinigame.txt");
+			handler.setWorld(world);
+			handler.getGameCamera().move(0, 0);
       } else if(y <= 650) {
          System.out.println("GAME OVER");
-         System.exit(0);//재시작 화면 띄워야함.
+//         System.exit(0);//재시작 화면 띄워야함.
          JLabel backGround = new JLabel();
  		backGround.setIcon(new ImageIcon(InPharmacy.class.getResource("/textures/gameover.png")));
  		backGround.setBounds(-16, -15, 800, 600);

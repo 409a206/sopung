@@ -3,7 +3,6 @@ package com.kh.maskRush.controller;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
-import com.kh.maskRush.model.dao.entities.EntityManager;
 import com.kh.maskRush.model.dao.entities.Creature.Player;
 import com.kh.maskRush.model.dao.gfx.Assets;
 import com.kh.maskRush.model.dao.gfx.GameCamera;
@@ -11,11 +10,11 @@ import com.kh.maskRush.model.dao.gfx.GameCamera2;
 import com.kh.maskRush.model.dao.handler.Handler;
 import com.kh.maskRush.model.dao.input.KeyManager;
 import com.kh.maskRush.model.dao.input.MouseManager;
-import com.kh.maskRush.model.dao.states.BedroomMonologue;
 import com.kh.maskRush.model.dao.states.EMartMinigameState;
 import com.kh.maskRush.model.dao.states.GameState;
 import com.kh.maskRush.model.dao.states.MainMenuState;
 import com.kh.maskRush.model.dao.states.MiniGameSpacebar;
+import com.kh.maskRush.model.dao.states.MonologueDemoState;
 import com.kh.maskRush.model.dao.states.State;
 import com.kh.maskRush.view.Display;
 //basically the 'main' class
@@ -41,6 +40,7 @@ public class Game implements Runnable {
 	public State bedroomMonologue;
 	public State miniGameSpacebar;
 	public State eMartMinigameState;
+	public State monologueDemoState;
 	
 	//Input
 	private KeyManager keyManager;
@@ -81,7 +81,8 @@ public class Game implements Runnable {
 		gameState = new GameState(handler);
 		mainMenuState = new MainMenuState(handler);
 		miniGameSpacebar = new MiniGameSpacebar(handler);
-		eMartMinigameState = new EMartMinigameState(handler); 
+		eMartMinigameState = new EMartMinigameState(handler);
+		monologueDemoState = new MonologueDemoState(handler);
 		
 		State.setState(gameState);
 //		if(State.getState() instanceof MiniGameSpacebar) {
@@ -223,6 +224,14 @@ public class Game implements Runnable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public Display getDisplay() {
+		return display;
+	}
+
+	public void setDisplay(Display display) {
+		this.display = display;
 	}
 	
 }

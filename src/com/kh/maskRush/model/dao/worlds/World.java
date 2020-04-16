@@ -30,34 +30,34 @@ public class World {
 		
 		if(path.equals("res/worlds/world1.txt")) {
 		entityManager = new EntityManager(handler, new BoyPlayer(handler, 200, 200));
-		entityManager.addEntity(new Tree(handler, 0, 180));
-		entityManager.addEntity(new Tree(handler, 100, 180));
-		entityManager.addEntity(new Tree(handler, 200, 180));
-		entityManager.addEntity(new Tree(handler, 300, 180));
-		entityManager.addEntity(new Tree(handler, 400, 180));
-		entityManager.addEntity(new Tree(handler, 500, 180));
-		entityManager.addEntity(new Tree(handler, 600, 180));
-		entityManager.addEntity(new Tree(handler, 700, 180));
-		entityManager.addEntity(new Tree(handler, 800, 180));
-		entityManager.addEntity(new Tree(handler, 900, 180));
-		entityManager.addEntity(new Tree(handler, 270, 250));
-		entityManager.addEntity(new Tree(handler, 270, 300));
-		entityManager.addEntity(new Tree(handler, 270, 400));
-		entityManager.addEntity(new Tree(handler, 350, 400));
-		entityManager.addEntity(new Tree(handler, 470, 400));
-		entityManager.addEntity(new Tree(handler, 470, 300));
-		entityManager.addEntity(new Tree(handler, 630, 300));
-		entityManager.addEntity(new Tree(handler, 750, 300));
-		entityManager.addEntity(new Tree2(handler, 0, 570));
-		entityManager.addEntity(new Tree3(handler, 0, 570));
-		entityManager.getBoyPlayer().setX(150); //type in spawnX
-		entityManager.getBoyPlayer().setY(300); // '' '' spawnY
+//		entityManager.addEntity(new Tree(handler, 0, 180));
+//		entityManager.addEntity(new Tree(handler, 100, 180));
+//		entityManager.addEntity(new Tree(handler, 200, 180));
+//		entityManager.addEntity(new Tree(handler, 300, 180));
+//		entityManager.addEntity(new Tree(handler, 400, 180));
+//		entityManager.addEntity(new Tree(handler, 500, 180));
+//		entityManager.addEntity(new Tree(handler, 600, 180));
+//		entityManager.addEntity(new Tree(handler, 700, 180));
+//		entityManager.addEntity(new Tree(handler, 800, 180));
+//		entityManager.addEntity(new Tree(handler, 900, 180));
+//		entityManager.addEntity(new Tree(handler, 270, 250));
+//		entityManager.addEntity(new Tree(handler, 270, 300));
+//		entityManager.addEntity(new Tree(handler, 270, 400));
+//		entityManager.addEntity(new Tree(handler, 350, 400));
+//		entityManager.addEntity(new Tree(handler, 470, 400));
+//		entityManager.addEntity(new Tree(handler, 470, 300));
+//		entityManager.addEntity(new Tree(handler, 630, 300));
+//		entityManager.addEntity(new Tree(handler, 750, 300));
+//		entityManager.addEntity(new Tree2(handler, 0, 570));
+//		entityManager.addEntity(new Tree3(handler, 0, 570));
+//		entityManager.getBoyPlayer().setX(150); //type in spawnX
+//		entityManager.getBoyPlayer().setY(300); // '' '' spawnY
 		
 		} else if(path.equals("res/worlds/world2.txt")) {
 			entityManager = new EntityManager(handler, new BoyPlayer(handler, 700, 300));
-			entityManager.addEntity(new Tree(handler, 90, 250));
-			entityManager.addEntity(new Tree(handler, 200, 250));
-			entityManager.addEntity(new Tree(handler, 280, 250));
+//			entityManager.addEntity(new Tree(handler, 90, 250));
+//			entityManager.addEntity(new Tree(handler, 200, 250));
+//			entityManager.addEntity(new Tree(handler, 280, 250));
 
 			
 			
@@ -68,6 +68,16 @@ public class World {
 			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
 		} else if(path.equals("res/worlds/eMart.txt")) {
 			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+		} else if(path.equals("res/worlds/afterMart.txt")){
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+		}else if(path.equals("res/worlds/afterConvenience.txt")){
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+		}else if(path.equals("res/worlds/afterMaskMinigame.txt")){
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+		}else if(path.equals("res/worlds/afterPharmacy.txt")){
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 300, 150));
+		}else if(path.equals("res/worlds/afterCity.txt")){
+			entityManager = new EntityManager(handler, new BoyPlayer(handler, 750, 300));
 		}
 		
 		loadWorld(path);

@@ -1,6 +1,7 @@
 package com.kh.maskRush.model.dao.states;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 
 import com.kh.maskRush.model.dao.entities.EntityManager;
 import com.kh.maskRush.model.dao.handler.Handler;
@@ -11,6 +12,7 @@ public class GameState extends State {
 	
 	private World world;
 	private EntityManager entityManager;
+	
 	
 	public GameState(Handler handler) {
 		super(handler);
@@ -38,6 +40,7 @@ public class GameState extends State {
 			handler.getGameCamera().move(0, 0);
 			
 //			new LivingroomDialogue().doRun();
+			State.setState(handler.getGame().monologueDemoState);
 		
 		}
 		if(world.getEntityManager().getBoyPlayer().getY() > 600  
@@ -45,6 +48,8 @@ public class GameState extends State {
 			world = new World(handler, "res/worlds/world3.txt");
 			handler.setWorld(world);
 			handler.getGameCamera().move(0, 0);
+			
+			new HomegroundMonologue().doRun();
 			
 			
 		
@@ -55,41 +60,66 @@ public class GameState extends State {
 			handler.setWorld(world);
 			handler.getGameCamera().move(0, 0);
 			
-//			new MoveToCity().doRun();
-		
+			new MoveToCity().doRun();
+//			handler.getWorld().getEntityManager().getBoyPlayer().setX(300);
+//			handler.getWorld().getEntityManager().getBoyPlayer().setY(150);
+			handler.getKeyManager().right = false;
 		}
 		
-//		if(world.getEntityManager().getBoyPlayer().getX() > 460 && world.getEntityManager().getBoyPlayer().getX() < 480 &&
-//				world.getEntityManager().getBoyPlayer().getY() > 140 && world.getEntityManager().getBoyPlayer().getY() < 160
-//				&& world.getPath().equals("res/worlds/world4.txt")) {
-//			
-//			new MoveToMart().doRun();
-//			world = new World(handler, "res/worlds/eMart.txt");
-//			handler.setWorld(world);
-//			handler.getGameCamera().move(0, 0);
-//		}
-		
-		if(world.getEntityManager().getBoyPlayer().getY() < 9  
-				&& world.getPath().equals("res/worlds/eMart.txt")) {
-			world = new World(handler, "res/worlds/world4.txt");
+		if(world.getEntityManager().getBoyPlayer().getX() > 460 && world.getEntityManager().getBoyPlayer().getX() < 480 &&
+				world.getEntityManager().getBoyPlayer().getY() > 140 && world.getEntityManager().getBoyPlayer().getY() < 160
+				&& world.getPath().equals("res/worlds/world4.txt")) {
+			
+			new MoveToMart().doRun();
+			world = new World(handler, "res/worlds/eMart.txt");
 			handler.setWorld(world);
 			handler.getGameCamera().move(0, 0);
 		}
 		
-//		if(world.getEntityManager().getBoyPlayer().getX() > 507 && world.getEntityManager().getBoyPlayer().getX() < 525 &&
-//				world.getEntityManager().getBoyPlayer().getY() > 891 && world.getEntityManager().getBoyPlayer().getY() < 924
-//				&& world.getPath().equals("res/worlds/world4.txt")) {
-//			new InConvenienceStore(new FirstMenuChoice(2));
-//		}
-//		
+		if(world.getEntityManager().getBoyPlayer().getY() < 9  
+				&& world.getPath().equals("res/worlds/eMart.txt")) {
+			world = new World(handler, "res/worlds/afterMart.txt");
+			handler.setWorld(world);
+			handler.getGameCamera().move(0, 0);
+			handler.getWorld().getEntityManager().getBoyPlayer().setX(460);
+			handler.getWorld().getEntityManager().getBoyPlayer().setY(140);
+		}
+		
+		if(world.getEntityManager().getBoyPlayer().getX() > 507 && world.getEntityManager().getBoyPlayer().getX() < 525 &&
+				world.getEntityManager().getBoyPlayer().getY() > 891 && world.getEntityManager().getBoyPlayer().getY() < 924
+				&& world.getPath().equals("res/worlds/afterMart.txt")) {
+			new InConvenienceStore(new FirstMenuChoice(2));
+//			handler.getKeyManager().right = false;
+			world = new World(handler, "res/worlds/afterConvenience.txt");
+			handler.setWorld(world);
+			handler.getGameCamera().move(0, 0);
+		}
+		
 		if(world.getEntityManager().getBoyPlayer().getX() > 936 && world.getEntityManager().getBoyPlayer().getX() < 969 &&
 		world.getEntityManager().getBoyPlayer().getY() > 66 && world.getEntityManager().getBoyPlayer().getY() < 111
-		&& world.getPath().equals("res/worlds/world4.txt")) {
+		&& world.getPath().equals("res/worlds/afterConvenience.txt")) {
 			State.setState(handler.getGame().miniGameSpacebar);
 			world.getEntityManager().getBoyPlayer().setX(940);
 			world.getEntityManager().getBoyPlayer().setY(116);
 			
 }
+		if(world.getEntityManager().getBoyPlayer().getX() > 936 && world.getEntityManager().getBoyPlayer().getX() < 969 &&
+				world.getEntityManager().getBoyPlayer().getY() > 66 && world.getEntityManager().getBoyPlayer().getY() < 111
+				&& world.getPath().equals("res/worlds/afterMaskMinigame.txt")) {
+//					State.setState(handler.getGame().miniGameSpacebar);
+//					world.getEntityManager().getBoyPlayer().setX(940);
+//					world.getEntityManager().getBoyPlayer().setY(116);
+			//pharmacy로 가는 메소드 추가
+					
+		}
+		if(world.getEntityManager().getBoyPlayer().getX() > 936 && world.getEntityManager().getBoyPlayer().getX() < 969 &&
+				world.getEntityManager().getBoyPlayer().getY() > 66 && world.getEntityManager().getBoyPlayer().getY() < 111
+				&& world.getPath().equals("res/worlds/afterPharmacy.txt")) {
+				
+			world = new World(handler, "res/worlds/afterCity.txt");
+			handler.setWorld(world);
+			handler.getGameCamera().move(0, 0);
+		}
 
 		
 	}
