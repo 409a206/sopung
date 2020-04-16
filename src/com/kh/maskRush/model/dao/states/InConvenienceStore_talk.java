@@ -109,4 +109,5 @@ public class InConvenienceStore_talk extends JPanel {
 		back.setBounds(14, 0, 858, 629);
 		this.add(back);
 	}
+	
 }
