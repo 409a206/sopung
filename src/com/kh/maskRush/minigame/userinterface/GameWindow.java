@@ -9,12 +9,12 @@ import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class GameWindow extends JPanel{
 	
-	public static final int SCREEN_WIDTH = 600;
+	public static final int SCREEN_WIDTH = 800;
 	private GameScreen gameScreen;
 	
 	public GameWindow(FirstMenuChoice mainChoice) {
 //		super("run game");
-//		setSize(SCREEN_WIDTH, 200);
+//		setSize(SCREEN_WIDTH, 600);
 //		setLocation(400, 200);
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		setResizable(false);
