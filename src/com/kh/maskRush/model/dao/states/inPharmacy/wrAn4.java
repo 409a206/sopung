@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class wrAn4 extends JPanel {
@@ -33,13 +34,16 @@ public class wrAn4 extends JPanel {
 		textPane.requestFocus(true);
 		textPane.setBounds(88, 400, 446, 127);
 		this.add(textPane);
+		textPane.requestFocus();
+		textPane.requestFocus(true);
+		textPane.setEditable(false);
 		textPane.setFont(new Font("³ª´®½ºÄù¾î¶ó¿îµå Bold", Font.PLAIN, 24));
 
 		textPane.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					changePanel.changePanel(frame, contentPane, new covid_Quiz4(frame));
+					ChangePanel.changePanel(frame, contentPane, new covid_Quiz4(frame));
 				}
 
 				if(e.getKeyCode() == KeyEvent.VK_ENTER ) {

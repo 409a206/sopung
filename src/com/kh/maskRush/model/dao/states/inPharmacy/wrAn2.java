@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class wrAn2 extends JPanel {
@@ -33,13 +34,16 @@ public class wrAn2 extends JPanel {
 		textPane.requestFocus(true);
 		textPane.setBounds(88, 400, 446, 127);
 		this.add(textPane);
+		textPane.requestFocus();
+		textPane.requestFocus(true);
+		textPane.setEditable(false);
 		textPane.setFont(new Font("나눔스퀘어라운드 Bold", Font.PLAIN, 24));
 
 		textPane.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					changePanel.changePanel(frame, contentPane, new covid_Quiz2(frame));
+					ChangePanel.changePanel(frame, contentPane, new covid_Quiz2(frame));
 				}
 
 				if(e.getKeyCode() == KeyEvent.VK_ENTER ) {
@@ -58,7 +62,7 @@ public class wrAn2 extends JPanel {
 
 		//배경라벨
 		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(wrAn2.class.getResource("약국최최최종.png")));
+		background.setIcon(new ImageIcon(wrAn2.class.getResource("inPharFinalbg.png")));
 		background.setBounds(-16, -23, 800, 600);
 		this.add(background);
 

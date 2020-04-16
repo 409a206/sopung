@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class covid_Quiz extends JPanel {
@@ -26,20 +27,20 @@ public class covid_Quiz extends JPanel {
 		this.frame = frame;
 		setBounds(0, 0, 800, 600);
 		this.setLayout(null);
-		
+
 		JLabel right = new JLabel();
 		right.setBounds(0,0,350,600);
 		this.add(right);
-		
+
 		JLabel wrong = new JLabel();
 		wrong.setBounds(400,0,350,600);
 		this.add(wrong);
-		
+
 		JLabel charBoy = new JLabel();
 		charBoy.setIcon(new ImageIcon(covid_Quiz.class.getResource("boy_moving_ff.gif")));
 		charBoy.setBounds(305,350,150,150);
 		this.add(charBoy);
-		
+
 		//배경라벨
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(covid_Quiz.class.getResource("q1.png")));
@@ -50,22 +51,22 @@ public class covid_Quiz extends JPanel {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-					changePanel.changePanel(frame, contentPane, new explain_1(frame));
+
+				ChangePanel.changePanel(frame, contentPane, new explain_1(frame));
 
 			}
 		});		
-		
+
 		wrong.addMouseListener(new MouseAdapter() {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-					changePanel.changePanel(frame, contentPane, new wrongAnswer(frame));
+
+				ChangePanel.changePanel(frame, contentPane, new wrongAnswer(frame));
 
 			}
 		});		
-	
+
 		frame.add(this);
 		frame.add(contentPane);
 

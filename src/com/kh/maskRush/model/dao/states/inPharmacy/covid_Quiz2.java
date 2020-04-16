@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import com.kh.maskRush.model.dao.states.ChangePanel;
 import com.kh.maskRush.model.dao.states.FirstMenuChoice;
 
 public class covid_Quiz2 extends JPanel {
@@ -27,8 +28,7 @@ public class covid_Quiz2 extends JPanel {
 		this.Frame = frame;
 		setBounds(0, 0, 800, 600);	
 		this.setLayout(null);
-
-		
+	
 		JLabel right = new JLabel();
 		right.setBounds(0,0,350,600);
 		this.add(right);
@@ -53,7 +53,7 @@ public class covid_Quiz2 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-					changePanel.changePanel(Frame, contentPane, new explain_2(Frame));
+				ChangePanel.changePanel(Frame, contentPane, new explain_2(Frame));
 
 			}
 		});		
@@ -64,7 +64,7 @@ public class covid_Quiz2 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-					changePanel.changePanel(Frame, contentPane, new wrAn2(Frame));
+				ChangePanel.changePanel(Frame, contentPane, new wrAn2(Frame));
 
 			}
 		});		
