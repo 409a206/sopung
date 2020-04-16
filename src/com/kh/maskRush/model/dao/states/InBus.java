@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -33,6 +35,14 @@ public class InBus extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		 //클릭용
+		JLabel click = new JLabel("(click)");
+		click.setFont(new Font("DungGeunMo", Font.PLAIN, 24));
+		click.setBounds(600, 300, 800,300);
+		setLocationRelativeTo(null);
+		contentPane.add(click);
+		click.setVisible(false);
+		
 		JTextPane textPane = new JTextPane();
 		String[] busChat = {"혼자 도시에는 왜 가니?","가족들 마스크 사려구요!","오 참 착한 아이구나!\r\n" + 
 				"꼭 구하길 바란다!","감사합니다!"};
@@ -43,9 +53,23 @@ public class InBus extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 
+				if (i == busChat.length) {
+					click.setVisible(true);
+				}
+				
 				if(i < busChat.length) {
 				if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 					textPane.setText(busChat[i]);
+					
+					   click.addMouseListener(new MouseAdapter() {
+							public void mouseClicked(MouseEvent e) {
+								System.out.println("cccccc");
+								dispose();
+//								Game game = new Game("Mask Rush", 800, 600, player);
+//								game.start();
+								
+							}			
+						});
 				}
 			}
 			}

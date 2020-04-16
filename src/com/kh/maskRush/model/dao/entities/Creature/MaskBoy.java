@@ -15,6 +15,7 @@ public class MaskBoy extends Creature {
    public void tick() {
       getInput();
       move();
+      
       handler.getGameCamera2().centerOnEntity(this);
    }
    //input이 들어올때 캐릭터가 어떻게 행동할지 정의

@@ -12,104 +12,103 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
-import com.kh.maskRush.minigame.userinterface.GameWindow;
 
 
 public class InConvenienceStore_talk extends JPanel {
 
-	private JPanel panel;
-	private FirstMenuChoice mainChoice;
-	int i = 0;
+   private JPanel panel;
+   private FirstMenuChoice mainChoice;
+   int i = 0;
 
-	String[] contalk = { "ï¿½ï¿½ï¿½ï¿½Å© ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!", "ï¿½ï¿½! ï¿½ï¿½ï¿½×µï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½!", "ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~!", "ï¿½ï¿½ï¿½×µï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½!!!",
-	"ï¿½ï¿½ ï¿½ï¿½Ã£ï¿½Æ¾ï¿½ï¿½ï¿½!!" };
+   String[] contalk = { "¸¶½ºÅ© ÇÑ°³ °è»êÇØ ÁÖ¼¼¿ä!", "¾Ñ! °øÇ×µµµÏÀÌ ³ªÅ¸³µ´Ù!", "¸¶½ºÅ© ³»²¨¶ó°í¿À~! ³»³õÀ¸¶ó°í¿À~!", "°øÇ×µµµÏÀÌ ¸¶½ºÅ©¸¦ ÈÉÃÄ°¬´Ù!!!",
+   "¾ó¸¥ µÇÃ£¾Æ¾ßÇØ!!" };
 
-	public InConvenienceStore_talk(FirstMenuChoice mainChoice) {
+   public InConvenienceStore_talk(FirstMenuChoice mainChoice) {
 
-		setBackground(Color.LIGHT_GRAY);
-		this.mainChoice = mainChoice;
-		panel = this;
-		setLayout(null);
-		setBounds(100, 100, 800, 600);
+      setBackground(Color.LIGHT_GRAY);
+      this.mainChoice = mainChoice;
+      panel = this;
+      setLayout(null);
+      setBounds(100, 100, 800, 600);
 
-		JPanel boyPanel = new JPanel();
-		boyPanel.setBackground(new Color(255, 0, 0, 0));
-		boyPanel.setFocusable(true);
-		boyPanel.setBounds(468, 148, 90, 100);
-		add(boyPanel);
+      JPanel boyPanel = new JPanel();
+      boyPanel.setBackground(new Color(255, 0, 0, 0));
+      boyPanel.setFocusable(true);
+      boyPanel.setBounds(468, 148, 90, 100);
+      add(boyPanel);
 
-		JLabel boy = new JLabel();
-		boyPanel.add(boy);
-		boy.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/maskwithboy.png")));
-		boy.setVisible(true);
+      JLabel boy = new JLabel();
+      boyPanel.add(boy);
+      boy.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("maskwithboy.png")));
+      boy.setVisible(true);
 
-		//Å¬ï¿½ï¿½ï¿½ï¿½
-		JLabel click = new JLabel("(click)");
-		click.setFont(new Font("DungGeunMo", Font.PLAIN, 24));
-		click.setBounds(600, 300, 800,300);
-		panel.add(click);
-		click.setVisible(false);
+      //Å¬¸¯¿ë
+      JLabel click = new JLabel("(click)");
+      click.setFont(new Font("DungGeunMo", Font.PLAIN, 24));
+      click.setBounds(600, 300, 800,300);
+      panel.add(click);
+      click.setVisible(false);
 
-		// ï¿½Ë¹Ù»ï¿½
-		JLabel cu = new JLabel();
-		cu.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/ï¿½Ë¹Ù»ï¿½.png")));
-		cu.setBounds(447, 22, 129, 135);
-		add(cu);
+      // ¾Ë¹Ù»ý
+      JLabel cu = new JLabel();
+      cu.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("¾Ë¹Ù»ý.png")));
+      cu.setBounds(447, 22, 129, 135);
+      add(cu);
 
-		// ï¿½ï¿½È­
-		JTextPane textPane = new JTextPane();
-		textPane.requestFocus();
-		textPane.requestFocus(true);
-		textPane.setEditable(false);
-		textPane.setBounds(88, 400, 446, 127);
-		this.add(textPane);
-		textPane.setFont(new Font("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Bold", Font.PLAIN, 24));
-
-
-		textPane.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-
-				if (i == contalk.length) {
-					click.setVisible(true);
-				}
-
-				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					if (i < contalk.length) {
-						textPane.setText(contalk[i]);
-						keyReleased(e);
-						i++;
-					}
-					click.addMouseListener(new MouseAdapter() {
-						public void mouseClicked(MouseEvent e) {
-							ChangePanel.changePanel(mainChoice, panel, new GameWindow(mainChoice));
-						}
-					});
-				}
-			}
-		});
+      // ´ëÈ­
+      JTextPane textPane = new JTextPane();
+      textPane.requestFocus();
+      textPane.requestFocus(true);
+      textPane.setEditable(false);
+      textPane.setBounds(88, 400, 446, 127);
+      this.add(textPane);
+      textPane.setFont(new Font("³ª´®½ºÄù¾î¶ó¿îµå Bold", Font.PLAIN, 24));
 
 
-		// ï¿½ï¿½ï¿½×µï¿½ï¿½ï¿½
-		JLabel thief = new JLabel();
-		thief.setVisible(true);
-		thief.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/thief2.png")));
-		thief.setBounds(390, 125, 129, 135);
-		add(thief);
+      textPane.addKeyListener(new KeyAdapter() {
+         @Override
+         public void keyPressed(KeyEvent e) {
+
+            if (i == contalk.length) {
+               click.setVisible(true);
+            }
+
+            if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+               if (i < contalk.length) {
+                  textPane.setText(contalk[i]);
+                  keyReleased(e);
+                  i++;
+               }
+               click.addMouseListener(new MouseAdapter() {
+                  public void mouseClicked(MouseEvent e) {
+                     ChangePanel.changePanel(mainChoice, panel, new InConvenienceStore_talk(mainChoice));
+                  }
+               });
+            }
+         }
+      });
 
 
-		// ï¿½ï¿½È­Ã¢ï¿½ï¿½
-		JLabel talk = new JLabel();
-		talk.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/ï¿½ï¿½È­Ã¢.png")));
-		talk.setBounds(70, 150, 800, 600);
-		this.add(talk);
+      // °øÇ×µµµÏ
+      JLabel thief = new JLabel();
+      thief.setVisible(true);
+      thief.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("thief2.png")));
+      thief.setBounds(390, 125, 129, 135);
+      add(thief);
 
-		// ï¿½ï¿½ï¿½ï¿½
-		JLabel back = new JLabel();
-		// boy.setLabelFor(back);
-		back.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("/InConvenience/map.png")));
-		back.setBounds(14, 0, 858, 629);
-		this.add(back);
-	}
-	
+
+      // ´ëÈ­Ã¢¶óº§
+      JLabel talk = new JLabel();
+      talk.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("´ëÈ­Ã¢.png")));
+      talk.setBounds(70, 150, 800, 600);
+      this.add(talk);
+
+      // ¹è°æ¶óº§
+      JLabel back = new JLabel();
+      // boy.setLabelFor(back);
+      back.setIcon(new ImageIcon(InConvenienceStore_talk.class.getResource("map.png")));
+      back.setBounds(14, 0, 858, 629);
+      this.add(back);
+   }
+   
 }

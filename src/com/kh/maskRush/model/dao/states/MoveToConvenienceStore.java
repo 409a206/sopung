@@ -40,6 +40,7 @@ public class MoveToConvenienceStore extends JFrame {
    public MoveToConvenienceStore() {
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setBounds(0, 0, 800, 600);
+      setLocationRelativeTo(null);
       contentPane = new JPanel();   
       contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
       setContentPane(contentPane);

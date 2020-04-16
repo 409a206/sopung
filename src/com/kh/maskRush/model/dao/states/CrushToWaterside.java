@@ -46,12 +46,13 @@ public class CrushToWaterside extends JFrame {
 
       JTextPane textPane = new JTextPane();
       textPane.setEditable(false); // 편집불가.
-      String[] busChat = {"손을 씻으시겠습니까?","(Y/N)\r\n"};
+      String[] busChat = {"손을 쓱싹 씻습니다."};
       
       //클릭용
 		JLabel click = new JLabel("(click)");
 		click.setFont(new Font("DungGeunMo", Font.PLAIN, 24));
 		click.setBounds(600, 300, 800,300);
+		setLocationRelativeTo(null);
 		contentPane.add(click);
 		click.setVisible(false);
 
