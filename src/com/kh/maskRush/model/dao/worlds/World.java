@@ -93,7 +93,7 @@ public class World {
 //		if(entityManager.getBoyPlayer().getX() < 0) {
 //			State.setState(handler.getGame().mainMenuState);
 //		}
-		System.out.println(entityManager.getBoyPlayer().getX() + ", " + entityManager.getBoyPlayer().getY());
+		//System.out.println(entityManager.getBoyPlayer().getX() + ", " + entityManager.getBoyPlayer().getY());
 	}
 	
 	public void render(Graphics g) {

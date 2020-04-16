@@ -45,6 +45,7 @@ public class FirstMenuChoice extends JFrame {
 		//this.add(new states_Window(this));
 		}
 		this.setVisible(true);
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		cursor();
 
