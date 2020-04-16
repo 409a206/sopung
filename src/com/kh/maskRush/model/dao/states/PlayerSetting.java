@@ -96,8 +96,9 @@ public class PlayerSetting extends JPanel {
 				a.setName(realName);
 				System.out.println(a.toString());
 				/////////////////
-				ChangePanel.changePanel(mainChoice, contentPane, new BedroomMonologue(mainChoice,a));
+				ChangePanel.changePanel(mainChoice, contentPane, new InRoomConv(mainChoice,a));
 				mainChoice.soundstop(1);
+				mainChoice.soundcity();
 				/////////////////////////////////////////////////
 				//Game game = new Game("Mask Rush", 800, 600, a);
 				//game.start();
