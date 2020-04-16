@@ -11,13 +11,13 @@ import javax.swing.JPanel;
 import com.kh.maskRush.model.dao.states.InMarket.MyKeyListener;
 
 public class InVillage extends JPanel {
-	
+
 	private JPanel contentPane;
 	private JPanel character;
 	private JPanel infectee;
 	private JLabel boy;
 	private FirstMenuChoice mainChoice;
-	
+
 	public InVillage (FirstMenuChoice mainChoice) {
 
 		contentPane = this;	//넘길때 써야하니까 패널변수 하나 만들어서 this 저장
@@ -25,32 +25,27 @@ public class InVillage extends JPanel {
 		setBounds(0, 0, 800, 600);
 		this.setLayout(null);
 		boy();
-		
-		mainChoice.getContentPane().add(this);
-
-		//마켓배경
-		JLabel background = new JLabel();
-		background.setIcon(new ImageIcon(InVillage.class.getResource("/textures/countryside/\uC9D1\uC55E.png")));
-		background.setBounds(-97, -11, 1099, 702);
-		this.add(background);
-		
+		back();
+		mainChoice.add(this);
+		mainChoice.setVisible(true);
 	}
 
 	//주인공
 	public void boy () {
 
+		//캐릭터라벨을 캐릭터 패널 위로.
+		boy = new JLabel();
+		boy.setIcon(new ImageIcon(InVillage.class.getResource("/textures/maskwithboy.png")));
 		//캐릭터패널
 		character = new JPanel();
+		character.setFocusable(false); //패널 움직이게 하려면 필수
 		character.setFocusable(true); //패널 움직이게 하려면 필수
 		character.addKeyListener(new MyKeyListener());
 		character.setBounds(373, 378, 100, 100);	
 		character.setBackground(new Color(255, 0, 0, 0));	//패널 배경 투명으로
-		this.add(character);
-		
-				//캐릭터라벨을 캐릭터 패널 위로.
-				boy = new JLabel();
-				character.add(boy);
-				boy.setIcon(new ImageIcon(InVillage.class.getResource("/textures/maskwithboy.png")));
+		contentPane.add(character);
+		character.add(boy);
+
 	}
 
 	//내부클래스 키리스너
@@ -64,6 +59,7 @@ public class InVillage extends JPanel {
 			case KeyEvent.VK_UP:
 				character.setLocation(character.getX(), character.getY() - move);
 				System.out.println("위");
+				
 				break;
 			case KeyEvent.VK_DOWN:
 				character.setLocation(character.getX(), character.getY() + move);
@@ -76,12 +72,29 @@ public class InVillage extends JPanel {
 			case KeyEvent.VK_RIGHT:
 				character.setLocation(character.getX() + move, character.getY());
 				System.out.println("오");
+				System.out.println(character.getLocation());
 				break;
 			}
+			
+//			//집못들어가게 하기
+//			if (character.getY() <= 333 && (character.getX() >= 328 || character.getX() <= 408) ) {
+//				character.setLocation(character.getX(), character.getY() + 30);
+//			} 
+			
+			//패널채인지
+			if (character.getX() >= 630 /*&& character.getY() >= 340*/) {
+				ChangePanel.changePanel(mainChoice, contentPane, new InBus(mainChoice));
+			}
+			
 		}
 	}
-	
-	
-	
-	
+
+	public void back() {
+	//마켓배경
+	JLabel background = new JLabel();
+	background.setIcon(new ImageIcon(InVillage.class.getResource("/textures/countryside/\uC9D1\uC55E.png")));
+	background.setBounds(-97, -11, 1099, 702);
+	this.add(background);
+	}
+
 }

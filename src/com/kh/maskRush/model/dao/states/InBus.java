@@ -14,23 +14,16 @@ import javax.swing.border.EmptyBorder;
 
 
 
-public class InBus extends JFrame {
+public class InBus extends JPanel {
 
 	private JPanel contentPane;
 
-	public void doRun() {
-		InBus frame = new InBus();
-		frame.setVisible(true);
-	}
 
-
-
-	public InBus() {
+	public InBus(FirstMenuChoice mainChoice) {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 800, 600);
 		contentPane = new JPanel();	
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JTextPane textPane = new JTextPane();
